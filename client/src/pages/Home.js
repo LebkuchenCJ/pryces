@@ -38,6 +38,7 @@ function Home() {
     const data = { name };
     await postList(data);
     cancelDisplay();
+    setName("");
   }
 
   function displayForm() {
@@ -70,7 +71,12 @@ function Home() {
         />
 
         <button onClick={() => cancelDisplay()}>Cancel</button>
-        <input type="submit" value="Create list" palceholder="Create" />
+        <input
+          type="submit"
+          disabled={!name}
+          value="Create list"
+          palceholder="Create"
+        />
       </form>
       <button onClick={() => displayForm()}>Add List</button>
       <button onClick={() => displayLists()}>Get Lists</button>
