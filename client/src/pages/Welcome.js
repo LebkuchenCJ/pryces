@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Welcome(props) {
   return (
     <div>
       <p>Welcome</p>
-      <button>Klick to sign</button>
+      <Link to="/home">
+        <button>Klick to sign in</button>
+      </Link>
     </div>
   );
 }
