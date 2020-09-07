@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
-import fetchLists from "../api/data";
+import fetchLists, { postList } from "../api/data";
 
 const Container = styled.div`
   background-color: #f2f2f2;
@@ -24,8 +24,10 @@ const Container = styled.div`
 function Home() {
   const [listName, setListName] = useState("");
 
-  function submitName(listName) {
-    console.log(listName);
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const data = { listName };
+    await postList(data);
   }
 
   function displayForm() {
@@ -49,7 +51,7 @@ function Home() {
           <button>Sign out</button>
         </Link>
       </header>
-      <form className="createList">
+      <form className="createList" onSubmit={handleSubmit}>
         <label>Create new shopping list</label>
         <input
           value={listName}
@@ -58,7 +60,7 @@ function Home() {
         />
 
         <button onClick={() => cancelDisplay()}>Cancel</button>
-        <button onClick={() => submitName(listName)}>Create</button>
+        <input type="submit" value="Create list" palceholder="Create" />
       </form>
       <button onClick={() => displayForm()}>Add List</button>
       <button onClick={() => displayLists()}>Get Lists</button>

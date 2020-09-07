@@ -7,3 +7,16 @@ export default async function fetchLists() {
 
   return result;
 }
+export async function postList(listName) {
+  const response = await fetch(`http://localhost:3002/lists`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json;charset=utf-8",
+    },
+    body: JSON.stringify(listName),
+  });
+  if (!response.ok) {
+    throw new Error(response);
+  }
+  return response;
+}
