@@ -14,7 +14,7 @@ const Container = styled.div`
     margin: 0;
   }
 `;
-function Home(props) {
+function Home() {
   return (
     <Container>
       <p>Home</p>

@@ -15,7 +15,7 @@ const Container = styled.div`
   }
 `;
 
-function Welcome(props) {
+function Welcome() {
   return (
     <Container>
       <p>Welcome</p>
