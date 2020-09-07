@@ -10,7 +10,8 @@
     "test": "npm run lint && cd client && npm test",
     "lint": "eslint . --ext .js",
     "prettify": "prettier --write .",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "server": "json-server --watch db.json --port 3002"
   },
   "repository": {
     "type": "git",
