@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
 import fetchLists, { postList } from "../api/data";
+import useAsync from "../hooks/useAsync";
 
 const Container = styled.div`
   background-color: #f2f2f2;
@@ -23,6 +24,7 @@ const Container = styled.div`
 `;
 function Home() {
   const [listName, setListName] = useState("");
+  const { data, loading, error } = useAsync(fetchLists);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -65,6 +67,13 @@ function Home() {
       </form>
       <button onClick={() => displayForm()}>Add List</button>
       <button onClick={() => displayLists()}>Get Lists</button>
+      <div>
+        {error && <div>Could not get data. Please cry.</div>}
+        {loading && <div>Loading...</div>}
+        {data?.map((list) => (
+          <div key={list.id}>{list.name}</div>
+        ))}
+      </div>
     </Container>
   );
 }

@@ -5,32 +5,12 @@
       "name": "Test"
     },
     {
-      "id": 2,
-      "name": "Test 2"
+      "listName": "Grocery Week",
+      "id": 2
     },
     {
-      "listName": "test",
+      "listName": "Birthday Friday",
       "id": 3
-    },
-    {
-      "listName": "test",
-      "id": 4
-    },
-    {
-      "listName": "test",
-      "id": 5
-    },
-    {
-      "listName": "test",
-      "id": 6
-    },
-    {
-      "listName": "test",
-      "id": 7
-    },
-    {
-      "listName": "Hello",
-      "id": 8
     }
   ]
 }
