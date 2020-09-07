@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
-import fetchLists, { postList } from "../api/data";
+import { fetchLists, postList } from "../api/data";
 import useAsync from "../hooks/useAsync";
 
 const Container = styled.div`
@@ -22,13 +22,20 @@ const Container = styled.div`
     border: solid 2px;
   }
 `;
+
+const List = styled.div`
+  background-color: #f27649;
+  border: solid 1px #fff;
+  width: 100px;
+`;
+
 function Home() {
-  const [listName, setListName] = useState("");
-  const { data, loading, error } = useAsync(fetchLists);
+  const [name, setName] = useState("");
+  const { data: lists, loading, error } = useAsync(fetchLists);
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const data = { listName };
+    const data = { name };
     await postList(data);
     cancelDisplay();
   }
@@ -57,9 +64,9 @@ function Home() {
       <form className="createList" onSubmit={handleSubmit}>
         <label>Create new shopping list</label>
         <input
-          value={listName}
+          value={name}
           placeholder="Enter shopping list name"
-          onChange={(event) => setListName(event.target.value)}
+          onChange={(event) => setName(event.target.value)}
         />
 
         <button onClick={() => cancelDisplay()}>Cancel</button>
@@ -67,13 +74,15 @@ function Home() {
       </form>
       <button onClick={() => displayForm()}>Add List</button>
       <button onClick={() => displayLists()}>Get Lists</button>
-      <div>
+      <List>
         {error && <div>Could not get data. Please cry.</div>}
         {loading && <div>Loading...</div>}
-        {data?.map((list) => (
-          <div key={list.id}>{list.name}</div>
+        {lists?.map((list) => (
+          <div key={list.id}>
+            <p>{list.name}</p>
+          </div>
         ))}
-      </div>
+      </List>
     </Container>
   );
 }

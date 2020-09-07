@@ -5,11 +5,11 @@
       "name": "Test"
     },
     {
-      "listName": "Grocery Week",
+      "name": "Birthday",
       "id": 2
     },
     {
-      "listName": "Birthday Friday",
+      "name": "Party Friday",
       "id": 3
     }
   ]

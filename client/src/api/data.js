@@ -1,4 +1,4 @@
-export default async function fetchLists() {
+export async function fetchLists() {
   const response = await fetch("http://localhost:3002/lists");
   if (!response.ok) {
     throw new Error(response);
@@ -7,13 +7,13 @@ export default async function fetchLists() {
 
   return result;
 }
-export async function postList(listName) {
+export async function postList(name) {
   const response = await fetch(`http://localhost:3002/lists`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
     },
-    body: JSON.stringify(listName),
+    body: JSON.stringify(name),
   });
   if (!response.ok) {
     throw new Error(response);
