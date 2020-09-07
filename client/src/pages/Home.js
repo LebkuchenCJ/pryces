@@ -28,6 +28,7 @@ function Home() {
     event.preventDefault();
     const data = { listName };
     await postList(data);
+    cancelDisplay();
   }
 
   function displayForm() {
