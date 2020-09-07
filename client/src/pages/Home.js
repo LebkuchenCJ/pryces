@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
+import fetchLists from "../api/data";
 
 const Container = styled.div`
   background-color: #f2f2f2;
@@ -34,6 +35,12 @@ function Home() {
     document.querySelector(".createList").style.display = "none";
   }
 
+  async function displayLists() {
+    const data = await fetchLists();
+
+    return console.log(data);
+  }
+
   return (
     <Container>
       <header>
@@ -54,6 +61,7 @@ function Home() {
         <button onClick={() => submitName(listName)}>Create</button>
       </form>
       <button onClick={() => displayForm()}>Add List</button>
+      <button onClick={() => displayLists()}>Get Lists</button>
     </Container>
   );
 }
