@@ -21,6 +21,13 @@ function Home() {
       <Link to="/">
         <button>Sign out</button>
       </Link>
+      <form className="createList">
+        <label>Create new shopping list</label>
+        <input type="text" placeholder="Enter shopping list name" />
+        <button>Cancel</button>
+        <button type="submit">Create</button>
+      </form>
+      <button>Add List</button>
     </Container>
   );
 }
