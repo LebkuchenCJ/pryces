@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import { fetchLists, postList } from "../api/data";
 import useAsync from "../hooks/useAsync";
 import List from "../components/List";
+import ListItem from "../components/ListItem";
 
 const Container = styled.div`
   background-color: #f2f2f2;
@@ -79,9 +80,7 @@ function Home() {
         {error && <div>Could not get data. Please cry.</div>}
         {loading && <div>Loading...</div>}
         {lists?.map((list) => (
-          <div key={list.id}>
-            <p>{list.name}</p>
-          </div>
+          <ListItem key={list.id} list={list}></ListItem>
         ))}
       </List>
     </Container>
