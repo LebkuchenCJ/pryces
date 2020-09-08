@@ -45,12 +45,6 @@ function Home() {
     document.querySelector(".createList").style.display = "none";
   }
 
-  async function displayLists() {
-    const data = await fetchLists();
-
-    return console.log(data);
-  }
-
   return (
     <Container>
       <header>
@@ -76,7 +70,6 @@ function Home() {
         />
       </form>
       <button onClick={() => displayForm()}>Add List</button>
-      <button onClick={() => displayLists()}>Get Lists</button>
       <List>
         {error && <div>Could not get data. Please cry.</div>}
         {loading && <div>Loading...</div>}
