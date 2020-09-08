@@ -7,6 +7,16 @@ export async function fetchLists() {
 
   return result;
 }
+export async function fetchList(id) {
+  const response = await fetch(`/api/lists/${id}`);
+  if (!response.ok) {
+    throw new Error(response);
+  }
+  const result = await response.json();
+
+  return result;
+}
+
 export async function postList(name) {
   const response = await fetch(`/api/lists`, {
     method: "POST",

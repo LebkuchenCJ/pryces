@@ -3,30 +3,38 @@ import PropTypes from "prop-types";
 import ListItemText from "./ListItemText";
 import ListItemIcon from "./ListItemIcon";
 import styled from "@emotion/styled";
+import { Link } from "react-router-dom";
 
-function ListItem({ list }) {
+function ListItem({ list, href }) {
   return (
     <Container>
-      <ListItemText titel={list.name} />
-      <ListItemIcon />
+      <Link to={href}>
+        <ListItemText titel={list.name} />
+        <ListItemIcon />
+      </Link>
     </Container>
   );
 }
 
 const Container = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 200px;
-  background-color: #fff;
-  border: 1px solid;
-  margin: 5px;
-  * {
-    margin: 0;
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+    border: 1px solid;
+    margin: 5px;
+    * {
+      margin: 0;
+    }
   }
 `;
 
 export default ListItem;
 ListItem.propTypes = {
   list: PropTypes.any,
+  href: PropTypes.any,
 };

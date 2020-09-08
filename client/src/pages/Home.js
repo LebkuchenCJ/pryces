@@ -74,7 +74,7 @@ function Home() {
         {error && <div>Could not get data. Please cry.</div>}
         {loading && <div>Loading...</div>}
         {lists?.map((list) => (
-          <ListItem key={list.id} list={list}></ListItem>
+          <ListItem key={list.id} list={list} href={`/home/${list.id}`} />
         ))}
       </List>
     </Container>
