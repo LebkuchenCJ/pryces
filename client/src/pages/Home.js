@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
 import { fetchLists, postList } from "../api/data";
 import useAsync from "../hooks/useAsync";
+import List from "../components/List";
 
 const Container = styled.div`
   background-color: #f2f2f2;
@@ -21,12 +22,6 @@ const Container = styled.div`
     position: fixed;
     border: solid 2px;
   }
-`;
-
-const List = styled.div`
-  background-color: #f27649;
-  border: solid 1px #fff;
-  width: 100px;
 `;
 
 function Home() {
