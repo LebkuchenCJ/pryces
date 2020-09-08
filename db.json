@@ -9,8 +9,16 @@
       "id": 2
     },
     {
-      "name": "Party Friday",
+      "name": "BBQ",
       "id": 3
+    },
+    {
+      "name": "Wein",
+      "id": 4
+    },
+    {
+      "name": "Kaffeee",
+      "id": 5
     }
   ]
 }
