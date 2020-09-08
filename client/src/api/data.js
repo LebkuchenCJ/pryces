@@ -1,5 +1,5 @@
 export async function fetchLists() {
-  const response = await fetch("http://localhost:3002/lists");
+  const response = await fetch("/api/lists");
   if (!response.ok) {
     throw new Error(response);
   }
@@ -8,7 +8,7 @@ export async function fetchLists() {
   return result;
 }
 export async function postList(name) {
-  const response = await fetch(`http://localhost:3002/lists`, {
+  const response = await fetch(`/api/lists`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
