@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { fetchList } from "../api/data";
+import styled from "@emotion/styled";
 
 function List() {
   const { id } = useParams();
@@ -30,10 +31,12 @@ function List() {
       {loading && <div>Loading...</div>}
       {list && (
         <>
-          <h2>{list?.name}</h2>
-          <div>
-            <button onClick={() => history.goBack()}></button>
-          </div>
+          <Container>
+            <h2>{list?.name}</h2>
+            <div>
+              <button onClick={() => history.goBack()}>Back</button>
+            </div>
+          </Container>
         </>
       )}
     </>
@@ -41,3 +44,9 @@ function List() {
 }
 
 export default List;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
