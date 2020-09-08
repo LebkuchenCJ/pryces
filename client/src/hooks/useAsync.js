@@ -6,23 +6,23 @@ function useAsync(asyncFunction) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      setError(false);
+      setData(null);
+      const lists = await fetchLists();
+      setData(lists);
+    } catch (erro) {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        setError(false);
-        setData(null);
-        const lists = await fetchLists();
-        setData(lists);
-      } catch (erro) {
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    };
     fetchData();
   }, [asyncFunction]);
-  return { data, loading, error };
+  return { data, loading, error, refetch: fetchData };
 }
 
 export default useAsync;

@@ -18,5 +18,7 @@ export async function postList(name) {
   if (!response.ok) {
     throw new Error(response);
   }
-  return response;
+  const result = await response.json();
+
+  return result;
 }

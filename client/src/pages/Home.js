@@ -27,12 +27,13 @@ const Container = styled.div`
 
 function Home() {
   const [name, setName] = useState("");
-  const { data: lists, loading, error } = useAsync(fetchLists);
+  const { data: lists, loading, error, refetch } = useAsync(fetchLists);
 
   async function handleSubmit(event) {
     event.preventDefault();
     const data = { name };
     await postList(data);
+    await refetch();
     cancelDisplay();
     setName("");
   }

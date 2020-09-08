@@ -11,6 +11,38 @@
     {
       "name": "Party Friday",
       "id": 3
+    },
+    {
+      "name": "Bootcamp",
+      "id": 4
+    },
+    {
+      "name": "Tea Party",
+      "id": 5
+    },
+    {
+      "name": "beer Pong",
+      "id": 6
+    },
+    {
+      "name": "Köln",
+      "id": 7
+    },
+    {
+      "name": "Cocktail",
+      "id": 8
+    },
+    {
+      "name": "kaffe",
+      "id": 9
+    },
+    {
+      "name": "Bier",
+      "id": 10
+    },
+    {
+      "name": "Test",
+      "id": 11
     }
   ]
 }
