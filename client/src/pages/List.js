@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { fetchList } from "../api/list";
 import styled from "@emotion/styled";
-import { fetchProducts, postProduct } from "../api/products";
+import { postProduct, fetchProductByname } from "../api/products";
 import useAsync from "../hooks/useAsync";
 
 function List() {
@@ -21,10 +21,12 @@ function List() {
     setproductName("");
   }
 
-  async function handleClick() {
-    const products = await fetchProducts();
-    return console.log(products);
+  async function getProductByName() {
+    const resultProduct = await fetchProductByname(productName);
+
+    return console.log(resultProduct[0].name);
   }
+
   return (
     <>
       {error && <div>Could not get data. Dont cry. Try again</div>}
@@ -36,7 +38,7 @@ function List() {
             <div>
               <button onClick={() => history.goBack()}>Back</button>
             </div>
-            <button onClick={() => handleClick()}>Log Products</button>
+            <button onClick={() => getProductByName()}>Log Products</button>
 
             <Form onSubmit={handleSubmit}>
               <label>Add your roducts</label>
