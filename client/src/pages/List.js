@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { fetchList } from "../api/data";
+import { fetchList } from "../api/list";
 import styled from "@emotion/styled";
 
 function List() {

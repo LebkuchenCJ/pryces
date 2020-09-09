@@ -1,29 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "@emotion/styled";
-import { fetchLists, postList } from "../api/data";
+import { fetchLists, postList } from "../api/list";
 import useAsync from "../hooks/useAsync";
 import List from "../components/List";
 import ListItem from "../components/ListItem";
-
-const Container = styled.div`
-  background-color: #f2f2f2;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-direction: column;
-  > p {
-    margin: 0;
-  }
-  > form {
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    border: solid 2px;
-  }
-`;
 
 function Home() {
   const [name, setName] = useState("");
@@ -34,14 +15,14 @@ function Home() {
     const data = { name };
     await postList(data);
     await refetch();
-    cancelDisplay();
+    hideForm();
     setName("");
   }
 
   function displayForm() {
     document.querySelector(".createList").style.display = "flex";
   }
-  function cancelDisplay() {
+  function hideForm() {
     document.querySelector(".createList").style.display = "none";
   }
 
@@ -61,13 +42,8 @@ function Home() {
           onChange={(event) => setName(event.target.value)}
         />
 
-        <button onClick={() => cancelDisplay()}>Cancel</button>
-        <input
-          type="submit"
-          disabled={!name}
-          value="Create list"
-          palceholder="Create"
-        />
+        <button onClick={() => hideForm()}>Cancel</button>
+        <input type="submit" disabled={!name} value="Create list" />
       </form>
       <button onClick={() => displayForm()}>Add List</button>
       <List>
@@ -82,3 +58,21 @@ function Home() {
 }
 
 export default Home;
+const Container = styled.div`
+  background-color: #f2f2f2;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  > p {
+    margin: 0;
+  }
+  > form {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    border: solid 2px;
+  }
+`;

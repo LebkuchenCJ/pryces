@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchLists } from "../api/data";
+import { fetchLists } from "../api/list";
 
 function useAsync(asyncFunction) {
   const [data, setData] = useState(null);

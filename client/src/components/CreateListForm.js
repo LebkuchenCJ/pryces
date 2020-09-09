@@ -16,7 +16,6 @@ function CreateListForm({ name, setName, cancelDisplay, handleSubmit }) {
         type="submit"
         //disabled={!name}
         value="Create list"
-        palceholder="Create"
       />
     </form>
   );

@@ -9,7 +9,7 @@ function ListItem({ list, href }) {
   return (
     <Container>
       <Link to={href}>
-        <ListItemText titel={list.name} />
+        <ListItemText title={list.name} />
         <ListItemIcon />
       </Link>
     </Container>
