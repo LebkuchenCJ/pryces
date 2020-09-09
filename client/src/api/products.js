@@ -23,3 +23,13 @@ export async function postProduct(product) {
 
   return result;
 }
+
+export async function fetchListProducts(listId) {
+  const response = await fetch(`/api/lists/${listId}/products`);
+  if (!response.ok) {
+    throw new Error(response);
+  }
+  const result = await response.json();
+
+  return result;
+}

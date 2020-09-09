@@ -1,39 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { fetchList } from "../api/list";
 import styled from "@emotion/styled";
 import { fetchProducts, postProduct } from "../api/products";
+import useAsync from "../hooks/useAsync";
 
 function List() {
   const { id } = useParams();
-  const [list, setList] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+
   const [productName, setproductName] = useState("");
   const history = useHistory();
 
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        setLoading(true);
-        setError(null);
-        const fetchedList = await fetchList(id);
-        setList(fetchedList);
-        setLoading(false);
-      } catch (error) {
-        console.error(error);
-        setError(error);
-      }
-    }
-    fetchData();
-  }, [id]);
+  const { data: list, loading, error, refetch } = useAsync(fetchList, id);
 
   async function handleSubmit(event) {
     event.preventDefault();
     const product = { name: productName, listId: list.id };
-    console.log(product);
-    console.log(list.id);
     await postProduct(product);
+    await refetch();
     setproductName("");
   }
 
@@ -48,7 +32,7 @@ function List() {
       {list && (
         <>
           <Container>
-            <h2>{list?.name}</h2>
+            <h2>{list.name}</h2>
             <div>
               <button onClick={() => history.goBack()}>Back</button>
             </div>
@@ -65,6 +49,13 @@ function List() {
               <input type="submit" value="Add product" />
             </Form>
             <p>List ID:{list.id}</p>
+
+            {list.products.map((product) => (
+              <div key={product.id}>
+                <p>{product.id}</p>
+                <p>{product.name}</p>
+              </div>
+            ))}
           </Container>
         </>
       )}
