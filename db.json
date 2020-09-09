@@ -1,0 +1,28 @@
+{
+  "lists": [
+    {
+      "id": 1,
+      "name": "Test"
+    },
+    {
+      "name": "Birthday",
+      "id": 2
+    },
+    {
+      "name": "BBQ",
+      "id": 3
+    },
+    {
+      "name": "Wein",
+      "id": 4
+    },
+    {
+      "name": "Kaffeee",
+      "id": 5
+    },
+    {
+      "name": "Bergfest",
+      "id": 6
+    }
+  ]
+}
