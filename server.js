@@ -13,7 +13,12 @@ app.use(
   "/storybook",
   express.static(path.join(__dirname, "client/storybook-static"))
 );
-app.use(jsonServer.rewriter({ "/api/*": "/$1" }));
+app.use(
+  jsonServer.rewriter({
+    "/api/*": "/$1",
+    "/lists/:id": "/lists/:id?_embed=products",
+  })
+);
 app.use(router);
 app.use(middleware);
 
