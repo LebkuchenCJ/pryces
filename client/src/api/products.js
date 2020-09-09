@@ -1,5 +1,5 @@
 export async function fetchProducts() {
-  const response = await fetch("/api/products");
+  const response = await fetch("/api/productLists");
   if (!response.ok) {
     throw new Error(response);
   }
@@ -8,11 +8,11 @@ export async function fetchProducts() {
   return result;
 }
 
-export async function postProduct(name, product) {
-  const response = await fetch(`/api/lists/${name}`, {
+export async function postProduct(product) {
+  const response = await fetch(`/api/products`, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json;charset=utf-8",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(product),
   });

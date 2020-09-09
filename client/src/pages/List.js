@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { fetchList } from "../api/list";
 import styled from "@emotion/styled";
-import { fetchProducts } from "../api/products";
+import { fetchProducts, postProduct } from "../api/products";
 
 function List() {
   const { id } = useParams();
   const [list, setList] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [product, setProduct] = useState("");
+  const [productName, setproductName] = useState("");
   const history = useHistory();
 
   useEffect(() => {
@@ -28,11 +28,19 @@ function List() {
     fetchData();
   }, [id]);
 
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const product = { name: productName, listId: list.id };
+    console.log(product);
+    console.log(list.id);
+    await postProduct(product);
+    setproductName("");
+  }
+
   async function handleClick() {
     const products = await fetchProducts();
     return console.log(products);
   }
-  console.log(product);
   return (
     <>
       {error && <div>Could not get data. Dont cry. Try again</div>}
@@ -46,12 +54,12 @@ function List() {
             </div>
             <button onClick={() => handleClick()}>Log Products</button>
 
-            <Form>
+            <Form onSubmit={handleSubmit}>
               <label>Add your roducts</label>
               <input
                 placeholder="Search products"
-                value={product}
-                onChange={(event) => setProduct(event.target.value)}
+                value={productName}
+                onChange={(event) => setproductName(event.target.value)}
               />
               <button>Cancel</button>
               <input type="submit" value="Add product" />
