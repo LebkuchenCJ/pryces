@@ -32,6 +32,23 @@
   "products": [
     {
       "id": 1,
+      "name": "tee",
+      "listId": 7
+    },
+    {
+      "id": 2,
+      "name": "Bier",
+      "listId": 6
+    },
+    {
+      "name": "Tee",
+      "listId": 7,
+      "id": 3
+    }
+  ],
+  "productList": [
+    {
+      "id": 1,
       "name": "Cheese",
       "category": "Dairy"
     },
