@@ -50,12 +50,12 @@ function List() {
             </Form>
             <p>List ID:{list.id}</p>
 
-            {list.products.map((product) => (
-              <div key={product.id}>
-                <p>{product.id}</p>
-                <p>{product.name}</p>
-              </div>
-            ))}
+            <ProductList>
+              <h4>Product List</h4>
+              {list.products.map((product) => (
+                <p key={product.id}>Product: {product.name}</p>
+              ))}
+            </ProductList>
           </Container>
         </>
       )}
@@ -77,4 +77,16 @@ const Form = styled.form`
   flex-direction: column;
   border: solid 1px;
   margin: 10px 0;
+`;
+
+const ProductList = styled.div`
+  background-color: #f2f2f2;
+  border: solid 1px;
+  > h4 {
+    text-align: center;
+    text-decoration: underline;
+  }
+  > p {
+    padding: 0 5px;
+  }
 `;
