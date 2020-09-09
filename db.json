@@ -24,5 +24,27 @@
       "name": "Bergfest",
       "id": 6
     }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Cheese",
+      "category": "Dairy"
+    },
+    {
+      "id": 2,
+      "name": "Milk",
+      "category": "Dairy"
+    },
+    {
+      "id": 3,
+      "name": "Tomatoes",
+      "category": "Produce"
+    },
+    {
+      "id": 4,
+      "name": "Ham",
+      "category": "Meat/Fish"
+    }
   ]
 }
