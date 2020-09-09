@@ -9,6 +9,7 @@ function List() {
   const [list, setList] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [product, setProduct] = useState("");
   const history = useHistory();
 
   useEffect(() => {
@@ -31,7 +32,7 @@ function List() {
     const products = await fetchProducts();
     return console.log(products);
   }
-
+  console.log(product);
   return (
     <>
       {error && <div>Could not get data. Dont cry. Try again</div>}
@@ -44,6 +45,18 @@ function List() {
               <button onClick={() => history.goBack()}>Back</button>
             </div>
             <button onClick={() => handleClick()}>Log Products</button>
+
+            <Form>
+              <label>Add your roducts</label>
+              <input
+                placeholder="Search products"
+                value={product}
+                onChange={(event) => setProduct(event.target.value)}
+              />
+              <button>Cancel</button>
+              <input type="submit" value="Add product" />
+            </Form>
+            <p>List ID:{list.id}</p>
           </Container>
         </>
       )}
@@ -57,4 +70,12 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100vh;
+`;
+
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  border: solid 1px;
+  margin: 10px 0;
 `;
