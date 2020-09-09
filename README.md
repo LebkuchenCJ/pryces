@@ -1,3 +1,5 @@
+![Node.js CI](https://github.com/JonasImm/mega-app2020/workflows/Node.js%20CI/badge.svg)
+
 # Mega App 2020
 
 ## Link
