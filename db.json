@@ -23,6 +23,48 @@
     {
       "name": "Bergfest",
       "id": 6
+    },
+    {
+      "name": "Wurst",
+      "id": 7
+    }
+  ],
+  "products": [
+    {
+      "name": "Tomatoes",
+      "productId": 3,
+      "category": "Produce",
+      "listId": 6,
+      "id": 18
+    },
+    {
+      "name": "Ham",
+      "productId": 4,
+      "category": "Meat/Fish",
+      "listId": 6,
+      "id": 19
+    }
+  ],
+  "productList": [
+    {
+      "id": 1,
+      "name": "Cheese",
+      "category": "Dairy"
+    },
+    {
+      "id": 2,
+      "name": "Milk",
+      "category": "Dairy"
+    },
+    {
+      "id": 3,
+      "name": "Tomatoes",
+      "category": "Produce"
+    },
+    {
+      "id": 4,
+      "name": "Ham",
+      "category": "Meat/Fish"
     }
   ]
 }
