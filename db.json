@@ -56,9 +56,14 @@
       "id": 5
     },
     {
-      "name": "",
+      "name": "mil",
       "listId": 7,
       "id": 6
+    },
+    {
+      "name": "Milk",
+      "listId": 7,
+      "id": 7
     }
   ],
   "productList": [

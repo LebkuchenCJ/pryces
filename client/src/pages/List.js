@@ -7,24 +7,30 @@ import useAsync from "../hooks/useAsync";
 
 function List() {
   const { id } = useParams();
-
-  const [productName, setproductName] = useState("");
+  const [query, setQuery] = useState([]);
+  const [display, setDisplay] = useState(false);
+  const [products, setProducts] = useState([]);
   const history = useHistory();
 
   const { data: list, loading, error, refetch } = useAsync(fetchList, id);
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const product = { name: productName, listId: list.id };
+    const product = { name: query, listId: list.id };
     await postProduct(product);
     await refetch();
-    setproductName("");
+    setQuery("");
   }
 
-  async function getProductByName() {
-    const resultProduct = await fetchProductByname(productName);
-
-    return console.log(resultProduct[0].name);
+  let timeOutId;
+  console.log(query);
+  function handleChange(input) {
+    setQuery(input);
+    clearTimeout(timeOutId);
+    timeOutId = setTimeout(async () => {
+      const result = await fetchProductByname(query);
+      setProducts(result);
+    }, 300);
   }
 
   return (
@@ -38,15 +44,33 @@ function List() {
             <div>
               <button onClick={() => history.goBack()}>Back</button>
             </div>
-            <button onClick={() => getProductByName()}>Log Products</button>
 
             <Form onSubmit={handleSubmit}>
               <label>Add your roducts</label>
               <input
                 placeholder="Search products"
-                value={productName}
-                onChange={(event) => setproductName(event.target.value)}
+                value={query}
+                onClick={() => setDisplay(!display)}
+                onChange={(event) => {
+                  handleChange(event.target.value);
+                }}
               />
+              {display && (
+                <div>
+                  {products?.map((product) => (
+                    <p
+                      key={product.id}
+                      onClick={() => {
+                        setQuery(product.name);
+                        setDisplay(!display);
+                      }}
+                    >
+                      {product.name}
+                    </p>
+                  ))}
+                </div>
+              )}
+
               <button>Cancel</button>
               <input type="submit" value="Add product" />
             </Form>
