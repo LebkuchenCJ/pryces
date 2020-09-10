@@ -24,6 +24,7 @@ function List() {
     };
     await postProduct(data);
     await refetch();
+    setQuery("");
   }
   async function handleSubmit(event) {
     event.preventDefault();
@@ -68,14 +69,14 @@ function List() {
               {display && (
                 <div>
                   {products?.map((product) => (
-                    <p
+                    <ProductName
                       key={product.id}
                       onClick={() => {
                         handleClick(product);
                       }}
                     >
                       {product.name}
-                    </p>
+                    </ProductName>
                   ))}
                 </div>
               )}
@@ -123,5 +124,13 @@ const ProductList = styled.div`
   }
   > p {
     padding: 0 5px;
+  }
+`;
+
+const ProductName = styled.p`
+  margin: 0;
+  :hover {
+    cursor: pointer;
+    background-color: #f2f2f2;
   }
 `;
