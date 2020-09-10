@@ -20,6 +20,7 @@ function List() {
     const data = {
       name: product.name,
       productId: product.id,
+      category: product.category,
       listId: list.id,
     };
     await postProduct(data);
@@ -29,9 +30,11 @@ function List() {
   async function handleSubmit(event) {
     event.preventDefault();
     const product = { name: query, listId: list.id };
-    await postProduct(product);
-    await refetch();
-    setQuery("");
+    if (/\S/.test(product.name)) {
+      await postProduct(product);
+      await refetch();
+      setQuery("");
+    }
   }
 
   let timeOutId;
@@ -57,7 +60,7 @@ function List() {
             </div>
 
             <Form onSubmit={handleSubmit}>
-              <label>Add your roducts</label>
+              <label>Add your Products</label>
               <input
                 placeholder="Search products"
                 value={query}
