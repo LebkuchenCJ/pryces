@@ -55,6 +55,7 @@ function List() {
         <>
           <Container>
             <h2>{list.name}</h2>
+            <p>List ID:{list.id}</p>
             <div>
               <button onClick={() => history.goBack()}>Back</button>
             </div>
@@ -87,12 +88,14 @@ function List() {
               <button>Cancel</button>
               <input type="submit" value="Add product" />
             </Form>
-            <p>List ID:{list.id}</p>
 
             <ProductList>
               <h4>Product List</h4>
               {list.products.map((product) => (
-                <p key={product.id}>Product: {product.name}</p>
+                <div key={product.id}>
+                  <p>{product.name}</p>
+                  <span>Category: {product.category}</span>
+                </div>
               ))}
             </ProductList>
           </Container>
@@ -120,13 +123,18 @@ const Form = styled.form`
 
 const ProductList = styled.div`
   background-color: #f2f2f2;
+  width: 150px;
   border: solid 1px;
   > h4 {
     text-align: center;
     text-decoration: underline;
   }
-  > p {
-    padding: 0 5px;
+  p {
+    margin: 10px 0 0 0;
+    font-weight: bold;
+  }
+  span {
+    font-size: 0.8rem;
   }
 `;
 

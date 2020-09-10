@@ -31,64 +31,18 @@
   ],
   "products": [
     {
-      "id": 2,
-      "name": "Bier",
-      "listId": 6
-    },
-    {
-      "name": "Tee",
-      "listId": 7,
-      "id": 3
-    },
-    {
-      "name": "Maggie",
-      "listId": 7,
-      "id": 4
-    },
-    {
-      "name": "Bier",
-      "listId": 7,
-      "id": 5
-    },
-    {
-      "name": "Milk",
-      "listId": 7,
-      "id": 7
-    },
-    {
-      "name": "Tomatoes",
-      "productId": 3,
-      "listId": 7,
-      "id": 13
-    },
-    {
-      "name": "Tomatoes",
-      "productId": 3,
-      "listId": 6,
-      "id": 14
-    },
-    {
-      "name": [],
-      "listId": 6,
-      "id": 15
-    },
-    {
-      "name": "",
-      "listId": 6,
-      "id": 16
-    },
-    {
-      "name": "Milk",
-      "productId": 2,
-      "listId": 6,
-      "id": 17
-    },
-    {
       "name": "Tomatoes",
       "productId": 3,
       "category": "Produce",
       "listId": 6,
       "id": 18
+    },
+    {
+      "name": "Ham",
+      "productId": 4,
+      "category": "Meat/Fish",
+      "listId": 6,
+      "id": 19
     }
   ],
   "productList": [
