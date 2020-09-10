@@ -31,11 +31,6 @@
   ],
   "products": [
     {
-      "id": 1,
-      "name": "tee",
-      "listId": 7
-    },
-    {
       "id": 2,
       "name": "Bier",
       "listId": 6
@@ -56,14 +51,16 @@
       "id": 5
     },
     {
-      "name": "mil",
-      "listId": 7,
-      "id": 6
-    },
-    {
       "name": "Milk",
       "listId": 7,
       "id": 7
+    },
+
+    {
+      "name": "Tomatoes",
+      "productId": 3,
+      "listId": 7,
+      "id": 13
     }
   ],
   "productList": [

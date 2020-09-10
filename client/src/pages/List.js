@@ -14,6 +14,17 @@ function List() {
 
   const { data: list, loading, error, refetch } = useAsync(fetchList, id);
 
+  async function handleClick(product) {
+    console.log(product);
+    setDisplay(!display);
+    const data = {
+      name: product.name,
+      productId: product.id,
+      listId: list.id,
+    };
+    await postProduct(data);
+    await refetch();
+  }
   async function handleSubmit(event) {
     event.preventDefault();
     const product = { name: query, listId: list.id };
@@ -23,7 +34,6 @@ function List() {
   }
 
   let timeOutId;
-  console.log(query);
   function handleChange(input) {
     setQuery(input);
     clearTimeout(timeOutId);
@@ -61,8 +71,7 @@ function List() {
                     <p
                       key={product.id}
                       onClick={() => {
-                        setQuery(product.name);
-                        setDisplay(!display);
+                        handleClick(product);
                       }}
                     >
                       {product.name}
