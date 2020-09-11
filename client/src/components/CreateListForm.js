@@ -31,7 +31,7 @@ CreateListForm.propTypes = {
 };
 
 /* <CreateListForm
-        value={name}
+        name={value}
         setName={(value) => setName(value)}
         cancelDisplay={() => cancelDisplay()}
         handleSubmit={() => handleSubmit()}

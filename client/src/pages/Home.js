@@ -5,6 +5,7 @@ import { fetchLists, postList } from "../api/list";
 import useAsync from "../hooks/useAsync";
 import List from "../components/List";
 import ListItem from "../components/ListItem";
+import Header from "../components/Header";
 
 function Home() {
   const [name, setName] = useState("");
@@ -28,6 +29,7 @@ function Home() {
 
   return (
     <Container>
+      <Header title="Grocery Lists"></Header>
       <header>
         <p>Home</p>
         <Link to="/">
