@@ -7,7 +7,6 @@ import PropTypes from "prop-types";
 
 function Header({ title }) {
   const [displayIcon, setDisplayIcon] = useState("");
-  console.log(title === "Grocery Lists");
 
   useEffect(() => {
     if (title === "Grocery Lists") {
