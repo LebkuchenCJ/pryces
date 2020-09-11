@@ -3,31 +3,32 @@ import React from "react";
 import PropTypes from "prop-types";
 import logoSrc from "../assets/logo-white.svg";
 import logoutSrc from "../assets/logout.svg";
+import { Link } from "react-router-dom";
 
 function Menu({ userName }) {
   return (
     <Nav>
       <img src={logoSrc} alt="Logo" />
       <h2>{userName}</h2>
-      <a className="nav__groceryList" href="#">
+      <Link className="nav__groceryList" to="/home">
         Grocery Lists
-      </a>
-      <a className="nav__archive" href="#">
+      </Link>
+      <Link className="nav__archive" to="/">
         Archive
-      </a>
-      <a className="nav__bonusCards" href="#">
+      </Link>
+      <Link className="nav__bonusCards" to="/">
         Bonus Cards
-      </a>
+      </Link>
       <p className="nav__placeholder">Test</p>
-      <a className="nav__profile" href="#">
+      <Link className="nav__profile" to="/">
         Profile
-      </a>
-      <a className="nav__settings" href="#">
+      </Link>
+      <Link className="nav__settings" to="/">
         Settings
-      </a>
-      <a className="nav__logout" href="#">
+      </Link>
+      <Link className="nav__logout" to="/">
         <span>Logout</span> <img src={logoutSrc} alt="Logout icon" />
-      </a>
+      </Link>
     </Nav>
   );
 }
@@ -50,7 +51,15 @@ const Nav = styled.nav`
   a {
     text-decoration: none;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #fff;
+    width: 100%;
+    height: 100%;
+  }
+  a:hover {
+    background-color: #f27649;
   }
   > img {
     grid-row: 1 / 3;
@@ -60,10 +69,14 @@ const Nav = styled.nav`
     padding: 15px 0;
     grid-row: 3/4;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     align-self: center;
-    justify-self: stretch;
     border-top: solid 2px #fff;
     border-bottom: solid 2px #fff;
+    width: 100%;
+    height: 50%;
   }
   .nav__groceryList {
     grid-row: 4/5;
@@ -82,9 +95,7 @@ const Nav = styled.nav`
     justify-self: stretch;
     align-self: stretch;
   }
-
   .nav__profile {
-    padding-top: 15px;
     grid-row: 9/10;
   }
   .nav__settings {
@@ -93,7 +104,6 @@ const Nav = styled.nav`
   .nav__logout {
     grid-row: 12/13;
     justify-self: right;
-    margin-right: 10px;
     display: flex;
     justify-content: center;
     > img {
