@@ -6,4 +6,5 @@ export default {
   component: Header,
 };
 
-export const MainHeader = () => <Header />;
+export const Main = () => <Header>Grocery Lists</Header>;
+export const List = () => <Header>Friday Birthday</Header>;
