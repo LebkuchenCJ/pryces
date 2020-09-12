@@ -1,18 +1,23 @@
-import React, { useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import React, { useRef, useState } from "react";
+import { useParams } from "react-router-dom";
 import { fetchList } from "../api/list";
 import styled from "@emotion/styled";
 import { postProduct, fetchProductByname } from "../api/products";
 import useAsync from "../hooks/useAsync";
+import { useOnClickOutside } from "../hooks/useOnClickOutside";
+import Header from "../components/Header";
+import Menu from "../components/Menu";
 
 function List() {
   const { id } = useParams();
   const [query, setQuery] = useState([]);
   const [display, setDisplay] = useState(false);
   const [products, setProducts] = useState([]);
-  const history = useHistory();
+  const [open, setOpen] = useState(false);
+  const node = useRef();
 
   const { data: list, loading, error, refetch } = useAsync(fetchList, id);
+  useOnClickOutside(node, () => setOpen(false));
 
   async function handleClick(product) {
     console.log(product);
@@ -53,13 +58,11 @@ function List() {
       {loading && <div>Loading...</div>}
       {list && (
         <>
+          <div ref={node}>
+            <Header open={open} setOpen={setOpen} title={list.name}></Header>
+            <Menu open={open} setOpen={setOpen} userName="Jonas Imm" />
+          </div>
           <Container>
-            <h2>{list.name}</h2>
-            <p>List ID:{list.id}</p>
-            <div>
-              <button onClick={() => history.goBack()}>Back</button>
-            </div>
-
             <Form onSubmit={handleSubmit}>
               <label>Add your Products</label>
               <input
@@ -111,7 +114,6 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
 `;
 
 const Form = styled.form`
