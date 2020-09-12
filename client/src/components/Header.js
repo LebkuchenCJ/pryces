@@ -5,7 +5,7 @@ import goBackSrc from "../assets/arrowBack.svg";
 import goBackInvisibleSrc from "../assets/arrowBackInvisible.svg";
 import PropTypes from "prop-types";
 
-function Header({ title }) {
+function Header({ title, open, setOpen }) {
   const [displayIcon, setDisplayIcon] = useState("");
 
   useEffect(() => {
@@ -17,10 +17,22 @@ function Header({ title }) {
   }, [title]);
   return (
     <HeaderWrapper>
-      {displayIcon && <img src={goBackSrc} alt="Go back Icon" />}
+      {displayIcon && (
+        <img
+          src={goBackSrc}
+          alt="Go back Icon"
+          onClick={() => window.history.back()}
+        />
+      )}
       {!displayIcon && <img src={goBackInvisibleSrc} alt="Go back Icon" />}
       <h1>{title}</h1>
-      <img src={menuSrc} alt="Menu Icon" />
+
+      <img
+        src={menuSrc}
+        alt="Menu Icon"
+        open={open}
+        onClick={() => setOpen(!open)}
+      />
     </HeaderWrapper>
   );
 }
@@ -28,7 +40,8 @@ function Header({ title }) {
 export default Header;
 Header.propTypes = {
   title: PropTypes.string,
-  bool: PropTypes.bool,
+  open: PropTypes.bool,
+  setOpen: PropTypes.func,
 };
 const HeaderWrapper = styled.header`
   background-color: #f27649;
@@ -39,5 +52,8 @@ const HeaderWrapper = styled.header`
   > img {
     margin: 0 25px;
     height: 45px;
+  }
+  > img:hover {
+    cursor: pointer;
   }
 `;

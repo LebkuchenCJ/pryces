@@ -5,9 +5,9 @@ import logoSrc from "../assets/logo-white.svg";
 import logoutSrc from "../assets/logout.svg";
 import { Link } from "react-router-dom";
 
-function Menu({ userName }) {
+function Menu({ userName, open }) {
   return (
-    <Nav>
+    <Nav open={open}>
       <img src={logoSrc} alt="Logo" />
       <h2>{userName}</h2>
       <Link className="nav__groceryList" to="/home">
@@ -37,17 +37,27 @@ export default Menu;
 
 Menu.propTypes = {
   userName: PropTypes.string,
+  open: PropTypes.bool,
 };
 
 const Nav = styled.nav`
+  transform: ${({ open }) => (open ? "translateX(0)" : "translateX(150%)")};
+  box-shadow: -5px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: transform 0.3s ease-in-out;
   display: grid;
   grid-template-rows: 13 * 1fr;
   justify-items: center;
   align-items: center;
   background-color: #f26a4b;
   color: #fff;
-  height: 100vh;
+  height: 100%;
   width: 50%;
+  @media only screen and (min-width: 600px) {
+    width: 30%;
+  }
   a {
     text-decoration: none;
     text-align: center;
