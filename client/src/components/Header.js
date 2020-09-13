@@ -28,13 +28,14 @@ function Header({ title, open, setOpen }) {
       )}
       {!iconVisible && <img src={goBackInvisibleSrc} alt="Go back Icon" />}
       <h1>{title}</h1>
-
-      <img
-        src={menuImgSrc}
-        alt="Menu Icon"
-        open={open}
-        onClick={() => setOpen(!open)}
-      />
+      <button>
+        <img
+          src={menuImgSrc}
+          alt="Menu Icon"
+          open={open}
+          onClick={() => setOpen(!open)}
+        />
+      </button>
     </HeaderWrapper>
   );
 }
