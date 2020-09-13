@@ -52,8 +52,8 @@ const Nav = styled.nav`
   grid-template-rows: 13 * 1fr;
   justify-items: center;
   align-items: center;
-  background-color: #f26a4b;
-  color: #fff;
+  background-color: var(--bg-color-dark-highlight);
+  color: var(--font-color-menu);
   height: 100%;
   width: 50%;
   @media only screen and (min-width: 600px) {
@@ -65,12 +65,12 @@ const Nav = styled.nav`
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: var(--font-color-menu);
     width: 100%;
     height: 100%;
   }
   a:hover {
-    background-color: #f27649;
+    background-color: var(--bg-color-highlight);
   }
   > img {
     grid-row: 1 / 3;

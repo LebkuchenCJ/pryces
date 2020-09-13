@@ -55,7 +55,7 @@ Header.propTypes = {
   setOpen: PropTypes.func,
 };
 const HeaderWrapper = styled.header`
-  background-color: #f27649;
+  background-color: var(--bg-color-highlight);
   width: 100%;
   display: flex;
   justify-content: space-between;

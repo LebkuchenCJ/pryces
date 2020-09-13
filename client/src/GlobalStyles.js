@@ -13,8 +13,9 @@ function GlobalStyles() {
 
         :root {
           --bg-color-main: #f2f2f2;
+          --bg-color-light: #fff;
           --bg-color-highlight: #f27649;
-          --bg-color-dark-highligh: #f26a4b;
+          --bg-color-dark-highlight: #f26a4b;
           --font-color-main: #262526;
           --font-color-menu: #fff;
           --font-title-main: #4b4b5c;
@@ -25,6 +26,7 @@ function GlobalStyles() {
         }
 
         #root {
+          background-color: var(---bg-color-main);
         }
 
         body {
