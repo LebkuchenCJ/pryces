@@ -1,19 +1,14 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { fetchLists, postList } from "../api/list";
 import useAsync from "../hooks/useAsync";
 import List from "../components/List";
 import ListItem from "../components/ListItem";
 import Header from "../components/Header";
-import { useOnClickOutside } from "../hooks/useOnClickOutside";
-import Menu from "../components/Menu";
 
 function Home() {
   const [name, setName] = useState("");
-  const [open, setOpen] = useState(false);
-  const node = useRef();
   const { data: lists, loading, error, refetch } = useAsync(fetchLists);
-  useOnClickOutside(node, () => setOpen(false));
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -33,10 +28,8 @@ function Home() {
 
   return (
     <>
-      <div ref={node}>
-        <Header open={open} setOpen={setOpen} title="Grocery Lists"></Header>
-        <Menu open={open} setOpen={setOpen} userName="Jonas Imm" />
-      </div>
+      <Header title="Grocery Lists"></Header>
+
       <Container>
         <form className="createList" onSubmit={handleSubmit}>
           <label>Create new shopping list</label>
