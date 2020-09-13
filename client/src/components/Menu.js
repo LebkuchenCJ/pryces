@@ -5,9 +5,9 @@ import logoSrc from "../assets/logo-white.svg";
 import logoutSrc from "../assets/logout.svg";
 import { Link } from "react-router-dom";
 
-function Menu({ userName, open }) {
+function Menu({ userName, open, setOpen }) {
   return (
-    <Nav open={open}>
+    <Nav open={open} onClick={() => setOpen(!open)}>
       <img src={logoSrc} alt="Logo" />
       <h2>{userName}</h2>
       <Link className="nav__groceryList" to="/home">
@@ -38,6 +38,7 @@ export default Menu;
 Menu.propTypes = {
   userName: PropTypes.string,
   open: PropTypes.bool,
+  setOpen: PropTypes.func,
 };
 
 const Nav = styled.nav`
