@@ -60,6 +60,14 @@ const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-align: center;
+
+  @media only screen and (max-width: 600px) {
+    h1 {
+      font-size: 1.8rem;
+      flex-grow: 2;
+    }
+  }
   > button {
     background: none;
     border: none;
