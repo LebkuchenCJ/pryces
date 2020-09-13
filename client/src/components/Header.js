@@ -1,34 +1,36 @@
 import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
-import menuSrc from "../assets/menuIcon.svg";
+import menuImgSrc from "../assets/menuIcon.svg";
 import goBackSrc from "../assets/arrowBack.svg";
 import goBackInvisibleSrc from "../assets/arrowBackInvisible.svg";
 import PropTypes from "prop-types";
 
 function Header({ title, open, setOpen }) {
-  const [displayIcon, setDisplayIcon] = useState("");
+  const [iconVisible, setIconVisible] = useState("");
 
   useEffect(() => {
     if (title === "Grocery Lists") {
-      setDisplayIcon(false);
+      setIconVisible(false);
     } else {
-      setDisplayIcon(true);
+      setIconVisible(true);
     }
   }, [title]);
   return (
     <HeaderWrapper>
-      {displayIcon && (
-        <img
-          src={goBackSrc}
-          alt="Go back Icon"
-          onClick={() => window.history.back()}
-        />
+      {iconVisible && (
+        <button>
+          <img
+            src={goBackSrc}
+            alt="Go back Icon"
+            onClick={() => window.history.back()}
+          />
+        </button>
       )}
-      {!displayIcon && <img src={goBackInvisibleSrc} alt="Go back Icon" />}
+      {!iconVisible && <img src={goBackInvisibleSrc} alt="Go back Icon" />}
       <h1>{title}</h1>
 
       <img
-        src={menuSrc}
+        src={menuImgSrc}
         alt="Menu Icon"
         open={open}
         onClick={() => setOpen(!open)}
@@ -49,11 +51,15 @@ const HeaderWrapper = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  > img {
+  > button {
+    background: none;
+    border: none;
+  }
+  img {
     margin: 0 25px;
     height: 45px;
   }
-  > img:hover {
+  img:hover {
     cursor: pointer;
   }
 `;
