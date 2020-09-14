@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { fetchList } from "../api/list";
 import styled from "@emotion/styled";
 import { postProduct, fetchProductByname } from "../api/products";
@@ -92,6 +92,9 @@ function List() {
                   <span>Category: {product.category}</span>
                 </div>
               ))}
+              <Link to="/home/:id/compare">
+                <button>Compare </button>
+              </Link>
             </ProductList>
           </Container>
         </>

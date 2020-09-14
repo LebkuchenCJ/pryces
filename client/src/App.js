@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Welcome from "./pages/Welcome";
 import List from "./pages/List";
 import GlobalStyles from "./GlobalStyles";
+import Compare from "./pages/Compare";
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
       <GlobalStyles />
       <Router>
         <Switch>
+          <Route path="/home/:id/compare">
+            <Compare />
+          </Route>
           <Route path="/home/:id">
             <List />
           </Route>
