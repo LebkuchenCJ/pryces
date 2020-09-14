@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { fetchList } from "../api/list";
 import styled from "@emotion/styled";
 import { postProduct, fetchProductByname } from "../api/products";
 import useAsync from "../hooks/useAsync";
 import Header from "../components/Header";
+import PropTypes from "prop-types";
 
-function List() {
+function List({ setData }) {
   const { id } = useParams();
   const [query, setQuery] = useState([]);
   const [display, setDisplay] = useState(false);
   const [products, setProducts] = useState([]);
   const { data: list, loading, error, refetch } = useAsync(fetchList, id);
+
+  useEffect(() => {
+    setData(list);
+  }, [setData, list]);
 
   async function handleClick(product) {
     console.log(product);
@@ -104,6 +109,10 @@ function List() {
 }
 
 export default List;
+List.propTypes = {
+  setData: PropTypes.any,
+};
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;

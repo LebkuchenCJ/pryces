@@ -2,12 +2,12 @@ import React from "react";
 import { fetchSupermarkets } from "../api/supermarkets";
 import Header from "../components/Header";
 import useAsync from "../hooks/useAsync";
+import PropTypes from "prop-types";
 
-function Compare() {
+function Compare({ data }) {
   const { data: supermarkets, loading, error } = useAsync(fetchSupermarkets);
 
-  async function getSupermarkets() {
-    const data = await fetchSupermarkets();
+  async function getListData() {
     return console.log(data);
   }
 
@@ -18,7 +18,7 @@ function Compare() {
       {supermarkets && (
         <div>
           <Header title={"Compare"} />
-          <button onClick={() => getSupermarkets()}>Get markets</button>
+          <button onClick={() => getListData()}>Log list data</button>
           {supermarkets.map((supermarket) => (
             <p key={supermarket.id}>{supermarket.name}</p>
           ))}
@@ -29,3 +29,6 @@ function Compare() {
 }
 
 export default Compare;
+Compare.propTypes = {
+  data: PropTypes.any,
+};
