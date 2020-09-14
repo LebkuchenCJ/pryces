@@ -55,11 +55,20 @@ Header.propTypes = {
   setOpen: PropTypes.func,
 };
 const HeaderWrapper = styled.header`
-  background-color: #f27649;
+  background-color: var(--bg-color-highlight);
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-align: center;
+
+  @media only screen and (max-width: 600px) {
+    h1 {
+      font-size: 1.8rem;
+      flex-grow: 2;
+      margin: 0;
+    }
+  }
   > button {
     background: none;
     border: none;

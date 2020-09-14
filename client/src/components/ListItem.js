@@ -22,8 +22,8 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     width: 200px;
-    background-color: #fff;
-    color: #000;
+    background-color: var(--bg-color-light);
+    color: var(--font-color-main);
     text-decoration: none;
     border: 1px solid;
     margin: 5px;

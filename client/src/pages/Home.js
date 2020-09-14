@@ -57,8 +57,6 @@ function Home() {
 
 export default Home;
 const Container = styled.div`
-  background-color: #f2f2f2;
-  width: 100vw;
   display: flex;
   justify-content: space-around;
   align-items: center;
