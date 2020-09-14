@@ -66,6 +66,7 @@ const HeaderWrapper = styled.header`
     h1 {
       font-size: 1.8rem;
       flex-grow: 2;
+      margin: 0;
     }
   }
   > button {

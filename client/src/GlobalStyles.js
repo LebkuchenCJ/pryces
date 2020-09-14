@@ -20,25 +20,22 @@ function GlobalStyles() {
           --font-color-menu: #fff;
           --font-title-main: #4b4b5c;
         }
+
         @font-face {
           font-family: "Poppins";
           src: url(${Poppins}) format("truetype");
         }
 
-        #root {
-          background-color: var(---bg-color-main);
-        }
-
         body {
           height: 100vh;
           width: 100vw;
+          position: fixed;
           margin: 0;
           padding: 0;
-          overflow: hidden;
           font-family: "Poppins";
           font-size: 14px;
-          background-color: var(---bg-color-main);
-          color: var(---font-color-main);
+          color: var(--font-color-main);
+          background-color: var(--bg-color-main);
         }
       `}
     />

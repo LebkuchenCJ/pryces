@@ -7,20 +7,22 @@ import GlobalStyles from "./GlobalStyles";
 
 function App() {
   return (
-    <Router>
+    <>
       <GlobalStyles />
-      <Switch>
-        <Route path="/home/:id">
-          <List />
-        </Route>
-        <Route path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/">
-          <Welcome />
-        </Route>
-      </Switch>
-    </Router>
+      <Router>
+        <Switch>
+          <Route path="/home/:id">
+            <List />
+          </Route>
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route exact path="/">
+            <Welcome />
+          </Route>
+        </Switch>
+      </Router>
+    </>
   );
 }
 
