@@ -2,13 +2,13 @@ import PropTypes from "prop-types";
 
 function getCompareListsData({
   supermarkets,
-  listData,
+  groceryList,
   setConnectionFail,
   setTotalPrices,
 }) {
-  if (supermarkets && listData) {
+  if (supermarkets && groceryList) {
     setConnectionFail(false);
-    const listProducts = listData.products;
+    const listProducts = groceryList.products;
     const listProductIDs = listProducts.map((product) => product.productId);
 
     const supermarketTotalPrices = supermarkets.map((supermarket) => {
@@ -44,7 +44,7 @@ function getCompareListsData({
 export default getCompareListsData;
 getCompareListsData.propTypes = {
   supermarkets: PropTypes.array,
-  listData: PropTypes.array,
+  groceryList: PropTypes.array,
   setConnectionFail: PropTypes.func,
   setTotalPrices: PropTypes.func,
 };

@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import SupermarketDisplay from "../components/SupermarketDisplay";
 import getCompareListsData from "../components/getCompareListsData";
 
-function Compare({ listData }) {
+function Compare({ groceryList }) {
   const { data: supermarkets, loading, error } = useAsync(fetchSupermarkets);
   const [totalPrices, setTotalPrices] = useState("");
   const [connectionFail, setConnectionFail] = useState(true);
@@ -14,11 +14,11 @@ function Compare({ listData }) {
   useEffect(() => {
     getCompareListsData({
       supermarkets,
-      listData,
+      groceryList,
       setConnectionFail,
       setTotalPrices,
     });
-  }, [supermarkets, listData]);
+  }, [supermarkets, groceryList]);
   return (
     <>
       <Header title={"Compare"} />
@@ -45,5 +45,5 @@ function Compare({ listData }) {
 
 export default Compare;
 Compare.propTypes = {
-  listData: PropTypes.array,
+  groceryList: PropTypes.array,
 };
