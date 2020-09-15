@@ -62,22 +62,30 @@ const HeaderWrapper = styled.header`
   align-items: center;
   text-align: center;
 
-  @media only screen and (max-width: 600px) {
-    h1 {
-      font-size: 1.8rem;
-      flex-grow: 2;
-      margin: 0;
-    }
-  }
   > button {
     background: none;
     border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
   }
   img {
     margin: 0 25px;
     height: 45px;
+    width: 45px;
   }
   img:hover {
     cursor: pointer;
+  }
+  @media only screen and (max-width: 600px) {
+    h1 {
+      font-size: 1.8rem;
+      margin: 0;
+    }
+    img {
+      height: 40px;
+      width: 40px;
+      margin: 10px;
+    }
   }
 `;
