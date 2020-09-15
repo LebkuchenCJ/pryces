@@ -23,8 +23,14 @@ function getCompareListsData({
         const supermarketProduct = supermarket.products.find(
           (product) => product.productId === val
         );
-        return totalPrice + supermarketProduct.price + matchingProducts;
+        if (supermarketProduct) {
+          return totalPrice + supermarketProduct.price;
+        } else {
+          return totalPrice;
+        }
       }, 0);
+
+      console.log(totalPrice);
       return {
         id: supermarket.id,
         name: supermarket.name,
