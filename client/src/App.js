@@ -13,7 +13,7 @@ function App() {
       <GlobalStyles />
       <Router>
         <Switch>
-          <Route path="/home/:id/compare">
+          <Route path="/list/:id/compare">
             <Compare listData={listData} />
           </Route>
           <Route path="/home/:id">

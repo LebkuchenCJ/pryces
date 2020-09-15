@@ -96,7 +96,7 @@ function List({ setListData }) {
                   <span>Category: {product.category}</span>
                 </div>
               ))}
-              <Link to="/home/:id/compare">
+              <Link to={`/list/${list.id}/compare`}>
                 <button>Compare </button>
               </Link>
             </ProductList>
@@ -109,7 +109,7 @@ function List({ setListData }) {
 
 export default List;
 List.propTypes = {
-  setListData: PropTypes.any,
+  setListData: PropTypes.func,
 };
 
 const Container = styled.div`
