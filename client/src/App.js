@@ -18,7 +18,7 @@ function App() {
           </Route>
           <Route path="/home/:id">
             <List
-              setGroceryList={(groceryList) => setGroceryList(groceryList)}
+              onGroceryListChange={(groceryList) => setGroceryList(groceryList)}
             />
           </Route>
           <Route path="/home">

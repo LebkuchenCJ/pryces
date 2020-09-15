@@ -7,7 +7,7 @@ import useAsync from "../hooks/useAsync";
 import Header from "../components/Header";
 import PropTypes from "prop-types";
 
-function List({ setGroceryList }) {
+function List({ onGroceryListChange }) {
   const { id } = useParams();
   const [query, setQuery] = useState([]);
   const [display, setDisplay] = useState(false);
@@ -15,8 +15,8 @@ function List({ setGroceryList }) {
   const { data: list, loading, error, refetch } = useAsync(fetchList, id);
 
   useEffect(() => {
-    setGroceryList(list);
-  }, [setGroceryList, list]);
+    onGroceryListChange(list);
+  }, [onGroceryListChange, list]);
 
   async function handleClick(product) {
     setDisplay(!display);
@@ -109,7 +109,7 @@ function List({ setGroceryList }) {
 
 export default List;
 List.propTypes = {
-  setGroceryList: PropTypes.func,
+  onGroceryListChange: PropTypes.func,
 };
 
 const Container = styled.div`

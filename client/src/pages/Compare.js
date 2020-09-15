@@ -35,7 +35,7 @@ function Compare({ groceryList }) {
             <SupermarketDisplay
               key={supermarket.id}
               supermarket={supermarket}
-            ></SupermarketDisplay>
+            />
           ))}
         </div>
       )}
