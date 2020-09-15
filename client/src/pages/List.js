@@ -7,7 +7,7 @@ import useAsync from "../hooks/useAsync";
 import Header from "../components/Header";
 import PropTypes from "prop-types";
 
-function List({ setData }) {
+function List({ setListData }) {
   const { id } = useParams();
   const [query, setQuery] = useState([]);
   const [display, setDisplay] = useState(false);
@@ -15,8 +15,8 @@ function List({ setData }) {
   const { data: list, loading, error, refetch } = useAsync(fetchList, id);
 
   useEffect(() => {
-    setData(list);
-  }, [setData, list]);
+    setListData(list);
+  }, [setListData, list]);
 
   async function handleClick(product) {
     console.log(product);
@@ -110,7 +110,7 @@ function List({ setData }) {
 
 export default List;
 List.propTypes = {
-  setData: PropTypes.any,
+  setListData: PropTypes.any,
 };
 
 const Container = styled.div`

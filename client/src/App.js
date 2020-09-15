@@ -7,17 +7,17 @@ import GlobalStyles from "./GlobalStyles";
 import Compare from "./pages/Compare";
 
 function App() {
-  const [data, setData] = useState("");
+  const [listData, setListData] = useState("");
   return (
     <>
       <GlobalStyles />
       <Router>
         <Switch>
           <Route path="/home/:id/compare">
-            <Compare data={data} />
+            <Compare listData={listData} />
           </Route>
           <Route path="/home/:id">
-            <List setData={(data) => setData(data)} />
+            <List setListData={(listData) => setListData(listData)} />
           </Route>
           <Route path="/home">
             <Home />
