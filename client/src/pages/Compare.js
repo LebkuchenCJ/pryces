@@ -8,8 +8,6 @@ import styled from "@emotion/styled";
 function Compare({ listData }) {
   const { data: supermarkets, loading, error } = useAsync(fetchSupermarkets);
   const [totalPrices, setTotalPrices] = useState("");
-  // const [loading, setLoading] = useState(false);
-  //const [error, setError] = useState(false);
   const [connectionFail, setConnectionFail] = useState(true);
 
   useEffect(() => {
@@ -20,17 +18,25 @@ function Compare({ listData }) {
         const listProductIDs = listProducts.map((product) => product.productId);
 
         const supermarketTotalPrices = supermarkets.map((supermarket) => {
+          const supermarketProductIds = supermarket.products.map(
+            (product) => product.productId
+          );
+          const matchingProducts = supermarketProductIds.filter((id) =>
+            listProductIDs.includes(id)
+          ).length;
+
           const totalPrice = listProductIDs.reduce((totalPrice, val) => {
             const supermarketProduct = supermarket.products.find(
               (product) => product.productId === val
             );
-            return totalPrice + supermarketProduct.price;
+            return totalPrice + supermarketProduct.price + matchingProducts;
           }, 0);
-
           return {
             id: supermarket.id,
             name: supermarket.name,
             totalPrice: totalPrice,
+            matchingProductsFound: matchingProducts,
+            listProductCount: listProducts.length,
           };
         });
         setTotalPrices(supermarketTotalPrices);
@@ -38,7 +44,6 @@ function Compare({ listData }) {
     }
     getListData();
   }, [supermarkets, listData]);
-  console.log(totalPrices);
   return (
     <>
       <Header title={"Compare"} />
@@ -57,7 +62,10 @@ function Compare({ listData }) {
                 <h3>{supermarket.name}</h3>
               </div>
               <div>
-                <p>Products found: 4 of 4</p>
+                <p>
+                  Products found: {supermarket.matchingProductsFound} of{" "}
+                  {supermarket.listProductCount}
+                </p>
                 <p>{supermarket.totalPrice.toFixed(2)}€</p>
               </div>
             </SupermarketDisplay>

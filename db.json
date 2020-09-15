@@ -43,6 +43,13 @@
       "category": "Meat/Fish",
       "listId": 6,
       "id": 19
+    },
+    {
+      "name": "Cheese",
+      "productId": 1,
+      "category": "Dairy",
+      "listId": 6,
+      "id": 20
     }
   ],
   "productList": [
@@ -72,40 +79,88 @@
       "id": 1,
       "name": "Edeka",
       "products": [
-        { "productId": 1, "price": 3.99 },
-        { "productId": 2, "price": 1.1 },
-        { "productId": 3, "price": 2.8 },
-        { "productId": 4, "price": 3.4 }
+        {
+          "productId": 1,
+          "price": 3.99
+        },
+        {
+          "productId": 2,
+          "price": 1.1
+        },
+        {
+          "productId": 3,
+          "price": 2.8
+        },
+        {
+          "productId": 4,
+          "price": 3.4
+        }
       ]
     },
     {
       "id": 2,
       "name": "Rewe",
       "products": [
-        { "productId": 1, "price": 3.7 },
-        { "productId": 2, "price": 1.2 },
-        { "productId": 3, "price": 2.5 },
-        { "productId": 4, "price": 2.9 }
+        {
+          "productId": 1,
+          "price": 3.7
+        },
+        {
+          "productId": 2,
+          "price": 1.2
+        },
+        {
+          "productId": 3,
+          "price": 2.5
+        },
+        {
+          "productId": 4,
+          "price": 2.9
+        }
       ]
     },
     {
       "id": 3,
       "name": "Alid Süd",
       "products": [
-        { "productId": 1, "price": 2.9 },
-        { "productId": 2, "price": 1.1 },
-        { "productId": 3, "price": 2.9 },
-        { "productId": 4, "price": 2.6 }
+        {
+          "productId": 1,
+          "price": 2.9
+        },
+        {
+          "productId": 2,
+          "price": 1.1
+        },
+        {
+          "productId": 3,
+          "price": 2.9
+        },
+        {
+          "productId": 4,
+          "price": 2.6
+        }
       ]
     },
     {
       "id": 4,
       "name": "Lidl",
       "products": [
-        { "productId": 1, "price": 2.8 },
-        { "productId": 2, "price": 1.15 },
-        { "productId": 3, "price": 2.6 },
-        { "productId": 4, "price": 3.1 }
+        {
+          "productId": 1,
+          "price": 2.8
+        },
+        {
+          "productId": 2,
+          "price": 1.15
+        },
+        {
+          "productId": 3,
+          "price": 2.6
+        },
+        {
+          "productId": 4,
+          "price": 3.1
+        }
       ]
     }
   ]
