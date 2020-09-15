@@ -1,17 +1,14 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import menuImgSrc from "../assets/menuIcon.svg";
 import goBackSrc from "../assets/arrowBack.svg";
 import goBackInvisibleSrc from "../assets/arrowBackInvisible.svg";
 import PropTypes from "prop-types";
 import Menu from "./Menu";
-import { useOnClickOutside } from "../hooks/useOnClickOutside";
 
 function Header({ title }) {
   const [open, setOpen] = useState(false);
-  const node = useRef();
   const [iconVisible, setIconVisible] = useState("");
-  useOnClickOutside(node, () => setOpen(false));
 
   useEffect(() => {
     if (title === "Grocery Lists") {
