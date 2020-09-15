@@ -8,10 +8,14 @@ import styled from "@emotion/styled";
 function Compare({ listData }) {
   const { data: supermarkets, loading, error } = useAsync(fetchSupermarkets);
   const [totalPrices, setTotalPrices] = useState("");
+  // const [loading, setLoading] = useState(false);
+  //const [error, setError] = useState(false);
+  const [connectionFail, setConnectionFail] = useState(true);
 
   useEffect(() => {
     function getListData() {
       if (supermarkets && listData) {
+        setConnectionFail(false);
         const listProducts = listData.products;
         const listProductIDs = listProducts.map((product) => product.productId);
 
@@ -37,11 +41,16 @@ function Compare({ listData }) {
   console.log(totalPrices);
   return (
     <>
+      <Header title={"Compare"} />
+      {connectionFail && (
+        <div>
+          Your session has ended. Please navigate back to your grocery list
+        </div>
+      )}
       {error && <div>Could not get data. Dont cry. Try again</div>}
       {loading && <div>Loading...</div>}
       {totalPrices && (
         <div>
-          <Header title={"Compare"} />
           {totalPrices.map((supermarket) => (
             <SupermarketDisplay key={supermarket.id}>
               <div>
