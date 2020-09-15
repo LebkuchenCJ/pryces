@@ -4,11 +4,11 @@ import Header from "../components/Header";
 import useAsync from "../hooks/useAsync";
 import PropTypes from "prop-types";
 import SupermarketDisplay from "../components/SupermarketDisplay";
-import getCompareListsData from "../components/getCompareListsData";
+import getCompareListsData from "../functions/getCompareListsData";
 
 function Compare({ groceryList }) {
   const { data: supermarkets, loading, error } = useAsync(fetchSupermarkets);
-  const [totalPrices, setTotalPrices] = useState("");
+  const [compareListData, setCompareListData] = useState("");
   const [connectionFail, setConnectionFail] = useState(true);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ function Compare({ groceryList }) {
       supermarkets,
       groceryList,
       setConnectionFail,
-      setTotalPrices,
+      setCompareListData,
     });
   }, [supermarkets, groceryList]);
   return (
@@ -29,9 +29,9 @@ function Compare({ groceryList }) {
       )}
       {error && <div>Could not get data. Dont cry. Try again</div>}
       {loading && <div>Loading...</div>}
-      {totalPrices && (
+      {compareListData && (
         <div>
-          {totalPrices.map((supermarket) => (
+          {compareListData.map((supermarket) => (
             <SupermarketDisplay
               key={supermarket.id}
               supermarket={supermarket}
