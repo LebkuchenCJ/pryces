@@ -43,8 +43,8 @@ function getCompareListsData({
 
 export default getCompareListsData;
 getCompareListsData.propTypes = {
-  supermarkets: PropTypes.any,
-  listData: PropTypes.any,
+  supermarkets: PropTypes.array,
+  listData: PropTypes.array,
   setConnectionFail: PropTypes.func,
   setTotalPrices: PropTypes.func,
 };

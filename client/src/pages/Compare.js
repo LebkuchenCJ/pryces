@@ -45,5 +45,5 @@ function Compare({ listData }) {
 
 export default Compare;
 Compare.propTypes = {
-  listData: PropTypes.any,
+  listData: PropTypes.array,
 };
