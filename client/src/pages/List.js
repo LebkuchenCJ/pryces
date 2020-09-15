@@ -19,7 +19,6 @@ function List({ setListData }) {
   }, [setListData, list]);
 
   async function handleClick(product) {
-    console.log(product);
     setDisplay(!display);
     const data = {
       name: product.name,

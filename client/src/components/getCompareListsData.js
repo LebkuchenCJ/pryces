@@ -29,8 +29,6 @@ function getCompareListsData({
           return totalPrice;
         }
       }, 0);
-
-      console.log(totalPrice);
       return {
         id: supermarket.id,
         name: supermarket.name,
