@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import useAsync from "../hooks/useAsync";
 import PropTypes from "prop-types";
 import SupermarketDisplay from "../components/SupermarketDisplay";
-import getCompareListsData from "../functions/getCompareListsData";
+import setCompareListsData from "../functions/setCompareListsData";
 
 function Compare({ groceryList }) {
   const { data: supermarkets, loading, error } = useAsync(fetchSupermarkets);
@@ -12,7 +12,7 @@ function Compare({ groceryList }) {
   const [connectionFail, setConnectionFail] = useState(true);
 
   useEffect(() => {
-    getCompareListsData({
+    setCompareListsData({
       supermarkets,
       groceryList,
       setConnectionFail,

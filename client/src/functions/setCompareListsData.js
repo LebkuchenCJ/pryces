@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import setSupermarketCompareData from "./setSupermarketCompareData";
 
-function getCompareListsData({
+function setCompareListsData({
   supermarkets,
   groceryList,
   setConnectionFail,
@@ -21,8 +21,8 @@ function getCompareListsData({
   }
 }
 
-export default getCompareListsData;
-getCompareListsData.propTypes = {
+export default setCompareListsData;
+setCompareListsData.propTypes = {
   supermarkets: PropTypes.array,
   groceryList: PropTypes.array,
   setConnectionFail: PropTypes.func,
