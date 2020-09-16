@@ -68,8 +68,8 @@ const HeaderWrapper = styled.header`
   }
   img {
     margin: 0 25px;
-    height: 45px;
-    width: 45px;
+    height: 3rem;
+    width: 3rem;
   }
   img:hover {
     cursor: pointer;
