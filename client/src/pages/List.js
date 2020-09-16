@@ -1,20 +1,24 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import { fetchList } from "../api/list";
 import styled from "@emotion/styled";
 import { postProduct, fetchProductByname } from "../api/products";
 import useAsync from "../hooks/useAsync";
 import Header from "../components/Header";
+import PropTypes from "prop-types";
 
-function List() {
+function List({ onGroceryListChange }) {
   const { id } = useParams();
   const [query, setQuery] = useState([]);
   const [display, setDisplay] = useState(false);
   const [products, setProducts] = useState([]);
   const { data: list, loading, error, refetch } = useAsync(fetchList, id);
 
+  useEffect(() => {
+    onGroceryListChange(list);
+  }, [onGroceryListChange, list]);
+
   async function handleClick(product) {
-    console.log(product);
     setDisplay(!display);
     const data = {
       name: product.name,
@@ -92,6 +96,9 @@ function List() {
                   <span>Category: {product.category}</span>
                 </div>
               ))}
+              <Link to={`/list/${list.id}/compare`}>
+                <button>Compare </button>
+              </Link>
             </ProductList>
           </Container>
         </>
@@ -101,6 +108,10 @@ function List() {
 }
 
 export default List;
+List.propTypes = {
+  onGroceryListChange: PropTypes.func,
+};
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
