@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import WelcomeHeader from "../components/WelcomeHeader";
-//import LoginContainer from "../components/LoginContainer";
+import LoginContainer from "../components/LoginContainer";
 import SignUpContainer from "../components/SignUpContainer";
 
 function Welcome() {
+  const [activeTab, setactiveTab] = useState(true);
   return (
     <>
-      <WelcomeHeader />
-      {/* <LoginContainer /> */}
-      <SignUpContainer />
+      <WelcomeHeader onChange={setactiveTab} activeTab={activeTab} />
+
+      {activeTab && <LoginContainer />}
+      {!activeTab && <SignUpContainer />}
     </>
   );
 }

@@ -2,8 +2,9 @@ import styled from "@emotion/styled";
 import React from "react";
 import headerBgSrc from "../assets/header-bg.png";
 import logoSrc from "../assets/logo.svg";
+import PropTypes from "prop-types";
 
-function WelcomeHeader(props) {
+function WelcomeHeader({ onChange }) {
   return (
     <Header>
       <LogoScreen>
@@ -12,14 +13,19 @@ function WelcomeHeader(props) {
       </LogoScreen>
 
       <Tabs>
-        <button>Sign In</button>
-        <button>Sign Up</button>
+        <button onClick={() => onChange(true)}>Sign In</button>
+        <button onClick={() => onChange(false)}>Sign Up</button>
       </Tabs>
     </Header>
   );
 }
 
 export default WelcomeHeader;
+WelcomeHeader.propTypes = {
+  onChange: PropTypes.func,
+  activeTab: PropTypes.bool,
+};
+
 const Header = styled.header`
   display: flex;
   flex-direction: column;
@@ -55,10 +61,22 @@ const Tabs = styled.div`
     background: rgba(242, 118, 73, 0.5);
     font-size: 1.6rem;
     font-weight: bold;
-  }
-  button:first-of-type {
-  }
-  button:last-of-type {
     color: rgba(0, 0, 0, 0.5);
   }
+
+  button:focus {
+    color: rgba(0, 0, 0, 1);
+  }
+
+  /* button:first-of-type {
+    color: ${({ activeTab }) =>
+    activeTab
+      ? "rgba(0, 0, 0, 1)"
+      : "rgba(0, 0, 0, .5)"};
+  }
+  button:last-of-type {
+    color: ${({
+    activeTab,
+  }) => (activeTab ? "rgba(0, 0, 0, .5)" : "rgba(0, 0, 0, 1)")};
+  } */
 `;
