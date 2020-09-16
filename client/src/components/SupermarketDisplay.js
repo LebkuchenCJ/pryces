@@ -21,7 +21,12 @@ function SupermarketDisplay({ supermarket }) {
 
 export default SupermarketDisplay;
 SupermarketDisplay.propTypes = {
-  supermarket: PropTypes.any,
+  supermarket: PropTypes.shape({
+    name: PropTypes.string,
+    matchingProductsFound: PropTypes.number,
+    listProductCount: PropTypes.number,
+    totalPrice: PropTypes.number,
+  }),
 };
 
 const Container = styled.div`

@@ -4,21 +4,21 @@ import Header from "../components/Header";
 import useAsync from "../hooks/useAsync";
 import PropTypes from "prop-types";
 import SupermarketDisplay from "../components/SupermarketDisplay";
-import getCompareListsData from "../components/getCompareListsData";
+import setCompareListsData from "../functions/setCompareListsData";
 
-function Compare({ listData }) {
+function Compare({ groceryList }) {
   const { data: supermarkets, loading, error } = useAsync(fetchSupermarkets);
-  const [totalPrices, setTotalPrices] = useState("");
+  const [compareListData, setCompareListData] = useState("");
   const [connectionFail, setConnectionFail] = useState(true);
 
   useEffect(() => {
-    getCompareListsData({
+    setCompareListsData({
       supermarkets,
-      listData,
+      groceryList,
       setConnectionFail,
-      setTotalPrices,
+      setCompareListData,
     });
-  }, [supermarkets, listData]);
+  }, [supermarkets, groceryList]);
   return (
     <>
       <Header title={"Compare"} />
@@ -29,13 +29,13 @@ function Compare({ listData }) {
       )}
       {error && <div>Could not get data. Dont cry. Try again</div>}
       {loading && <div>Loading...</div>}
-      {totalPrices && (
+      {compareListData && (
         <div>
-          {totalPrices.map((supermarket) => (
+          {compareListData.map((supermarket) => (
             <SupermarketDisplay
               key={supermarket.id}
               supermarket={supermarket}
-            ></SupermarketDisplay>
+            />
           ))}
         </div>
       )}
@@ -45,5 +45,5 @@ function Compare({ listData }) {
 
 export default Compare;
 Compare.propTypes = {
-  listData: PropTypes.any,
+  groceryList: PropTypes.array,
 };
