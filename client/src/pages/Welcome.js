@@ -12,7 +12,22 @@ function Welcome() {
         <h1>Mega App 2020</h1>
       </Header>
       <Container>
-        <p>Welcome</p>
+        <h2>Mega App 2020</h2>
+        <h3>Login and start saving</h3>
+        <LoginForm>
+          <label>
+            E-Mail Adress
+            <div>
+              <input placeholder="Enter your email" />
+            </div>
+          </label>
+          <label>
+            Password
+            <div>
+              <input placeholder="Enter your password" type="password" />
+            </div>
+          </label>
+        </LoginForm>
         <Link to="/home">
           <button>Klick to sign in</button>
         </Link>
@@ -36,10 +51,29 @@ const Header = styled.header`
 
 const Container = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
+  height: 70vh;
   > p {
     margin: 0;
+  }
+`;
+const LoginForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  > label {
+    display: flex;
+    flex-direction: column;
+  }
+  input {
+    border: none;
+    margin: 5px;
+  }
+  div {
+    border: solid 1px #fff;
+    border-radius: 20px;
+    background-color: #fff;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
   }
 `;
