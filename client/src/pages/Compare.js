@@ -10,7 +10,6 @@ function Compare({ groceryList }) {
   const { data: supermarkets, loading, error } = useAsync(fetchSupermarkets);
   const [compareListData, setCompareListData] = useState("");
   const [connectionFail, setConnectionFail] = useState(true);
-
   useEffect(() => {
     setCompareListsData({
       supermarkets,
@@ -45,5 +44,5 @@ function Compare({ groceryList }) {
 
 export default Compare;
 Compare.propTypes = {
-  groceryList: PropTypes.array,
+  groceryList: PropTypes.object,
 };

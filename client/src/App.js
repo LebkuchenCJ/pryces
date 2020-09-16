@@ -7,7 +7,7 @@ import GlobalStyles from "./GlobalStyles";
 import Compare from "./pages/Compare";
 
 function App() {
-  const [groceryList, setGroceryList] = useState("");
+  const [groceryList, setGroceryList] = useState({});
   return (
     <>
       <GlobalStyles />
