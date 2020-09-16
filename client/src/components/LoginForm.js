@@ -45,9 +45,6 @@ const Form = styled.form`
     background-color: #fff;
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
   }
-  button {
-    margin: 20px;
-  }
   a > input {
     border: solid 1px;
     background-color: #f27649;
