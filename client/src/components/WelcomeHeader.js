@@ -23,7 +23,6 @@ function WelcomeHeader({ onChange }) {
 export default WelcomeHeader;
 WelcomeHeader.propTypes = {
   onChange: PropTypes.func,
-  activeTab: PropTypes.bool,
 };
 
 const Header = styled.header`
@@ -67,16 +66,4 @@ const Tabs = styled.div`
   button:focus {
     color: rgba(0, 0, 0, 1);
   }
-
-  /* button:first-of-type {
-    color: ${({ activeTab }) =>
-    activeTab
-      ? "rgba(0, 0, 0, 1)"
-      : "rgba(0, 0, 0, .5)"};
-  }
-  button:last-of-type {
-    color: ${({
-    activeTab,
-  }) => (activeTab ? "rgba(0, 0, 0, .5)" : "rgba(0, 0, 0, 1)")};
-  } */
 `;
