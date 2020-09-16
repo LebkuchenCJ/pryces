@@ -5,6 +5,8 @@ import SignUpForm from "./SignUpForm";
 function SignUpContainer(props) {
   return (
     <Container>
+      <h2>Mega App 2020</h2>
+      <h3>Sign up and start saving</h3>
       <SignUpForm />
     </Container>
   );
@@ -18,4 +20,8 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
   height: 70vh;
+  h2,
+  h3 {
+    margin: 0;
+  }
 `;
