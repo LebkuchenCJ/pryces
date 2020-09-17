@@ -19,6 +19,7 @@ function GlobalStyles() {
           --font-color-main: #262526;
           --font-color-menu: #fff;
           --font-title-main: #4b4b5c;
+          --font-title-welcome: #f26a4b;
         }
 
         @font-face {

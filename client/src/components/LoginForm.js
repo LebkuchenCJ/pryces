@@ -1,12 +1,13 @@
 import styled from "@emotion/styled";
 import React from "react";
 import { Link } from "react-router-dom";
+import SubmitButton from "./SubmitButton";
 
 function LoginForm(props) {
   return (
     <Form>
       <label>
-        E-Mail Address
+        E-mail
         <div>
           <input placeholder="Enter your E-Mail" />
         </div>
@@ -18,7 +19,7 @@ function LoginForm(props) {
         </div>
       </label>
       <Link to="/home">
-        <input type="submit" value="Click to sign in" />
+        <SubmitButton titel="Sign In" />
       </Link>
     </Form>
   );
@@ -27,27 +28,35 @@ function LoginForm(props) {
 export default LoginForm;
 
 const Form = styled.form`
+  height: 60%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   > label {
     display: flex;
     flex-direction: column;
+    width: 60%;
   }
-  input {
+  div > input {
     border: none;
-    margin: 5px;
+    width: 90%;
+    margin: 0 10px;
+    height: 3rem;
+    background: transparent;
   }
+
+  div > input:focus {
+    outline: none;
+  }
+
   div {
-    border: solid 1px #fff;
-    border-radius: 20px;
-    background-color: #fff;
+    border-radius: 30px;
+    background-color: var(--bg-color-light);
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
   }
-  a > input {
-    border: solid 1px;
-    background-color: #f27649;
-    color: #fff;
+  a {
+    width: 60%;
   }
 `;

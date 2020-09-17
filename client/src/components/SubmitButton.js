@@ -12,7 +12,7 @@ SubmitButton.propTypes = {
 };
 
 const Submit = styled.input`
-  width: 60%;
+  width: 100%;
   height: 3rem;
   background-color: var(--bg-color-highlight);
   border-radius: 30px;
