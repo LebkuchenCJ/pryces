@@ -20,6 +20,7 @@ const Submit = styled.input`
   color: var(--font-color-menu);
   font-size: 1.7rem;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
   :active {
     background-color: var(--bg-color-dark-highlight);
   }
