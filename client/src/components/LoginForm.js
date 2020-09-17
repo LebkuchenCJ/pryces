@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import React from "react";
 import { Link } from "react-router-dom";
+import SubmitButton from "./SubmitButton";
 
 function LoginForm(props) {
   return (
@@ -18,7 +19,7 @@ function LoginForm(props) {
         </div>
       </label>
       <Link to="/home">
-        <input type="submit" value="Click to sign in" />
+        <SubmitButton titel="Sign In" />
       </Link>
     </Form>
   );
@@ -35,7 +36,7 @@ const Form = styled.form`
     display: flex;
     flex-direction: column;
   }
-  input {
+  label input {
     border: none;
     margin: 5px;
   }
@@ -44,10 +45,5 @@ const Form = styled.form`
     border-radius: 20px;
     background-color: #fff;
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
-  }
-  a > input {
-    border: solid 1px;
-    background-color: #f27649;
-    color: #fff;
   }
 `;
