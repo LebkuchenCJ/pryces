@@ -7,13 +7,11 @@ function LoginForm(props) {
   return (
     <Form>
       <label>
-        E-Mail Address
         <div>
           <input placeholder="Enter your E-Mail" />
         </div>
       </label>
       <label>
-        Password
         <div>
           <input placeholder="Enter your password" type="password" />
         </div>
@@ -28,22 +26,27 @@ function LoginForm(props) {
 export default LoginForm;
 
 const Form = styled.form`
+  height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   > label {
     display: flex;
     flex-direction: column;
+    width: 60%;
   }
-  label input {
+  div > input {
     border: none;
     margin: 5px;
+    height: 2rem;
   }
   div {
-    border: solid 1px #fff;
     border-radius: 20px;
-    background-color: #fff;
+    background-color: var(--bg-color-light);
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+  }
+  a {
+    width: 60%;
   }
 `;
