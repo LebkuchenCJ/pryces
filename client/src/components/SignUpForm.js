@@ -48,7 +48,7 @@ function SignUpForm(props) {
 export default SignUpForm;
 
 const Form = styled.form`
-  height: 80vh;
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
