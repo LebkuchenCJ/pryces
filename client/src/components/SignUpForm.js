@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import React from "react";
 import { Link } from "react-router-dom";
 import GenderSelect from "./GenderSelect";
+import SubmitButton from "./SubmitButton";
 
 function SignUpForm(props) {
   return (
@@ -28,7 +29,7 @@ function SignUpForm(props) {
         <input type="password" placeholder="Confirm your password" />
       </label>
       <Link to="/home">
-        <input type="submit" placeholder="Klick to sign up" />
+        <SubmitButton title="Sign Up" />
       </Link>
     </Form>
   );

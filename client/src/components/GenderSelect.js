@@ -33,6 +33,7 @@ const Wrapper = styled.div`
     width: 25%;
     border-radius: 30px;
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+    cursor: pointer;
   }
   img {
     grid-column: 1;
