@@ -14,10 +14,13 @@ SubmitButton.propTypes = {
 const Submit = styled.input`
   width: 60%;
   height: 3rem;
-  background-color: #f27649;
+  background-color: var(--bg-color-highlight);
   border-radius: 30px;
   border: none;
   color: var(--font-color-menu);
   font-size: 1.7rem;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+  :active {
+    background-color: var(--bg-color-dark-highlight);
+  }
 `;
