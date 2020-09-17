@@ -6,9 +6,9 @@ function LoginForm(props) {
   return (
     <Form>
       <label>
-        E-Mail Adress
+        E-Mail Address
         <div>
-          <input placeholder="Enter your email" />
+          <input placeholder="Enter your E-Mail" />
         </div>
       </label>
       <label>
@@ -18,7 +18,7 @@ function LoginForm(props) {
         </div>
       </label>
       <Link to="/home">
-        <input type="submit" value="Klick to sign in" />
+        <input type="submit" value="Click to sign in" />
       </Link>
     </Form>
   );
