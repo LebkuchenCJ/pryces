@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38" height="38" viewBox="0 0 38 38">
+  <defs>
+    <filter id="phone_baseline" x="0" y="0" width="38" height="38" filterUnits="userSpaceOnUse">
+      <feOffset dx="3" dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#phone_baseline)">
+    <path id="phone_baseline-2" data-name="phone_baseline" d="M8.522,13.156a16.832,16.832,0,0,0,7.322,7.322l2.444-2.444a1.1,1.1,0,0,1,1.133-.267,12.674,12.674,0,0,0,3.967.633A1.114,1.114,0,0,1,24.5,19.511v3.878A1.114,1.114,0,0,1,23.389,24.5,18.887,18.887,0,0,1,4.5,5.611,1.114,1.114,0,0,1,5.611,4.5H9.5a1.114,1.114,0,0,1,1.111,1.111,12.623,12.623,0,0,0,.633,3.967,1.115,1.115,0,0,1-.278,1.133L8.522,13.156Z" transform="translate(1.5 1.5)" fill="#262526" opacity="0.5"/>
+  </g>
+</svg>

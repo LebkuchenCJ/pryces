@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="38" height="38" viewBox="0 0 38 38">
+  <defs>
+    <filter id="person_round" x="0" y="0" width="38" height="38" filterUnits="userSpaceOnUse">
+      <feOffset dx="3" dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#person_round)">
+    <path id="person_round-2" data-name="person_round" d="M16,16a5,5,0,1,0-5-5A5,5,0,0,0,16,16Zm0,2.5c-3.338,0-10,1.675-10,5v1.25A1.254,1.254,0,0,0,7.25,26h17.5A1.254,1.254,0,0,0,26,24.75V23.5C26,20.175,19.337,18.5,16,18.5Z" fill="#262526" opacity="0.5"/>
+  </g>
+</svg>
