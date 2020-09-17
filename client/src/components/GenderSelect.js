@@ -21,16 +21,18 @@ function GenderSelect(props) {
 export default GenderSelect;
 
 const Wrapper = styled.div`
-  width: 100%;
+  width: 60%;
+  height: 2.6rem;
   display: flex;
   justify-content: space-around;
   label {
+    width: 40%;
+    height: 90%;
     display: grid;
     justify-content: center;
     align-items: center;
     opacity: 0.5;
     background-color: var(--bg-color-highlight);
-    width: 25%;
     border-radius: 30px;
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
     cursor: pointer;
