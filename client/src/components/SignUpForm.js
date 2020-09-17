@@ -10,23 +10,33 @@ function SignUpForm(props) {
       <GenderSelect />
       <label>
         Name
-        <input placeholder="Enter your name" />
+        <div>
+          <input placeholder="Enter your name" />
+        </div>
       </label>
       <label>
         E-Mail
-        <input placeholder="Enter your email" />
+        <div>
+          <input placeholder="Enter your email" />
+        </div>
       </label>
       <label>
         Birthday
-        <input type="date" />
+        <div>
+          <input type="date" />
+        </div>
       </label>
       <label>
         Password
-        <input type="password" placeholder="Enter your password" />
+        <div>
+          <input type="password" placeholder="Enter your password" />
+        </div>
       </label>
       <label>
         Confirm Password
-        <input type="password" placeholder="Confirm your password" />
+        <div>
+          <input type="password" placeholder="Confirm your password" />
+        </div>
       </label>
       <Link to="/home">
         <SubmitButton title="Sign Up" />
@@ -38,35 +48,35 @@ function SignUpForm(props) {
 export default SignUpForm;
 
 const Form = styled.form`
+  height: 80vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-
+  justify-content: space-around;
   > label {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
+    width: 60%;
   }
-  input {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 2rem;
-    border: solid 1px #fff;
-    border-radius: 20px;
-    background-color: #fff;
+  div > input {
+    width: 95%;
+    height: 3rem;
+    margin: 0 10px;
+    border: none;
+    background: transparent;
+  }
+  div > input:focus {
+    outline: none;
+  }
+
+  label > div {
+    border-radius: 30px;
+    background-color: var(--bg-color-light);
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
   }
 
   a {
-    width: 100%;
-    margin: 20px;
-  }
-  a > input {
-    border: solid 1px;
-    background-color: #f27649;
-    color: #fff;
+    width: 60%;
   }
 `;
