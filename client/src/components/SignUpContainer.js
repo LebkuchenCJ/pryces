@@ -13,9 +13,5 @@ function SignUpContainer(props) {
 export default SignUpContainer;
 
 const Container = styled.div`
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
   height: 70vh;
 `;
