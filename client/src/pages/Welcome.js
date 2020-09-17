@@ -1,25 +1,18 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled from "@emotion/styled";
+import React, { useState } from "react";
+import WelcomeHeader from "../components/WelcomeHeader";
+import LoginContainer from "../components/LoginContainer";
+import SignUpContainer from "../components/SignUpContainer";
 
 function Welcome() {
+  const [activeTab, setactiveTab] = useState(true);
   return (
-    <Container>
-      <p>Welcome</p>
-      <Link to="/home">
-        <button>Klick to sign in</button>
-      </Link>
-    </Container>
+    <>
+      <WelcomeHeader onChange={setactiveTab} activeTab={activeTab} />
+
+      {activeTab && <LoginContainer />}
+      {!activeTab && <SignUpContainer />}
+    </>
   );
 }
 
 export default Welcome;
-const Container = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  > p {
-    margin: 0;
-  }
-`;
