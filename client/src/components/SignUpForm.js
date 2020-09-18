@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import SubmitButton from "./SubmitButton";
 import dateSrc from "../assets/date_icon.svg";
 import passwordSrc from "../assets/lock_icon.svg";
@@ -9,7 +9,8 @@ import personSrc from "../assets/person_icon.svg";
 import visiableOffSrc from "../assets/visibility_off_icon.svg";
 import visiableOnSrc from "../assets/visibility_on_icon.svg";
 
-function SignUpForm(props) {
+function SignUpForm() {
+  const history = useHistory();
   const [inputData, setInputData] = useState({
     name: "",
     email: "",
@@ -37,8 +38,8 @@ function SignUpForm(props) {
   function handleSubmit(event) {
     event.preventDefault();
     console.log(inputData);
+    history.push("/home");
   }
-
   return (
     <Form onSubmit={handleSubmit}>
       <img src={personSrc} alt="Person" />
@@ -100,9 +101,7 @@ function SignUpForm(props) {
           </button>
         </div>
       </LabelPassword>
-      <Link to="/home">
-        <SubmitButton title="Sign Up" />
-      </Link>
+      <SubmitButton title="Sign Up" />
     </Form>
   );
 }
@@ -137,7 +136,7 @@ const Form = styled.form`
     grid-row: 4/5;
   }
 
-  a {
+  > input {
     width: 100%;
     grid-column: 3/4;
     grid-row: 5/6;
