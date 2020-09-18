@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import GenderSelect from "./GenderSelect";
 import SubmitButton from "./SubmitButton";
@@ -9,37 +9,84 @@ import mailSrc from "../assets/mail_icon.svg";
 import personSrc from "../assets/person_icon.svg";
 
 function SignUpForm(props) {
+  const [inputData, setInputData] = useState({
+    name: "",
+    email: "",
+    birthday: "",
+    password: "",
+    passwordConfirmed: "",
+  });
+
+  function handleChange(event) {
+    const value = event.target.value;
+    setInputData({
+      ...inputData,
+      [event.target.name]: value,
+    });
+  }
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log(inputData);
+  }
+
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
       <GenderSelect />
       <img src={personSrc} alt="Person" />
       <LabelName>
         <div>
-          <input placeholder="Enter your name" />
+          <input
+            placeholder="Enter your name"
+            name="name"
+            value={inputData.name}
+            onChange={handleChange}
+          />
         </div>
       </LabelName>
       <img src={mailSrc} alt="Mail" />
       <LabelMail>
         <div>
-          <input placeholder="Enter your email" />
+          <input
+            placeholder="Enter your email"
+            name="email"
+            value={inputData.email}
+            onChange={handleChange}
+          />
         </div>
       </LabelMail>
       <img src={dateSrc} alt="Calender" />
       <LabelDate>
         <div>
-          <input type="date" />
+          <input
+            type="date"
+            name="birthday"
+            value={inputData.birthday}
+            onChange={handleChange}
+          />
         </div>
       </LabelDate>
       <img src={passwordSrc} alt="Lock" />
       <LabelPassword>
         <div>
-          <input type="password" placeholder="Enter your password" />
+          <input
+            type="password"
+            placeholder="Enter your password"
+            name="password"
+            value={inputData.password}
+            onChange={handleChange}
+          />
         </div>
       </LabelPassword>
       <img src={passwordSrc} alt="Lock" />
       <LabelPasswordConfirm>
         <div>
-          <input type="password" placeholder="Confirm your password" />
+          <input
+            type="password"
+            placeholder="Confirm your password"
+            name="passwordConfirmed"
+            value={inputData.passwordConfirmed}
+            onChange={handleChange}
+          />
         </div>
       </LabelPasswordConfirm>
       <Link to="/home">
