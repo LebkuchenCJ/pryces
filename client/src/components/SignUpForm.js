@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SubmitButton from "./SubmitButton";
 import dateSrc from "../assets/date_icon.svg";
 import passwordSrc from "../assets/lock_icon.svg";
@@ -100,9 +100,9 @@ function SignUpForm(props) {
           </button>
         </div>
       </LabelPassword>
-      {/*  <Link to="/home">
-      </Link> */}
-      <SubmitButton title="Sign Up" />
+      <Link to="/home">
+        <SubmitButton title="Sign Up" />
+      </Link>
     </Form>
   );
 }
@@ -140,7 +140,7 @@ const Form = styled.form`
   a {
     width: 100%;
     grid-column: 3/4;
-    grid-row: 7/8;
+    grid-row: 5/6;
     justify-self: center;
     align-self: center;
   }
