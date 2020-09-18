@@ -1,35 +1,99 @@
 import styled from "@emotion/styled";
-import React from "react";
-import { Link } from "react-router-dom";
-import GenderSelect from "./GenderSelect";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import SubmitButton from "./SubmitButton";
+import dateSrc from "../assets/date_icon.svg";
+import passwordSrc from "../assets/lock_icon.svg";
+import mailSrc from "../assets/mail_icon.svg";
+import personSrc from "../assets/person_icon.svg";
+import visibleOffSrc from "../assets/visibility_off_icon.svg";
+import visibleOnSrc from "../assets/visibility_on_icon.svg";
 
-function SignUpForm(props) {
+function SignUpForm() {
+  const history = useHistory();
+  const [inputData, setInputData] = useState({
+    name: "",
+    email: "",
+    birthday: "",
+    password: "",
+    showPassword: false,
+  });
+
+  function handleChange(event) {
+    const value = event.target.value;
+    setInputData({
+      ...inputData,
+      [event.target.name]: value,
+    });
+  }
+
+  function handleClickShowPassword() {
+    setInputData({ ...inputData, showPassword: !inputData.showPassword });
+  }
+
+  function handleMouseDownPassword(event) {
+    event.preventDefault();
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log(inputData);
+    history.push("/home");
+  }
   return (
-    <Form>
-      <GenderSelect />
-      <label>
-        Name
-        <input placeholder="Enter your name" />
-      </label>
-      <label>
-        E-Mail
-        <input placeholder="Enter your email" />
-      </label>
-      <label>
-        Birthday
-        <input type="date" />
-      </label>
-      <label>
-        Password
-        <input type="password" placeholder="Enter your password" />
-      </label>
-      <label>
-        Confirm Password
-        <input type="password" placeholder="Confirm your password" />
-      </label>
-      <Link to="/home">
-        <input type="submit" placeholder="Klick to sign up" />
-      </Link>
+    <Form onSubmit={handleSubmit}>
+      <img src={personSrc} alt="Person" />
+      <LabelName>
+        <input
+          placeholder="Enter your name"
+          name="name"
+          value={inputData.name}
+          onChange={handleChange}
+          required
+        />
+      </LabelName>
+      <img src={mailSrc} alt="Mail" />
+      <LabelMail>
+        <input
+          type="email"
+          placeholder="Enter your email"
+          name="email"
+          value={inputData.email}
+          onChange={handleChange}
+          required
+        />
+      </LabelMail>
+      <img src={dateSrc} alt="Calender" />
+      <LabelDate>
+        <input
+          type="date"
+          name="birthday"
+          value={inputData.birthday}
+          onChange={handleChange}
+        />
+      </LabelDate>
+      <img src={passwordSrc} alt="Lock" />
+      <LabelPassword>
+        <input
+          type={inputData.showPassword ? "text" : "password"}
+          placeholder="Enter your password"
+          name="password"
+          value={inputData.password}
+          onChange={handleChange}
+          required
+        />
+        <button
+          onClick={handleClickShowPassword}
+          onMouseDown={handleMouseDownPassword}
+        >
+          {inputData.showPassword ? (
+            <img src={visibleOnSrc} alt="Hide password" />
+          ) : (
+            <img src={visibleOffSrc} alt="Show password" />
+          )}
+        </button>
+      </LabelPassword>
+      <SubmitButton title="Sign Up" />
     </Form>
   );
 }
@@ -37,35 +101,93 @@ function SignUpForm(props) {
 export default SignUpForm;
 
 const Form = styled.form`
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr 6fr 1fr 0.5fr;
+  grid-template-rows: 5 * 1fr;
+  > img {
+    width: 2.5rem;
+    justify-self: center;
+    align-self: center;
+  }
+  img:nth-of-type(1) {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  img:nth-of-type(2) {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  img:nth-of-type(3) {
+    grid-column: 2/3;
+    grid-row: 3/4;
+  }
+  img:nth-of-type(4) {
+    grid-column: 2/3;
+    grid-row: 4/5;
+  }
+
+  > input {
+    width: 100%;
+    grid-column: 3/4;
+    grid-row: 5/6;
+    justify-self: center;
+    align-self: center;
+  }
+`;
+
+const Label = styled.label`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  height: 3rem;
+  justify-self: center;
+  align-self: center;
+  flex-grow: 2;
+  border-radius: 30px;
+  background-color: var(--bg-color-light);
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+  > input {
+    width: 90%;
+    height: 3rem;
+    margin: 0 10px;
+    border: none;
+    background: transparent;
+  }
+  > input:focus {
+    outline: none;
+  }
+`;
+const LabelName = styled(Label)`
+  grid-column: 3/4;
+  grid-row: 1/2;
+`;
+const LabelMail = styled(Label)`
+  grid-column: 3/4;
+  grid-row: 2/3;
+`;
+const LabelDate = styled(Label)`
+  grid-column: 3/4;
+  grid-row: 3/4;
+`;
+const LabelPassword = styled(Label)`
+  grid-column: 3/4;
+  grid-row: 4/5;
+  display: flex;
 
-  > label {
+  img {
+    padding-right: 5px;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  > input {
+    margin-right: 0px;
+  }
+
+  button {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-  }
-  input {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 2rem;
-    border: solid 1px #fff;
-    border-radius: 20px;
-    background-color: #fff;
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
-  }
-
-  a {
-    width: 100%;
-    margin: 20px;
-  }
-  a > input {
-    border: solid 1px;
-    background-color: #f27649;
-    color: #fff;
+    align-items: center;
+    background: transparent;
+    border: none;
   }
 `;

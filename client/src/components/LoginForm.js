@@ -19,7 +19,7 @@ function LoginForm(props) {
         </div>
       </label>
       <Link to="/home">
-        <SubmitButton titel="Sign In" />
+        <SubmitButton title="Sign In" />
       </Link>
     </Form>
   );

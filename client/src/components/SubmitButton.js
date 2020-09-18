@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 
-function SubmitButton({ titel }) {
-  return <Submit value={titel} type="submit" />;
+function SubmitButton({ title }) {
+  return <Submit value={title} type="submit" />;
 }
 
 export default SubmitButton;
 SubmitButton.propTypes = {
-  titel: PropTypes.string,
+  title: PropTypes.string,
 };
 
 const Submit = styled.input`
@@ -20,6 +20,7 @@ const Submit = styled.input`
   color: var(--font-color-menu);
   font-size: 1.7rem;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+  cursor: pointer;
   :active {
     background-color: var(--bg-color-dark-highlight);
   }

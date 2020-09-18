@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="43" height="38" viewBox="0 0 43 38">
+  <defs>
+    <filter id="mail_outline" x="0" y="0" width="43" height="38" filterUnits="userSpaceOnUse">
+      <feOffset dx="3" dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#mail_outline)">
+    <path id="mail_outline-2" data-name="mail_outline" d="M28,8.5A2.507,2.507,0,0,0,25.5,6H5.5A2.507,2.507,0,0,0,3,8.5v15A2.507,2.507,0,0,0,5.5,26h20A2.507,2.507,0,0,0,28,23.5Zm-2.5,0-10,6.238L5.5,8.5Zm0,15H5.5V11l10,6.25L25.5,11Z" transform="translate(3)" fill="#262526" opacity="0.5"/>
+  </g>
+</svg>
