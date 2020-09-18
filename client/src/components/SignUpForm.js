@@ -44,62 +44,54 @@ function SignUpForm() {
     <Form onSubmit={handleSubmit}>
       <img src={personSrc} alt="Person" />
       <LabelName>
-        <div>
-          <input
-            placeholder="Enter your name"
-            name="name"
-            value={inputData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <input
+          placeholder="Enter your name"
+          name="name"
+          value={inputData.name}
+          onChange={handleChange}
+          required
+        />
       </LabelName>
       <img src={mailSrc} alt="Mail" />
       <LabelMail>
-        <div>
-          <input
-            type="email"
-            placeholder="Enter your email"
-            name="email"
-            value={inputData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        <input
+          type="email"
+          placeholder="Enter your email"
+          name="email"
+          value={inputData.email}
+          onChange={handleChange}
+          required
+        />
       </LabelMail>
       <img src={dateSrc} alt="Calender" />
       <LabelDate>
-        <div>
-          <input
-            type="date"
-            name="birthday"
-            value={inputData.birthday}
-            onChange={handleChange}
-          />
-        </div>
+        <input
+          type="date"
+          name="birthday"
+          value={inputData.birthday}
+          onChange={handleChange}
+        />
       </LabelDate>
       <img src={passwordSrc} alt="Lock" />
       <LabelPassword>
-        <div>
-          <input
-            type={inputData.showPassword ? "text" : "password"}
-            placeholder="Enter your password"
-            name="password"
-            value={inputData.password}
-            onChange={handleChange}
-            required
-          />
-          <button
-            onClick={handleClickShowPassword}
-            onMouseDown={handleMouseDownPassword}
-          >
-            {inputData.showPassword ? (
-              <img src={visiableOnSrc} alt="Hide password" />
-            ) : (
-              <img src={visiableOffSrc} alt="Show password" />
-            )}
-          </button>
-        </div>
+        <input
+          type={inputData.showPassword ? "text" : "password"}
+          placeholder="Enter your password"
+          name="password"
+          value={inputData.password}
+          onChange={handleChange}
+          required
+        />
+        <button
+          onClick={handleClickShowPassword}
+          onMouseDown={handleMouseDownPassword}
+        >
+          {inputData.showPassword ? (
+            <img src={visiableOnSrc} alt="Hide password" />
+          ) : (
+            <img src={visiableOffSrc} alt="Show password" />
+          )}
+        </button>
       </LabelPassword>
       <SubmitButton title="Sign Up" />
     </Form>
@@ -151,20 +143,18 @@ const Label = styled.label`
   height: 3rem;
   justify-self: center;
   align-self: center;
-  > div {
-    flex-grow: 2;
-    border-radius: 30px;
-    background-color: var(--bg-color-light);
-    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
-  }
-  > div > input {
+  flex-grow: 2;
+  border-radius: 30px;
+  background-color: var(--bg-color-light);
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+  > input {
     width: 90%;
     height: 3rem;
     margin: 0 10px;
     border: none;
     background: transparent;
   }
-  div > input:focus {
+  > input:focus {
     outline: none;
   }
 `;
@@ -183,19 +173,20 @@ const LabelDate = styled(Label)`
 const LabelPassword = styled(Label)`
   grid-column: 3/4;
   grid-row: 4/5;
-  > div {
-    display: flex;
-  }
+  display: flex;
+
   img {
     padding-right: 5px;
     opacity: 0.5;
     cursor: pointer;
   }
-  > div > input {
+  > input {
     margin-right: 0px;
   }
 
   button {
+    display: flex;
+    align-items: center;
     background: transparent;
     border: none;
   }
