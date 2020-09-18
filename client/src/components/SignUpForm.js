@@ -1,7 +1,6 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
 //import { Link } from "react-router-dom";
-import GenderSelect from "./GenderSelect";
 import SubmitButton from "./SubmitButton";
 import dateSrc from "../assets/date_icon.svg";
 import passwordSrc from "../assets/lock_icon.svg";
@@ -42,7 +41,6 @@ function SignUpForm(props) {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <GenderSelect />
       <img src={personSrc} alt="Person" />
       <LabelName>
         <div>
@@ -116,13 +114,7 @@ const Form = styled.form`
   width: 100%;
   display: grid;
   grid-template-columns: 0.5fr 1fr 6fr 1fr 0.5fr;
-  grid-template-rows: 7 * 1fr;
-  > div {
-    grid-column: 3/4;
-    grid-row: 1/2;
-    justify-self: center;
-    align-self: center;
-  }
+  grid-template-rows: 5 * 1fr;
   > img {
     width: 2.5rem;
     justify-self: center;
@@ -130,19 +122,19 @@ const Form = styled.form`
   }
   img:nth-of-type(1) {
     grid-column: 2/3;
-    grid-row: 2/3;
+    grid-row: 1/2;
   }
   img:nth-of-type(2) {
     grid-column: 2/3;
-    grid-row: 3/4;
+    grid-row: 2/3;
   }
   img:nth-of-type(3) {
     grid-column: 2/3;
-    grid-row: 4/5;
+    grid-row: 3/4;
   }
   img:nth-of-type(4) {
     grid-column: 2/3;
-    grid-row: 5/6;
+    grid-row: 4/5;
   }
 
   a {
@@ -179,19 +171,19 @@ const Label = styled.label`
 `;
 const LabelName = styled(Label)`
   grid-column: 3/4;
-  grid-row: 2/3;
+  grid-row: 1/2;
 `;
 const LabelMail = styled(Label)`
   grid-column: 3/4;
-  grid-row: 3/4;
+  grid-row: 2/3;
 `;
 const LabelDate = styled(Label)`
   grid-column: 3/4;
-  grid-row: 4/5;
+  grid-row: 3/4;
 `;
 const LabelPassword = styled(Label)`
   grid-column: 3/4;
-  grid-row: 5/6;
+  grid-row: 4/5;
   > div {
     display: flex;
   }
