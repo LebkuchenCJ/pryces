@@ -1,6 +1,6 @@
 import React from "react";
 import SignUpContainer from "./SignUpContainer";
-import SignUpForm from "./SignUpForm";
+import WelcomeHeader from "./WelcomeHeader";
 
 export default {
   title: "SignUpContainer",
@@ -8,4 +8,4 @@ export default {
 };
 
 export const Container = () => <SignUpContainer />;
-export const Form = () => <SignUpForm />;
+export const Header = () => <WelcomeHeader />;
