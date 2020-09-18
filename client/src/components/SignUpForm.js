@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import GenderSelect from "./GenderSelect";
 import SubmitButton from "./SubmitButton";
 import dateSrc from "../assets/date_icon.svg";
@@ -40,6 +40,7 @@ function SignUpForm(props) {
             name="name"
             value={inputData.name}
             onChange={handleChange}
+            required
           />
         </div>
       </LabelName>
@@ -47,10 +48,12 @@ function SignUpForm(props) {
       <LabelMail>
         <div>
           <input
+            type="email"
             placeholder="Enter your email"
             name="email"
             value={inputData.email}
             onChange={handleChange}
+            required
           />
         </div>
       </LabelMail>
@@ -74,6 +77,7 @@ function SignUpForm(props) {
             name="password"
             value={inputData.password}
             onChange={handleChange}
+            required
           />
         </div>
       </LabelPassword>
@@ -86,12 +90,13 @@ function SignUpForm(props) {
             name="passwordConfirmed"
             value={inputData.passwordConfirmed}
             onChange={handleChange}
+            required
           />
         </div>
       </LabelPasswordConfirm>
-      <Link to="/home">
-        <SubmitButton title="Sign Up" />
-      </Link>
+      {/*  <Link to="/home">
+      </Link> */}
+      <SubmitButton title="Sign Up" />
     </Form>
   );
 }
