@@ -7,6 +7,8 @@ import dateSrc from "../assets/date_icon.svg";
 import passwordSrc from "../assets/lock_icon.svg";
 import mailSrc from "../assets/mail_icon.svg";
 import personSrc from "../assets/person_icon.svg";
+import visiableOffSrc from "../assets/visibility_off_icon.svg";
+import visiableOnSrc from "../assets/visibility_on_icon.svg";
 
 function SignUpForm(props) {
   const [inputData, setInputData] = useState({
@@ -14,7 +16,7 @@ function SignUpForm(props) {
     email: "",
     birthday: "",
     password: "",
-    passwordConfirmed: "",
+    showPassword: false,
   });
 
   function handleChange(event) {
@@ -24,6 +26,15 @@ function SignUpForm(props) {
       [event.target.name]: value,
     });
   }
+
+  function handleClickShowPassword() {
+    setInputData({ ...inputData, showPassword: !inputData.showPassword });
+  }
+
+  function handleMouseDownPassword(event) {
+    event.preventDefault();
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
     console.log(inputData);
@@ -72,28 +83,25 @@ function SignUpForm(props) {
       <LabelPassword>
         <div>
           <input
-            type="password"
+            type={inputData.showPassword ? "text" : "password"}
             placeholder="Enter your password"
             name="password"
             value={inputData.password}
             onChange={handleChange}
             required
           />
+          <button
+            onClick={handleClickShowPassword}
+            onMouseDown={handleMouseDownPassword}
+          >
+            {inputData.showPassword ? (
+              <img src={visiableOnSrc} alt="Hide password" />
+            ) : (
+              <img src={visiableOffSrc} alt="Show password" />
+            )}
+          </button>
         </div>
       </LabelPassword>
-      <img src={passwordSrc} alt="Lock" />
-      <LabelPasswordConfirm>
-        <div>
-          <input
-            type="password"
-            placeholder="Confirm your password"
-            name="passwordConfirmed"
-            value={inputData.passwordConfirmed}
-            onChange={handleChange}
-            required
-          />
-        </div>
-      </LabelPasswordConfirm>
       {/*  <Link to="/home">
       </Link> */}
       <SubmitButton title="Sign Up" />
@@ -135,10 +143,6 @@ const Form = styled.form`
   img:nth-of-type(4) {
     grid-column: 2/3;
     grid-row: 5/6;
-  }
-  img:nth-of-type(5) {
-    grid-column: 2/3;
-    grid-row: 6/7;
   }
 
   a {
@@ -188,8 +192,20 @@ const LabelDate = styled(Label)`
 const LabelPassword = styled(Label)`
   grid-column: 3/4;
   grid-row: 5/6;
-`;
-const LabelPasswordConfirm = styled(Label)`
-  grid-column: 3/4;
-  grid-row: 6/7;
+  > div {
+    display: flex;
+  }
+  img {
+    padding-right: 5px;
+    opacity: 0.5;
+    cursor: pointer;
+  }
+  > div > input {
+    margin-right: 0px;
+  }
+
+  button {
+    background: transparent;
+    border: none;
+  }
 `;
