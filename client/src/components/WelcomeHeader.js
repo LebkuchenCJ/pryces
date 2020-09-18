@@ -4,7 +4,7 @@ import headerBgSrc from "../assets/header-bg.png";
 import logoSrc from "../assets/logo.svg";
 import PropTypes from "prop-types";
 
-function WelcomeHeader({ onChange }) {
+function WelcomeHeader({ onSetActiveTab, activeTab }) {
   return (
     <Header>
       <LogoScreen>
@@ -12,9 +12,9 @@ function WelcomeHeader({ onChange }) {
         <h1>Mega App 2020</h1>
       </LogoScreen>
 
-      <Tabs>
-        <button onClick={() => onChange(true)}>Sign In</button>
-        <button onClick={() => onChange(false)}>Sign Up</button>
+      <Tabs activeTab={activeTab}>
+        <button onClick={() => onSetActiveTab(true)}>Sign In</button>
+        <button onClick={() => onSetActiveTab(false)}>Sign Up</button>
       </Tabs>
     </Header>
   );
@@ -22,7 +22,8 @@ function WelcomeHeader({ onChange }) {
 
 export default WelcomeHeader;
 WelcomeHeader.propTypes = {
-  onChange: PropTypes.func,
+  onSetActiveTab: PropTypes.func,
+  activeTab: PropTypes.bool,
 };
 
 const Header = styled.header`
@@ -62,8 +63,12 @@ const Tabs = styled.div`
     font-weight: bold;
     color: rgba(0, 0, 0, 0.5);
   }
-
-  button:focus {
-    color: rgba(0, 0, 0, 1);
+  button:first-of-type {
+    color: ${({ activeTab }) =>
+      activeTab ? "rgba(0, 0, 0, 1)" : "rgba(0, 0, 0, 0.5)"};
+  }
+  button:last-of-type {
+    color: ${({ activeTab }) =>
+      activeTab ? "rgba(0, 0, 0, 0.5)" : "rgba(0, 0, 0, 1)"};
   }
 `;

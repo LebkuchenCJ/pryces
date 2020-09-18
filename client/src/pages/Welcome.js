@@ -4,10 +4,10 @@ import LoginContainer from "../components/LoginContainer";
 import SignUpContainer from "../components/SignUpContainer";
 
 function Welcome() {
-  const [activeTab, setactiveTab] = useState(true);
+  const [activeTab, setActiveTab] = useState(true);
   return (
     <>
-      <WelcomeHeader onChange={setactiveTab} activeTab={activeTab} />
+      <WelcomeHeader onSetActiveTab={setActiveTab} activeTab={activeTab} />
 
       {activeTab && <LoginContainer />}
       {!activeTab && <SignUpContainer />}
