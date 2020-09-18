@@ -6,8 +6,8 @@ import dateSrc from "../assets/date_icon.svg";
 import passwordSrc from "../assets/lock_icon.svg";
 import mailSrc from "../assets/mail_icon.svg";
 import personSrc from "../assets/person_icon.svg";
-import visiableOffSrc from "../assets/visibility_off_icon.svg";
-import visiableOnSrc from "../assets/visibility_on_icon.svg";
+import visibleOffSrc from "../assets/visibility_off_icon.svg";
+import visibleOnSrc from "../assets/visibility_on_icon.svg";
 
 function SignUpForm() {
   const history = useHistory();
@@ -87,9 +87,9 @@ function SignUpForm() {
           onMouseDown={handleMouseDownPassword}
         >
           {inputData.showPassword ? (
-            <img src={visiableOnSrc} alt="Hide password" />
+            <img src={visibleOnSrc} alt="Hide password" />
           ) : (
-            <img src={visiableOffSrc} alt="Show password" />
+            <img src={visibleOffSrc} alt="Show password" />
           )}
         </button>
       </LabelPassword>
