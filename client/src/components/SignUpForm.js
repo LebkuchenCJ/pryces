@@ -154,9 +154,6 @@ const Label = styled.label`
     border: none;
     background: transparent;
   }
-  > input:focus {
-    outline: none;
-  }
 `;
 const LabelName = styled(Label)`
   grid-column: 3/4;

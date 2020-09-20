@@ -37,6 +37,12 @@ function GlobalStyles() {
           font-size: 14px;
           color: var(--font-color-main);
           background-color: var(--bg-color-main);
+          button:active,
+          button:focus,
+          input:focus,
+          input:active {
+            outline: none;
+          }
         }
       `}
     />

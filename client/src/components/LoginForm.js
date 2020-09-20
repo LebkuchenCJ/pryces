@@ -47,10 +47,6 @@ const Form = styled.form`
     background: transparent;
   }
 
-  div > input:focus {
-    outline: none;
-  }
-
   div {
     border-radius: 30px;
     background-color: var(--bg-color-light);
