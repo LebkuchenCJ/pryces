@@ -27,9 +27,6 @@ const Container = styled.div`
     text-decoration: none;
     border: 1px solid;
     margin: 5px;
-    * {
-      margin: 0;
-    }
   }
 `;
 

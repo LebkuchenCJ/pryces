@@ -26,10 +26,6 @@ const Container = styled.div`
     align-items: center;
     flex-direction: column;
   }
-  h3,
-  h2 {
-    margin: 0;
-  }
   h2 {
     color: var(--font-title-welcome);
     font-size: 2rem;

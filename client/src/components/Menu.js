@@ -76,7 +76,6 @@ const Nav = styled.nav`
     grid-row: 1 / 3;
   }
   h2 {
-    margin: 0;
     padding: 15px 0;
     grid-row: 3/4;
     text-align: center;
