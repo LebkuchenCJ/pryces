@@ -6,6 +6,7 @@ import List from "../components/List";
 import ListItem from "../components/ListItem";
 import Header from "../components/Header";
 import FloatingActionButton from "../components/FloatingActionButton";
+import ListCreationContainer from "../components/ListCreationContainer";
 
 function Home() {
   const [name, setName] = useState("");
@@ -32,17 +33,12 @@ function Home() {
       <Header title="Grocery Lists"></Header>
 
       <Container>
-        <form className="createList" onSubmit={handleSubmit}>
-          <label>Create new shopping list</label>
-          <input
-            value={name}
-            placeholder="Enter shopping list name"
-            onChange={(event) => setName(event.target.value)}
-          />
-
-          <button onClick={() => hideForm()}>Cancel</button>
-          <input type="submit" disabled={!name} value="Create list" />
-        </form>
+        <ListCreationContainer
+          value={name}
+          onSetName={setName}
+          onHideForm={hideForm}
+          onHandleSubmit={handleSubmit}
+        />
         <List>
           {error && <div>Could not get data. Please cry.</div>}
           {loading && <div>Loading...</div>}
