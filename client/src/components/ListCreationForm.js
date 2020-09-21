@@ -66,6 +66,7 @@ const Form = styled.form`
   div > input {
     border: none;
     padding-left: 10px;
+    width: 90%;
   }
   > button {
     grid-row: 3 / 4;
