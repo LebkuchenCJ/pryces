@@ -20,4 +20,5 @@ ListItemDelete.propTypes = {
 const DeleteButton = styled.button`
   background-color: transparent;
   border: none;
+  justify-self: flex-end;
 `;
