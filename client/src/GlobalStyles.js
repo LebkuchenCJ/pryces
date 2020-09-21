@@ -44,6 +44,11 @@ function GlobalStyles() {
             outline: none;
           }
 
+          button,
+          a {
+            cursor: pointer;
+          }
+
           h2,
           h3,
           h4,

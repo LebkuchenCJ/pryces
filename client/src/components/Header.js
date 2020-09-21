@@ -71,9 +71,6 @@ const HeaderWrapper = styled.header`
     height: 3rem;
     width: 3rem;
   }
-  img:hover {
-    cursor: pointer;
-  }
   @media only screen and (max-width: 600px) {
     h1 {
       font-size: 1.8rem;

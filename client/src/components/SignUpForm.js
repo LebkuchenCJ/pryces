@@ -175,7 +175,6 @@ const LabelPassword = styled(Label)`
   img {
     padding-right: 5px;
     opacity: 0.5;
-    cursor: pointer;
   }
   > input {
     margin-right: 0px;
