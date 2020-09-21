@@ -1,11 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
+import styled from "@emotion/styled";
 
-function List({ children }) {
-  return <div>{children}</div>;
-}
+const List = styled.div`
+  width: 90%;
+`;
 
 export default List;
-List.propTypes = {
-  children: PropTypes.any,
-};
