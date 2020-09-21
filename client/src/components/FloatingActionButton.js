@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import addSrc from "../assets/addCircle.svg";
 import PropTypes from "prop-types";
 
-function FAB({ displayForm }) {
+function FloatingActionButton({ displayForm }) {
   return (
     <Button onClick={() => displayForm()}>
       <img src={addSrc} alt="Add button" />
@@ -11,8 +11,8 @@ function FAB({ displayForm }) {
   );
 }
 
-export default FAB;
-FAB.propTypes = {
+export default FloatingActionButton;
+FloatingActionButton.propTypes = {
   displayForm: PropTypes.any,
 };
 
