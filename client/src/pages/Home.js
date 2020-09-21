@@ -6,9 +6,11 @@ import List from "../components/List";
 import ListItem from "../components/ListItem";
 import Header from "../components/Header";
 import FloatingActionButton from "../components/FloatingActionButton";
+import ListCreationContainer from "../components/ListCreationContainer";
 
 function Home() {
   const [name, setName] = useState("");
+  const [inputfield, setInputfield] = useState(false);
   const { data: lists, loading, error, refetch } = useAsync(fetchLists);
 
   async function handleSubmit(event) {
@@ -16,15 +18,8 @@ function Home() {
     const data = { name };
     await postList(data);
     await refetch();
-    hideForm();
+    setInputfield(false);
     setName("");
-  }
-
-  function displayForm() {
-    document.querySelector(".createList").style.display = "flex";
-  }
-  function hideForm() {
-    document.querySelector(".createList").style.display = "none";
   }
 
   return (
@@ -32,17 +27,6 @@ function Home() {
       <Header title="Grocery Lists"></Header>
 
       <Container>
-        <form className="createList" onSubmit={handleSubmit}>
-          <label>Create new shopping list</label>
-          <input
-            value={name}
-            placeholder="Enter shopping list name"
-            onChange={(event) => setName(event.target.value)}
-          />
-
-          <button onClick={() => hideForm()}>Cancel</button>
-          <input type="submit" disabled={!name} value="Create list" />
-        </form>
         <List>
           {error && <div>Could not get data. Please cry.</div>}
           {loading && <div>Loading...</div>}
@@ -50,7 +34,15 @@ function Home() {
             <ListItem key={list.id} list={list} href={`/home/${list.id}`} />
           ))}
         </List>
-        <FloatingActionButton displayForm={() => displayForm()} />
+        <FloatingActionButton displayForm={() => setInputfield(!inputfield)} />
+        {inputfield && (
+          <ListCreationContainer
+            value={name}
+            onSetName={setName}
+            onCancelForm={setInputfield}
+            onHandleSubmit={handleSubmit}
+          />
+        )}
       </Container>
     </>
   );
