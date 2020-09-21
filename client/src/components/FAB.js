@@ -19,4 +19,7 @@ FAB.propTypes = {
 const Button = styled.button`
   background: transparent;
   border: none;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
 `;

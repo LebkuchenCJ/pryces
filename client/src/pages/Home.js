@@ -5,6 +5,7 @@ import useAsync from "../hooks/useAsync";
 import List from "../components/List";
 import ListItem from "../components/ListItem";
 import Header from "../components/Header";
+import FAB from "../components/FAB";
 
 function Home() {
   const [name, setName] = useState("");
@@ -50,6 +51,7 @@ function Home() {
             <ListItem key={list.id} list={list} href={`/home/${list.id}`} />
           ))}
         </List>
+        <FAB />
       </Container>
     </>
   );
