@@ -6,7 +6,7 @@ import ListCreationForm from "./ListCreationForm";
 function ListCreationContainer({
   value,
   onSetName,
-  onHideForm,
+  onCancelForm,
   onHandleSubmit,
 }) {
   return (
@@ -14,7 +14,7 @@ function ListCreationContainer({
       <ListCreationForm
         value={value}
         onSetName={onSetName}
-        onHideForm={onHideForm}
+        onCancelForm={onCancelForm}
         onHandleSubmit={onHandleSubmit}
       />
     </Container>
@@ -25,7 +25,7 @@ export default ListCreationContainer;
 ListCreationContainer.propTypes = {
   value: PropTypes.string,
   onSetName: PropTypes.func,
-  onHideForm: PropTypes.func,
+  onCancelForm: PropTypes.func,
   onHandleSubmit: PropTypes.func,
 };
 

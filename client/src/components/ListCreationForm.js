@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import editSrc from "../assets/edit_icon.svg";
 
-function ListCreationForm({ value, onSetName, onHideForm, onHandleSubmit }) {
+function ListCreationForm({ value, onSetName, onCancelForm, onHandleSubmit }) {
   return (
     <Form className="createList" onSubmit={onHandleSubmit}>
       <label>
@@ -18,7 +18,7 @@ function ListCreationForm({ value, onSetName, onHideForm, onHandleSubmit }) {
         </div>
       </label>
 
-      <button onClick={() => onHideForm()}>Cancel</button>
+      <button onClick={() => onCancelForm(false)}>Cancel</button>
       <input type="submit" disabled={!value} value="Create list" />
     </Form>
   );
@@ -28,12 +28,12 @@ export default ListCreationForm;
 ListCreationForm.propTypes = {
   value: PropTypes.string,
   onSetName: PropTypes.func,
-  onHideForm: PropTypes.func,
+  onCancelForm: PropTypes.func,
   onHandleSubmit: PropTypes.func,
 };
 
 const Form = styled.form`
-  width: 60%;
+  width: 70%;
   height: 20%;
   padding: 15px 15px 0;
   background: #fff;

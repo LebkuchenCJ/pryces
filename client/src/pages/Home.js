@@ -10,6 +10,7 @@ import ListCreationContainer from "../components/ListCreationContainer";
 
 function Home() {
   const [name, setName] = useState("");
+  const [inputfield, setInputfield] = useState(false);
   const { data: lists, loading, error, refetch } = useAsync(fetchLists);
 
   async function handleSubmit(event) {
@@ -17,15 +18,8 @@ function Home() {
     const data = { name };
     await postList(data);
     await refetch();
-    hideForm();
+    setInputfield(false);
     setName("");
-  }
-
-  function displayForm() {
-    document.querySelector(".createList").style.display = "flex";
-  }
-  function hideForm() {
-    document.querySelector(".createList").style.display = "none";
   }
 
   return (
@@ -33,12 +27,6 @@ function Home() {
       <Header title="Grocery Lists"></Header>
 
       <Container>
-        <ListCreationContainer
-          value={name}
-          onSetName={setName}
-          onHideForm={hideForm}
-          onHandleSubmit={handleSubmit}
-        />
         <List>
           {error && <div>Could not get data. Please cry.</div>}
           {loading && <div>Loading...</div>}
@@ -46,7 +34,15 @@ function Home() {
             <ListItem key={list.id} list={list} href={`/home/${list.id}`} />
           ))}
         </List>
-        <FloatingActionButton displayForm={() => displayForm()} />
+        <FloatingActionButton displayForm={() => setInputfield(!inputfield)} />
+        {inputfield && (
+          <ListCreationContainer
+            value={name}
+            onSetName={setName}
+            onCancelForm={setInputfield}
+            onHandleSubmit={handleSubmit}
+          />
+        )}
       </Container>
     </>
   );
