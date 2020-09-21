@@ -3,9 +3,9 @@ import styled from "@emotion/styled";
 import addSrc from "../assets/addCircle.svg";
 import PropTypes from "prop-types";
 
-function FAB(props) {
+function FAB({ displayForm }) {
   return (
-    <Button>
+    <Button onClick={() => displayForm()}>
       <img src={addSrc} alt="Add button" />
     </Button>
   );
@@ -13,7 +13,7 @@ function FAB(props) {
 
 export default FAB;
 FAB.propTypes = {
-  props: PropTypes.any,
+  displayForm: PropTypes.any,
 };
 
 const Button = styled.button`

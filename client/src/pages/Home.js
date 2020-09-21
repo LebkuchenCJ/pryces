@@ -43,7 +43,6 @@ function Home() {
           <button onClick={() => hideForm()}>Cancel</button>
           <input type="submit" disabled={!name} value="Create list" />
         </form>
-        <button onClick={() => displayForm()}>Add List</button>
         <List>
           {error && <div>Could not get data. Please cry.</div>}
           {loading && <div>Loading...</div>}
@@ -51,7 +50,7 @@ function Home() {
             <ListItem key={list.id} list={list} href={`/home/${list.id}`} />
           ))}
         </List>
-        <FAB />
+        <FAB displayForm={() => displayForm()} />
       </Container>
     </>
   );
