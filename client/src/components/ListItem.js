@@ -1,33 +1,31 @@
 import React from "react";
 import PropTypes from "prop-types";
 import ListItemText from "./ListItemText";
-import ListItemIcon from "./ListItemIcon";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
+import ListItemDelete from "./ListItemDelete";
 
 function ListItem({ list, href }) {
   return (
-    <Container>
-      <Link to={href}>
+    <Link to={href}>
+      <Container>
         <ListItemText title={list.name} />
-        <ListItemIcon />
-      </Link>
-    </Container>
+        <ListItemDelete />
+      </Container>
+    </Link>
   );
 }
 
 const Container = styled.div`
-  a {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 200px;
-    background-color: var(--bg-color-light);
-    color: var(--font-color-main);
-    text-decoration: none;
-    border: 1px solid;
-    margin: 5px;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: var(--bg-color-light);
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+  border: 1px solid #fff;
+  border-radius: 50px;
+  margin: 5px 0;
 `;
 
 export default ListItem;
