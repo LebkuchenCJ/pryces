@@ -5,6 +5,7 @@ import useAsync from "../hooks/useAsync";
 import List from "../components/List";
 import ListItem from "../components/ListItem";
 import Header from "../components/Header";
+import FloatingActionButton from "../components/FloatingActionButton";
 
 function Home() {
   const [name, setName] = useState("");
@@ -42,7 +43,6 @@ function Home() {
           <button onClick={() => hideForm()}>Cancel</button>
           <input type="submit" disabled={!name} value="Create list" />
         </form>
-        <button onClick={() => displayForm()}>Add List</button>
         <List>
           {error && <div>Could not get data. Please cry.</div>}
           {loading && <div>Loading...</div>}
@@ -50,6 +50,7 @@ function Home() {
             <ListItem key={list.id} list={list} href={`/home/${list.id}`} />
           ))}
         </List>
+        <FloatingActionButton displayForm={() => displayForm()} />
       </Container>
     </>
   );
