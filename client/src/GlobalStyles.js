@@ -55,6 +55,7 @@ function GlobalStyles() {
           h5 {
             margin: 0;
           }
+
           p {
             margin: 0;
           }
