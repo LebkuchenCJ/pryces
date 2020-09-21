@@ -14,12 +14,13 @@ function ListCreationForm({ value, onSetName, onCancelForm, onHandleSubmit }) {
             value={value}
             placeholder="Enter shopping list name"
             onChange={(event) => onSetName(event.target.value)}
+            required
           />
         </div>
       </label>
 
       <button onClick={() => onCancelForm(false)}>Cancel</button>
-      <input type="submit" disabled={!value} value="Create list" />
+      <input type="submit" disabled={!value} value="Create" />
     </Form>
   );
 }
