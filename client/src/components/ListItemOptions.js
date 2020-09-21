@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 import deleteSrc from "../assets/delete_icon.svg";
 import styled from "@emotion/styled";
 
-function ListItemDelete(props) {
+function ListItemOptions({ onCheck }) {
   return (
     <Wrapper>
-      <input type="checkbox" />
+      <input type="checkbox" onClick={() => onCheck()} />
       <button>
         <img src={deleteSrc} alt="Delete icon" />
       </button>
@@ -14,10 +14,10 @@ function ListItemDelete(props) {
   );
 }
 
-export default ListItemDelete;
+export default ListItemOptions;
 
-ListItemDelete.propTypes = {
-  props: PropTypes.any,
+ListItemOptions.propTypes = {
+  onCheck: PropTypes.func,
 };
 
 const Wrapper = styled.div`

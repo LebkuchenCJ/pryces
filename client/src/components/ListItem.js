@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import ListItemText from "./ListItemText";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
-import ListItemDelete from "./ListItemDelete";
+import ListItemOptions from "./ListItemOptions";
 import ListItemCount from "./ListItemCount";
 
 function ListItem({ list, href }) {
+  const [checked, setChecked] = useState(false);
   return (
     <Container>
       <ListItemCount />
       <Link to={href}>
-        <ListItemText title={list.name} />
+        <ListItemText title={list.name} value={checked} />
       </Link>
-      <ListItemDelete />
+      <ListItemOptions onCheck={() => setChecked(!checked)} />
     </Container>
   );
 }
