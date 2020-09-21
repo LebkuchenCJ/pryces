@@ -8,13 +8,13 @@ import ListItemCount from "./ListItemCount";
 
 function ListItem({ list, href }) {
   return (
-    <Link to={href}>
-      <Container>
-        <ListItemCount />
+    <Container>
+      <ListItemCount />
+      <Link to={href}>
         <ListItemText title={list.name} />
-        <ListItemDelete />
-      </Container>
-    </Link>
+      </Link>
+      <ListItemDelete />
+    </Container>
   );
 }
 
