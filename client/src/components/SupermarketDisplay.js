@@ -33,9 +33,6 @@ const Container = styled.div`
   h3 {
     margin-bottom: 0;
   }
-  p {
-    margin: 0;
-  }
   div:last-child {
     display: flex;
     justify-content: space-between;

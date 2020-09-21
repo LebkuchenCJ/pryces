@@ -154,9 +154,6 @@ const Label = styled.label`
     border: none;
     background: transparent;
   }
-  > input:focus {
-    outline: none;
-  }
 `;
 const LabelName = styled(Label)`
   grid-column: 3/4;
@@ -178,7 +175,6 @@ const LabelPassword = styled(Label)`
   img {
     padding-right: 5px;
     opacity: 0.5;
-    cursor: pointer;
   }
   > input {
     margin-right: 0px;

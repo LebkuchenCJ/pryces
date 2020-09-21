@@ -37,6 +37,28 @@ function GlobalStyles() {
           font-size: 14px;
           color: var(--font-color-main);
           background-color: var(--bg-color-main);
+          button:active,
+          button:focus,
+          input:focus,
+          input:active {
+            outline: none;
+          }
+
+          button,
+          a {
+            cursor: pointer;
+          }
+
+          h2,
+          h3,
+          h4,
+          h5 {
+            margin: 0;
+          }
+
+          p {
+            margin: 0;
+          }
         }
       `}
     />
