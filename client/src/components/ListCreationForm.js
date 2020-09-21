@@ -42,6 +42,10 @@ const Form = styled.form`
   grid-template-rows: 3 * 1fr;
   grid-template-columns: 3fr 1fr 1fr;
 
+  @media only screen and (min-width: 600px) {
+    width: 30%;
+  }
+
   label {
     grid-row: 1 / 3;
     grid-column: 1 / 4;
