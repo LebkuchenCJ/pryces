@@ -5,9 +5,12 @@ import styled from "@emotion/styled";
 
 function ListItemDelete(props) {
   return (
-    <DeleteButton>
-      <img src={deleteSrc} alt="Delete icon" />
-    </DeleteButton>
+    <Wrapper>
+      <input type="checkbox" />
+      <button>
+        <img src={deleteSrc} alt="Delete icon" />
+      </button>
+    </Wrapper>
   );
 }
 
@@ -17,8 +20,18 @@ ListItemDelete.propTypes = {
   props: PropTypes.any,
 };
 
-const DeleteButton = styled.button`
-  background-color: transparent;
-  border: none;
+const Wrapper = styled.div`
   justify-self: flex-end;
+
+  > button {
+    background-color: transparent;
+    border: none;
+  }
+  img {
+    height: 1rem;
+  }
+
+  > input {
+    height: 1rem;
+  }
 `;
