@@ -8,6 +8,7 @@ import Header from "../components/Header";
 import PropTypes from "prop-types";
 import ProductAddContainer from "../components/ProductAddContainer";
 import FloatingActionButton from "../components/FloatingActionButton";
+import EmptyListScreen from "../components/EmptyListScreen";
 
 function List({ onGroceryListChange }) {
   const { id } = useParams();
@@ -62,18 +63,21 @@ function List({ onGroceryListChange }) {
           <Header title={list.name}></Header>
 
           <Container>
-            <ProductList>
-              <h4>Product List</h4>
-              {list.products.map((product) => (
-                <div key={product.id}>
-                  <p>{product.name}</p>
-                  <span>Category: {product.category}</span>
-                </div>
-              ))}
-              <Link to={`/list/${list.id}/compare`}>
-                <button>Compare </button>
-              </Link>
-            </ProductList>
+            {list.products.length < 1 && <EmptyListScreen />}
+            {list.products.length > 1 && (
+              <ProductList>
+                <h4>Product List</h4>
+                {list.products.map((product) => (
+                  <div key={product.id}>
+                    <p>{product.name}</p>
+                    <span>Category: {product.category}</span>
+                  </div>
+                ))}
+                <Link to={`/list/${list.id}/compare`}>
+                  <button>Compare </button>
+                </Link>
+              </ProductList>
+            )}
             <FloatingActionButton
               displayForm={() => setInputField(!inputField)}
             />
@@ -102,6 +106,7 @@ List.propTypes = {
 };
 
 const Container = styled.div`
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
