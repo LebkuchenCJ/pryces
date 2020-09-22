@@ -22,7 +22,7 @@ function ListItem({ list, href }) {
 const Container = styled.div`
   display: grid;
   grid-template-rows: 3 * 1fr;
-  width: 100%;
+  width: 98%;
   background-color: var(--bg-color-light);
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
   border: 1px solid #fff;
