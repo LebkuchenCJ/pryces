@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { fetchList } from "../api/list";
 import styled from "@emotion/styled";
 import { postProduct, fetchProductByname } from "../api/products";
@@ -9,6 +9,7 @@ import PropTypes from "prop-types";
 import ProductAddContainer from "../components/ProductAddContainer";
 import FloatingActionButton from "../components/FloatingActionButton";
 import EmptyListScreen from "../components/EmptyListScreen";
+import ProductListContainer from "../components/ProductListContainer";
 
 function List({ onGroceryListChange }) {
   const { id } = useParams();
@@ -64,20 +65,7 @@ function List({ onGroceryListChange }) {
 
           <Container>
             {list.products.length < 1 && <EmptyListScreen />}
-            {list.products.length > 1 && (
-              <ProductList>
-                <h4>Product List</h4>
-                {list.products.map((product) => (
-                  <div key={product.id}>
-                    <p>{product.name}</p>
-                    <span>Category: {product.category}</span>
-                  </div>
-                ))}
-                <Link to={`/list/${list.id}/compare`}>
-                  <button>Compare </button>
-                </Link>
-              </ProductList>
-            )}
+            {list.products.length > 1 && <ProductListContainer list={list} />}
             <FloatingActionButton
               displayForm={() => setInputField(!inputField)}
             />
@@ -111,20 +99,4 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-`;
-const ProductList = styled.div`
-  background-color: #f2f2f2;
-  width: 150px;
-  border: solid 1px;
-  > h4 {
-    text-align: center;
-    text-decoration: underline;
-  }
-  p {
-    margin: 10px 0 0 0;
-    font-weight: bold;
-  }
-  span {
-    font-size: 0.8rem;
-  }
 `;
