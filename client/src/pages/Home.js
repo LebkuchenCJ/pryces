@@ -12,7 +12,7 @@ import ListDeleterContainer from "../components/ListDeleterContainer";
 function Home() {
   const [name, setName] = useState("");
   const [inputfield, setInputfield] = useState(false);
-  const [delelteOverlay, setDelelteOverlay] = useState(false);
+  const [deleterOverlay, setDeleterOverlay] = useState(false);
   const { data: lists, loading, error, refetch } = useAsync(fetchLists);
 
   async function handleSubmit(event) {
@@ -37,7 +37,7 @@ function Home() {
               key={list.id}
               list={list}
               href={`/home/${list.id}`}
-              onDelete={setDelelteOverlay}
+              onDelete={setDeleterOverlay}
             />
           ))}
         </List>
@@ -50,8 +50,8 @@ function Home() {
             onHandleSubmit={handleSubmit}
           />
         )}
-        {delelteOverlay && (
-          <ListDeleterContainer onCancel={setDelelteOverlay} />
+        {deleterOverlay && (
+          <ListDeleterContainer onCancel={setDeleterOverlay} />
         )}
       </Container>
     </>
