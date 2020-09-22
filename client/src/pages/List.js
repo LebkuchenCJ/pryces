@@ -6,12 +6,15 @@ import { postProduct, fetchProductByname } from "../api/products";
 import useAsync from "../hooks/useAsync";
 import Header from "../components/Header";
 import PropTypes from "prop-types";
+import ProductAddContainer from "../components/ProductAddContainer";
+import FloatingActionButton from "../components/FloatingActionButton";
 
 function List({ onGroceryListChange }) {
   const { id } = useParams();
   const [query, setQuery] = useState([]);
   const [display, setDisplay] = useState(false);
   const [products, setProducts] = useState([]);
+  const [inputfield, setInputfield] = useState(false);
   const { data: list, loading, error, refetch } = useAsync(fetchList, id);
 
   useEffect(() => {
@@ -59,35 +62,6 @@ function List({ onGroceryListChange }) {
           <Header title={list.name}></Header>
 
           <Container>
-            <Form onSubmit={handleSubmit}>
-              <label>Add your Products</label>
-              <input
-                placeholder="Search products"
-                value={query}
-                onClick={() => setDisplay(!display)}
-                onChange={(event) => {
-                  handleChange(event.target.value);
-                }}
-              />
-              {display && (
-                <div>
-                  {products?.map((product) => (
-                    <ProductName
-                      key={product.id}
-                      onClick={() => {
-                        handleClick(product);
-                      }}
-                    >
-                      {product.name}
-                    </ProductName>
-                  ))}
-                </div>
-              )}
-
-              <button>Cancel</button>
-              <input type="submit" value="Add product" />
-            </Form>
-
             <ProductList>
               <h4>Product List</h4>
               {list.products.map((product) => (
@@ -100,6 +74,20 @@ function List({ onGroceryListChange }) {
                 <button>Compare </button>
               </Link>
             </ProductList>
+            <FloatingActionButton
+              displayForm={() => setInputfield(!inputfield)}
+            />
+            {inputfield && (
+              <ProductAddContainer
+                onHandleSubmit={handleSubmit}
+                query={query}
+                onSetDisplay={setDisplay}
+                display={display}
+                onHandleChange={handleChange}
+                products={products}
+                onHandleClick={handleClick}
+              />
+            )}
           </Container>
         </>
       )}
@@ -118,14 +106,6 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  border: solid 1px;
-  margin: 10px 0;
-`;
-
 const ProductList = styled.div`
   background-color: #f2f2f2;
   width: 150px;
@@ -140,13 +120,5 @@ const ProductList = styled.div`
   }
   span {
     font-size: 0.8rem;
-  }
-`;
-
-const ProductName = styled.p`
-  margin: 0;
-  :hover {
-    cursor: pointer;
-    background-color: #f2f2f2;
   }
 `;
