@@ -7,10 +7,12 @@ import ListItem from "../components/ListItem";
 import Header from "../components/Header";
 import FloatingActionButton from "../components/FloatingActionButton";
 import ListCreationContainer from "../components/ListCreationContainer";
+import ListDeleterContainer from "../components/ListDeleterContainer";
 
 function Home() {
   const [name, setName] = useState("");
   const [inputfield, setInputfield] = useState(false);
+  const [deleterOverlay, setDeleterOverlay] = useState(false);
   const { data: lists, loading, error, refetch } = useAsync(fetchLists);
 
   async function handleSubmit(event) {
@@ -31,7 +33,12 @@ function Home() {
           {error && <div>Could not get data. Please cry.</div>}
           {loading && <div>Loading...</div>}
           {lists?.map((list) => (
-            <ListItem key={list.id} list={list} href={`/home/${list.id}`} />
+            <ListItem
+              key={list.id}
+              list={list}
+              href={`/home/${list.id}`}
+              onDelete={setDeleterOverlay}
+            />
           ))}
         </List>
         <FloatingActionButton displayForm={() => setInputfield(!inputfield)} />
@@ -42,6 +49,9 @@ function Home() {
             onCancelForm={setInputfield}
             onHandleSubmit={handleSubmit}
           />
+        )}
+        {deleterOverlay && (
+          <ListDeleterContainer onCancel={setDeleterOverlay} />
         )}
       </Container>
     </>
