@@ -17,6 +17,7 @@ function ProductAddContainer({
     <Container>
       <ProductAddForm
         onHandleSubmit={onHandleSubmit}
+        query={query}
         onSetDisplay={onSetDisplay}
         display={display}
         onHandleChange={onHandleChange}
