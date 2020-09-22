@@ -2,31 +2,33 @@
   "lists": [
     {
       "id": 1,
+      "creationDate": "2.9.2020",
       "name": "Test"
     },
     {
       "name": "Birthday",
+      "creationDate": "14.9.2020",
       "id": 2
     },
     {
       "name": "BBQ",
+      "creationDate": "9.9.2020",
       "id": 3
     },
     {
       "name": "Wein",
+      "creationDate": "13.9.2020",
       "id": 4
     },
     {
       "name": "Kaffeee",
+      "creationDate": "31.8.2020",
       "id": 5
     },
     {
       "name": "Bergfest",
+      "creationDate": "13.9.2020",
       "id": 6
-    },
-    {
-      "name": "Wurst",
-      "id": 7
     }
   ],
   "products": [

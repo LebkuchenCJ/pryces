@@ -2,9 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 
-function ListItemCount(props) {
+function ListItemCount({ date }) {
   return (
     <Wrapper>
+      <p>{date}</p>
       <p>
         <span>5</span> Products
       </p>
@@ -15,11 +16,11 @@ function ListItemCount(props) {
 export default ListItemCount;
 
 ListItemCount.propTypes = {
-  props: PropTypes.any,
+  date: PropTypes.string,
 };
 
 const Wrapper = styled.div`
   display: flex;
-  justify-self: flex-end;
+  justify-content: space-between;
   padding-right: 6px;
 `;

@@ -17,7 +17,14 @@ function Home() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const data = { name };
+    const currentDate = new Date();
+    const date =
+      currentDate.getDate() +
+      "." +
+      (currentDate.getMonth() + 1) +
+      "." +
+      currentDate.getFullYear();
+    const data = { name, creationDate: date };
     await postList(data);
     await refetch();
     setInputfield(false);

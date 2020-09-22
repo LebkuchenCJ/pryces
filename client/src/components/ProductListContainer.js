@@ -8,7 +8,7 @@ import compareSrc from "../assets/compare_icon.svg";
 function ProductListContainer({ list }) {
   return (
     <Container>
-      <h4>Date Placeholder</h4>
+      <h4>{list.creationDate}</h4>
       <ProductListItem list={list} />
       <Link to={`/list/${list.id}/compare`}>
         <img src={compareSrc} alt="Compare Icon" />
@@ -23,6 +23,7 @@ ProductListContainer.propTypes = {
   list: PropTypes.shape({
     id: PropTypes.number,
     products: PropTypes.array,
+    creationDate: PropTypes.string,
   }),
 };
 

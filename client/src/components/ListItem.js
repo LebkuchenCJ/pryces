@@ -4,13 +4,13 @@ import ListItemText from "./ListItemText";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 import ListItemOptions from "./ListItemOptions";
-import ListItemCount from "./ListItemCount";
+import ListItemDetails from "./ListItemDetails";
 
 function ListItem({ list, href, onDelete }) {
   const [checked, setChecked] = useState(false);
   return (
     <Container>
-      <ListItemCount />
+      <ListItemDetails date={list.creationDate} />
       <Link to={href}>
         <ListItemText title={list.name} value={checked} />
       </Link>
@@ -38,6 +38,7 @@ export default ListItem;
 ListItem.propTypes = {
   list: PropTypes.shape({
     name: PropTypes.string,
+    creationDate: PropTypes.string,
   }),
   href: PropTypes.string,
   onDelete: PropTypes.func,
