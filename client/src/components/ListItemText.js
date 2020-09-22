@@ -1,16 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styled from "@emotion/styled";
 
-function ListItemText({ title }) {
-  return (
-    <div>
-      <p>1.1.2020</p>
-      <h4>{title}</h4>
-    </div>
-  );
+function ListItemText({ title, value }) {
+  return <ListName value={value}>{title}</ListName>;
 }
 
 export default ListItemText;
 ListItemText.propTypes = {
-  title: PropTypes.any,
+  title: PropTypes.string,
+  value: PropTypes.bool,
 };
+
+const ListName = styled.h4`
+  font-size: 1.2rem;
+  text-decoration: ${({ value }) => (value ? "line-through" : "none")};
+`;

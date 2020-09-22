@@ -54,14 +54,5 @@ const Container = styled.div`
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  overflow: hidden;
-  > p {
-    margin: 0;
-  }
-  > form {
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    border: solid 2px;
-  }
+  overflow: scroll;
 `;

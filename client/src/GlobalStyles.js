@@ -47,6 +47,8 @@ function GlobalStyles() {
           button,
           a {
             cursor: pointer;
+            text-decoration: none;
+            color: var(--font-color-main);
           }
 
           h2,
