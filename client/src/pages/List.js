@@ -14,7 +14,7 @@ function List({ onGroceryListChange }) {
   const [query, setQuery] = useState([]);
   const [display, setDisplay] = useState(false);
   const [products, setProducts] = useState([]);
-  const [inputfield, setInputfield] = useState(false);
+  const [inputField, setInputField] = useState(false);
   const { data: list, loading, error, refetch } = useAsync(fetchList, id);
 
   useEffect(() => {
@@ -75,9 +75,9 @@ function List({ onGroceryListChange }) {
               </Link>
             </ProductList>
             <FloatingActionButton
-              displayForm={() => setInputfield(!inputfield)}
+              displayForm={() => setInputField(!inputField)}
             />
-            {inputfield && (
+            {inputField && (
               <ProductAddContainer
                 onHandleSubmit={handleSubmit}
                 query={query}
@@ -86,7 +86,7 @@ function List({ onGroceryListChange }) {
                 onHandleChange={handleChange}
                 products={products}
                 onHandleClick={handleClick}
-                displayForm={() => setInputfield()}
+                displayForm={() => setInputField()}
               />
             )}
           </Container>
