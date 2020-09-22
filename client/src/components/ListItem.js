@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import ListItemOptions from "./ListItemOptions";
 import ListItemCount from "./ListItemCount";
 
-function ListItem({ list, href }) {
+function ListItem({ list, href, onDelete }) {
   const [checked, setChecked] = useState(false);
   return (
     <Container>
@@ -14,7 +14,10 @@ function ListItem({ list, href }) {
       <Link to={href}>
         <ListItemText title={list.name} value={checked} />
       </Link>
-      <ListItemOptions onCheck={() => setChecked(!checked)} />
+      <ListItemOptions
+        onCheck={() => setChecked(!checked)}
+        onDelete={onDelete}
+      />
     </Container>
   );
 }
@@ -33,6 +36,9 @@ const Container = styled.div`
 
 export default ListItem;
 ListItem.propTypes = {
-  list: PropTypes.any,
-  href: PropTypes.any,
+  list: PropTypes.shape({
+    name: PropTypes.string,
+  }),
+  href: PropTypes.string,
+  onDelete: PropTypes.func,
 };
