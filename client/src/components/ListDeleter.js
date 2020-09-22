@@ -22,19 +22,30 @@ ListDeleter.propTypes = {
 const Wrapper = styled.div`
   width: 70%;
   height: 20%;
-  padding: 15px 15px 0;
+  padding: 0 15px;
   background: #fff;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
-  display: grid;
-  grid-template-rows: 3 * 1fr;
-  grid-template-columns: 3fr 1fr 1fr;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 
   @media only screen and (min-width: 600px) {
     width: 30%;
   }
-
+  h4 {
+    color: var(--font-title-welcome);
+  }
   button {
     background-color: transparent;
     border: none;
+    margin-left: 10px;
+    font-size: 1rem;
+  }
+  > div {
+    align-self: flex-end;
+  }
+
+  button:last-of-type {
+    color: var(--font-title-welcome);
   }
 `;
