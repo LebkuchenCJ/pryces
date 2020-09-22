@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
+import ProductSearchBar from "./ProductSearchBar";
 
 ProductAddForm.propTypes = {};
 
@@ -16,15 +17,15 @@ function ProductAddForm({
 }) {
   return (
     <Form onSubmit={() => onHandleSubmit}>
-      <label>Add your Products</label>
-      <input
-        placeholder="Search products"
-        value={query}
-        onClick={() => onSetDisplay(!display)}
-        onChange={(event) => {
-          onHandleChange(event.target.value);
-        }}
-      />
+      <label>
+        <h4>Add your Product</h4>
+        <ProductSearchBar
+          display={display}
+          onHandleChange={onHandleChange}
+          query={query}
+          onSetDisplay={onSetDisplay}
+        />
+      </label>
       {display && (
         <div>
           {products?.map((product) => (
@@ -39,9 +40,10 @@ function ProductAddForm({
           ))}
         </div>
       )}
-
-      <button onClick={() => displayForm(false)}>Cancel</button>
-      <input type="submit" value="Add product" />
+      <ButtonWrapper>
+        <button onClick={() => displayForm(false)}>Cancel</button>
+        <input type="submit" value="Add product" />
+      </ButtonWrapper>
     </Form>
   );
 }
@@ -59,10 +61,22 @@ ProductAddForm.propTypes = {
 };
 
 const Form = styled.form`
+  width: 70%;
+  height: 20%;
+  padding: 0 15px;
+  background: #fff;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
   display: flex;
   flex-direction: column;
-  border: solid 1px;
-  margin: 10px 0;
+  justify-content: space-around;
+
+  @media only screen and (min-width: 600px) {
+    width: 30%;
+  }
+  h4 {
+    color: var(--font-title-welcome);
+    margin-bottom: 1rem;
+  }
 `;
 
 const ProductName = styled.p`
@@ -70,5 +84,20 @@ const ProductName = styled.p`
   :hover {
     cursor: pointer;
     background-color: #f2f2f2;
+  }
+`;
+
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  input,
+  button {
+    background-color: transparent;
+    border: none;
+  }
+  input {
+    color: var(--font-title-welcome);
+    cursor: pointer;
+    font-weight: bold;
   }
 `;
