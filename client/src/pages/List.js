@@ -86,6 +86,7 @@ function List({ onGroceryListChange }) {
                 onHandleChange={handleChange}
                 products={products}
                 onHandleClick={handleClick}
+                displayForm={() => setInputfield()}
               />
             )}
           </Container>

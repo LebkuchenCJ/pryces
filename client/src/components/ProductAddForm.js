@@ -12,6 +12,7 @@ function ProductAddForm({
   onHandleChange,
   products,
   onHandleClick,
+  displayForm,
 }) {
   return (
     <Form onSubmit={() => onHandleSubmit}>
@@ -39,7 +40,7 @@ function ProductAddForm({
         </div>
       )}
 
-      <button>Cancel</button>
+      <button onClick={() => displayForm(false)}>Cancel</button>
       <input type="submit" value="Add product" />
     </Form>
   );
@@ -53,6 +54,7 @@ ProductAddForm.propTypes = {
   display: PropTypes.bool,
   onHandleChange: PropTypes.func,
   onHandleClick: PropTypes.func,
+  displayForm: PropTypes.func,
   products: PropTypes.any,
 };
 

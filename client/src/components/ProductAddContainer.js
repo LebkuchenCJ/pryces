@@ -11,6 +11,7 @@ function ProductAddContainer({
   onHandleChange,
   products,
   onHandleClick,
+  displayForm,
 }) {
   return (
     <Container>
@@ -21,6 +22,7 @@ function ProductAddContainer({
         onHandleChange={onHandleChange}
         products={products}
         onHandleClick={onHandleClick}
+        displayForm={displayForm}
       />
     </Container>
   );
@@ -33,6 +35,7 @@ ProductAddContainer.propTypes = {
   query: PropTypes.any,
   onSetDisplay: PropTypes.func,
   display: PropTypes.bool,
+  displayForm: PropTypes.func,
   onHandleChange: PropTypes.func,
   onHandleClick: PropTypes.func,
   products: PropTypes.any,
