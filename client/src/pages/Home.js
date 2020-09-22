@@ -50,7 +50,9 @@ function Home() {
             onHandleSubmit={handleSubmit}
           />
         )}
-        {delelteOverlay && <ListDeleterContainer />}
+        {delelteOverlay && (
+          <ListDeleterContainer onCancel={setDelelteOverlay} />
+        )}
       </Container>
     </>
   );

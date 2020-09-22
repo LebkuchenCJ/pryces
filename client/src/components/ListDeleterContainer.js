@@ -3,17 +3,17 @@ import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import ListDeleter from "./ListDeleter";
 
-function ListDeleterContainer(props) {
+function ListDeleterContainer({ onCancel }) {
   return (
     <Container>
-      <ListDeleter />
+      <ListDeleter onCancel={onCancel} />
     </Container>
   );
 }
 
 export default ListDeleterContainer;
 ListDeleterContainer.propTypes = {
-  props: PropTypes.any,
+  onCancel: PropTypes.func,
 };
 
 const Container = styled.div`
