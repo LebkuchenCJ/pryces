@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import ProductSearchBar from "./ProductSearchBar";
+import ProductSuggestDisplay from "./ProductSuggestDisplay";
 
 ProductAddForm.propTypes = {};
 
@@ -25,21 +26,15 @@ function ProductAddForm({
           query={query}
           onSetDisplay={onSetDisplay}
         />
+        <ProductDisplayContainer>
+          {display && (
+            <ProductSuggestDisplay
+              products={products}
+              onHandleClick={onHandleClick}
+            />
+          )}
+        </ProductDisplayContainer>
       </label>
-      {display && (
-        <div>
-          {products?.map((product) => (
-            <ProductName
-              key={product.id}
-              onClick={() => {
-                onHandleClick(product);
-              }}
-            >
-              {product.name}
-            </ProductName>
-          ))}
-        </div>
-      )}
       <ButtonWrapper>
         <button onClick={() => displayForm(false)}>Cancel</button>
         <input type="submit" value="Add product" />
@@ -79,14 +74,6 @@ const Form = styled.form`
   }
 `;
 
-const ProductName = styled.p`
-  margin: 0;
-  :hover {
-    cursor: pointer;
-    background-color: #f2f2f2;
-  }
-`;
-
 const ButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -100,4 +87,8 @@ const ButtonWrapper = styled.div`
     cursor: pointer;
     font-weight: bold;
   }
+`;
+
+const ProductDisplayContainer = styled.div`
+  position: relative;
 `;
