@@ -18,6 +18,8 @@ function setSupermarketCompareData({
     return {
       id: supermarket.id,
       name: supermarket.name,
+      rating: supermarket.rating,
+      openingHours: supermarket.openingHours,
       totalPrice: totalPrice,
       matchingProductsFound: matchingProducts,
       listProductCount: listProducts.length,
