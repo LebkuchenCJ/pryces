@@ -2,18 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import SupermarketHeader from "./SupermarketHeader";
+import SupermarketProductsInfo from "./SupermarketProductsInfo";
 
 function SupermarketDisplay({ supermarket }) {
   return (
     <Container>
       <SupermarketHeader supermarket={supermarket} />
-      <div>
-        <p>
-          Products found: {supermarket.matchingProductsFound} of{" "}
-          {supermarket.listProductCount}
-        </p>
-        <p>{supermarket.totalPrice.toFixed(2)}€</p>
-      </div>
+      <SupermarketProductsInfo supermarket={supermarket} />
     </Container>
   );
 }
