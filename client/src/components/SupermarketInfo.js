@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
+import Rating from "./Rating";
 
 function SupermarketInfo({ supermarket }) {
   return (
     <Container>
       <h3>{supermarket.name}</h3>
-      <h4>Rating:{supermarket.rating} out of 5</h4>
+      <Rating value={supermarket.rating} />
       <p>Open: {supermarket.openingHours}</p>
     </Container>
   );
