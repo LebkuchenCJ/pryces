@@ -80,7 +80,7 @@
     {
       "id": 1,
       "name": "Edeka",
-      "rating": "4",
+      "rating": 4,
       "openingHours": "7AM - 10PM",
       "products": [
         {
@@ -104,7 +104,7 @@
     {
       "id": 2,
       "name": "Rewe",
-      "rating": "4",
+      "rating": 4,
       "openingHours": "8AM - 10PM",
       "products": [
         {
@@ -128,7 +128,7 @@
     {
       "id": 3,
       "name": "Alid Süd",
-      "rating": "4",
+      "rating": 4,
       "openingHours": "8AM - 9PM",
       "products": [
         {
@@ -152,7 +152,7 @@
     {
       "id": 4,
       "name": "Lidl",
-      "rating": "5",
+      "rating": 5,
       "openingHours": "7AM - 10PM",
       "products": [
         {
