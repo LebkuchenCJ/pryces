@@ -1,8 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
+import fullStarSrc from "../assets/rating_star_full.svg";
+import emptyStarSrc from "../assets/rating_star_empty.svg";
 
 function Star({ active }) {
-  return <span>{active ? "x" : "o"}</span>;
+  return (
+    <span>
+      {active ? (
+        <img src={fullStarSrc} alt="Full star rating" />
+      ) : (
+        <img src={emptyStarSrc} alt="Empty star rating" />
+      )}
+    </span>
+  );
 }
 
 function Rating({ value }) {
