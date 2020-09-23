@@ -14,7 +14,11 @@ function SupermarketInfo({ supermarket }) {
 
 export default SupermarketInfo;
 SupermarketInfo.propTypes = {
-  supermarket: PropTypes.any,
+  supermarket: PropTypes.shape({
+    name: PropTypes.string,
+    rating: PropTypes.number,
+    openingHours: PropTypes.string,
+  }),
 };
 
 const Container = styled.div`
