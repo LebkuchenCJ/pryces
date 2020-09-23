@@ -6,7 +6,7 @@ function SupermarketInfo({ supermarket }) {
   return (
     <Container>
       <h3>{supermarket.name}</h3>
-      <h4>{supermarket.rating}</h4>
+      <h4>Rating:{supermarket.rating} out of 5</h4>
       <p>Open: {supermarket.openingHours}</p>
     </Container>
   );
