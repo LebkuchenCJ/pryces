@@ -22,4 +22,7 @@ const Button = styled.button`
   position: fixed;
   bottom: 2rem;
   right: 2rem;
+  > img {
+    width: 3.5rem;
+  }
 `;
