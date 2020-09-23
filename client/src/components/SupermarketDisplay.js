@@ -1,13 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
+import SupermarketHeader from "./SupermarketHeader";
 
 function SupermarketDisplay({ supermarket }) {
   return (
     <Container>
-      <div>
-        <h3>{supermarket.name}</h3>
-      </div>
+      <SupermarketHeader supermarket={supermarket} />
       <div>
         <p>
           Products found: {supermarket.matchingProductsFound} of{" "}
