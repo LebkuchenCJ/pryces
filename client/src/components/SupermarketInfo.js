@@ -20,4 +20,12 @@ SupermarketInfo.propTypes = {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  margin-left: 2rem;
+  > h3 {
+    font-size: 1.2rem;
+  }
+  > p {
+    color: var(--font-color-main);
+    opacity: 0.5;
+  }
 `;

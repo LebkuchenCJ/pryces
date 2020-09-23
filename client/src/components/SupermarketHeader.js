@@ -21,4 +21,5 @@ SupermarketHeader.propTypes = {
 
 const Container = styled.div`
   display: flex;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 `;

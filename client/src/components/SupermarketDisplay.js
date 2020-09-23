@@ -29,9 +29,12 @@ SupermarketDisplay.propTypes = {
 };
 
 const Container = styled.div`
-  h3 {
-    margin-bottom: 0;
-  }
+  width: 90%;
+  background-color: var(--bg-color-light);
+  margin: 5px;
+  padding: 1rem;
+  border-radius: 2rem;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
   div:last-child {
     display: flex;
     justify-content: space-between;
