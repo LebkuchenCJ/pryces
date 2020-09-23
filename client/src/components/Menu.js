@@ -45,6 +45,7 @@ const Nav = styled.nav`
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(150%)")};
   box-shadow: -5px 0px 5px 0px rgba(0, 0, 0, 0.5);
   position: absolute;
+  z-index: 10;
   top: 0;
   right: 0;
   transition: transform 0.3s ease-in-out;
