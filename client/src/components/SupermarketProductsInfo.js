@@ -12,7 +12,7 @@ function SupermarketProductsInfo({ supermarket }) {
           {supermarket.matchingProductsFound} of {supermarket.listProductCount}
         </span>
       </p>
-      <p>{supermarket.totalPrice.toFixed(2)}€</p>
+      <p>{supermarket.totalPrice}</p>
     </Container>
   );
 }
