@@ -21,7 +21,7 @@ function Compare({ groceryList }) {
   }, [supermarkets, groceryList]);
   return (
     <>
-      <Header title={"Compare"} />
+      <Header title={"Compare"} showBackButton />
       {connectionFail && (
         <div>
           Your session has ended. Please navigate back to your grocery list

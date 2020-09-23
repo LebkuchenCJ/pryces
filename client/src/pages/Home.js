@@ -28,7 +28,7 @@ function Home() {
 
   return (
     <>
-      <Header title="Grocery Lists"></Header>
+      <Header title="Grocery Lists" />
 
       <Container>
         <List>
