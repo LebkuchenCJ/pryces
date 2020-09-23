@@ -37,6 +37,11 @@ const Container = styled.div`
   border: 0.5px solid #000;
   border-radius: 20px;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
+
+  @media only screen and (min-width: 600px) {
+    width: 40%;
+  }
+
   > h4 {
     color: var(--font-color-menu);
   }
