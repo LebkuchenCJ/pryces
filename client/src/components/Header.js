@@ -1,46 +1,39 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "@emotion/styled";
 import menuImgSrc from "../assets/menuIcon.svg";
 import goBackSrc from "../assets/arrowBack.svg";
 import goBackInvisibleSrc from "../assets/arrowBackInvisible.svg";
 import PropTypes from "prop-types";
 import Menu from "./Menu";
+import { useHistory } from "react-router-dom";
 
-function Header({ title }) {
+function Header({ title, showBackButton }) {
   const [open, setOpen] = useState(false);
-  const [iconVisible, setIconVisible] = useState("");
+  const history = useHistory();
 
-  useEffect(() => {
-    if (title === "Grocery Lists") {
-      setIconVisible(false);
-    } else {
-      setIconVisible(true);
-    }
-  }, [title]);
+  function toggleMenu() {
+    setOpen(!open);
+  }
   return (
     <>
       <HeaderWrapper>
-        {iconVisible && (
+        {showBackButton && (
           <button>
-            <img
-              src={goBackSrc}
-              alt="Go back Icon"
-              onClick={() => window.history.back()}
-            />
+            <img src={goBackSrc} alt="Go back Icon" onClick={history.goBack} />
           </button>
         )}
-        {!iconVisible && <img src={goBackInvisibleSrc} alt="Go back Icon" />}
+        {!showBackButton && <img src={goBackInvisibleSrc} alt="Go back Icon" />}
         <h1>{title}</h1>
         <button>
           <img
             src={menuImgSrc}
             alt="Menu Icon"
             open={open}
-            onClick={() => setOpen(!open)}
+            onClick={toggleMenu}
           />
         </button>
       </HeaderWrapper>
-      <Menu open={open} setOpen={setOpen} userName="Jonas Imm" />
+      <Menu open={open} onClick={toggleMenu} userName="Jonas Imm" />
     </>
   );
 }
@@ -48,8 +41,7 @@ function Header({ title }) {
 export default Header;
 Header.propTypes = {
   title: PropTypes.string,
-  open: PropTypes.bool,
-  setOpen: PropTypes.func,
+  showBackButton: PropTypes.bool,
 };
 const HeaderWrapper = styled.header`
   background-color: var(--bg-color-highlight);
