@@ -18,12 +18,7 @@ function Home() {
   async function handleSubmit(event) {
     event.preventDefault();
     const currentDate = new Date();
-    const date =
-      currentDate.getDate() +
-      "." +
-      (currentDate.getMonth() + 1) +
-      "." +
-      currentDate.getFullYear();
+    const date = currentDate.toLocaleDateString();
     const data = { name, creationDate: date };
     await postList(data);
     await refetch();
