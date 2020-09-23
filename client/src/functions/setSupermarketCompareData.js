@@ -13,11 +13,19 @@ function setSupermarketCompareData({
       listProductIDs,
     });
 
-    const totalPrice = calcTotalPrice({ supermarket, listProductIDs });
-
+    const rawTotalPrice = calcTotalPrice({
+      supermarket,
+      listProductIDs,
+    }).toFixed(2);
+    const totalPrice = new Intl.NumberFormat("de-DE", {
+      style: "currency",
+      currency: "EUR",
+    }).format(rawTotalPrice);
     return {
       id: supermarket.id,
       name: supermarket.name,
+      rating: supermarket.rating,
+      openingHours: supermarket.openingHours,
       totalPrice: totalPrice,
       matchingProductsFound: matchingProducts,
       listProductCount: listProducts.length,
