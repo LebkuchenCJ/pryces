@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import React from "react";
 import logoSrc from "../assets/logo.svg";
 
-function EmptyListScreen(props) {
+function EmptyListScreen() {
   return (
     <Container>
       <div>
