@@ -17,7 +17,9 @@ function Home() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const data = { name };
+    const currentDate = new Date();
+    const date = currentDate.toLocaleDateString();
+    const data = { name, creationDate: date };
     await postList(data);
     await refetch();
     setInputfield(false);
