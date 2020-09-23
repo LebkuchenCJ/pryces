@@ -30,7 +30,7 @@ ProductListContainer.propTypes = {
 const Container = styled.div`
   width: 90%;
   margin: 1rem;
-  background-color: #8c493a;
+  background-color: var(--bg-color-dark);
   display: flex;
   flex-direction: column;
   align-items: center;
