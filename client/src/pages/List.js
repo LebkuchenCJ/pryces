@@ -61,7 +61,7 @@ function List({ onGroceryListChange }) {
       {loading && <div>Loading...</div>}
       {list && (
         <>
-          <Header title={list.name}></Header>
+          <Header title={list.name} showBackButton></Header>
 
           <Container>
             {list.products.length < 1 && <EmptyListScreen />}
