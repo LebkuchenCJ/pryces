@@ -66,5 +66,4 @@ const Container = styled.div`
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  overflow: scroll;
 `;
