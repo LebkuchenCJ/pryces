@@ -22,7 +22,7 @@ function ProductSearchBar({ query, onSetDisplay, display, onHandleChange }) {
 
 export default ProductSearchBar;
 ProductSearchBar.propTypes = {
-  query: PropTypes.any,
+  query: PropTypes.string,
   onSetDisplay: PropTypes.func,
   display: PropTypes.bool,
   onHandleChange: PropTypes.func,
