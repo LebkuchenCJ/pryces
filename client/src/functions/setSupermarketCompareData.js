@@ -12,7 +12,6 @@ function setSupermarketCompareData({
       supermarket,
       listProductIDs,
     });
-
     const rawTotalPrice = calcTotalPrice({
       supermarket,
       listProductIDs,
@@ -26,6 +25,7 @@ function setSupermarketCompareData({
       name: supermarket.name,
       rating: supermarket.rating,
       openingHours: supermarket.openingHours,
+      logo: supermarket.logo,
       totalPrice: totalPrice,
       matchingProductsFound: matchingProducts,
       listProductCount: listProducts.length,

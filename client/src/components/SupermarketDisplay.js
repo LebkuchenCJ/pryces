@@ -19,7 +19,7 @@ SupermarketDisplay.propTypes = {
     name: PropTypes.string,
     matchingProductsFound: PropTypes.number,
     listProductCount: PropTypes.number,
-    totalPrice: PropTypes.number,
+    totalPrice: PropTypes.string,
   }),
 };
 

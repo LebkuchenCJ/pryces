@@ -81,6 +81,7 @@
       "id": 1,
       "name": "Edeka",
       "rating": 4,
+      "logo": "https://i.imgur.com/u2BhkFc.png",
       "openingHours": "7AM - 10PM",
       "products": [
         {
@@ -105,6 +106,7 @@
       "id": 2,
       "name": "Rewe",
       "rating": 4,
+      "logo": "https://i.imgur.com/htGfHDG.png",
       "openingHours": "8AM - 10PM",
       "products": [
         {
@@ -129,6 +131,7 @@
       "id": 3,
       "name": "Alid Süd",
       "rating": 4,
+      "logo": "https://i.imgur.com/TA4cfgf.png",
       "openingHours": "8AM - 9PM",
       "products": [
         {
@@ -153,6 +156,7 @@
       "id": 4,
       "name": "Lidl",
       "rating": 5,
+      "logo": "https://i.imgur.com/ru9j2WB.png",
       "openingHours": "7AM - 10PM",
       "products": [
         {
