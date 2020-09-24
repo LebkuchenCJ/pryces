@@ -22,16 +22,16 @@ function ListItem({ list, href, onDelete }) {
   );
 }
 
-const Container = styled.div`
+const Container = styled.li`
   display: grid;
   grid-template-rows: 3 * 1fr;
-  width: 98%;
+  width: 100%;
   background-color: var(--bg-color-light);
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
   border: 1px solid #fff;
-  border-radius: 50px;
+  border-radius: 2rem;
   margin: 5px 0;
-  padding: 0 20px;
+  padding: 5px 20px;
 `;
 
 export default ListItem;
