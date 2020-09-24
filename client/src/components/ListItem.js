@@ -22,7 +22,7 @@ function ListItem({ list, href, onDelete }) {
   );
 }
 
-const Container = styled.div`
+const Container = styled.li`
   display: grid;
   grid-template-rows: 3 * 1fr;
   width: 98%;
