@@ -25,6 +25,7 @@ SupermarketInfo.propTypes = {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
   > h3 {
     font-size: 1.2rem;
   }

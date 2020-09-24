@@ -16,12 +16,12 @@ SupermarketLogo.propTypes = {
 };
 
 const Wraper = styled.div`
-  flex-grow: 1;
   width: 30%;
   display: flex;
   align-items: center;
   > img {
     max-height: 35px;
+    min-width: 2rem;
     margin: 0 auto;
   }
 `;

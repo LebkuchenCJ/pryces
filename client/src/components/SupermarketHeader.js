@@ -7,8 +7,8 @@ import styled from "@emotion/styled";
 function SupermarketHeader({ supermarket }) {
   return (
     <Container>
-      <SupermarketInfo supermarket={supermarket} />
       <SupermarketLogo image={supermarket.logo} />
+      <SupermarketInfo supermarket={supermarket} />
     </Container>
   );
 }
