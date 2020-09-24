@@ -48,8 +48,10 @@ Compare.propTypes = {
   groceryList: PropTypes.object,
 };
 
-const Container = styled.div`
+const Container = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: center;
+  list-style: none;
+  padding: o;
 `;

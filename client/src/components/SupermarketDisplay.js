@@ -23,7 +23,7 @@ SupermarketDisplay.propTypes = {
   }),
 };
 
-const Container = styled.div`
+const Container = styled.li`
   width: 90%;
   background-color: var(--bg-color-light);
   margin: 5px;
@@ -33,5 +33,8 @@ const Container = styled.div`
   div:last-child {
     display: flex;
     justify-content: space-between;
+  }
+  @media only screen and (min-width: 600px) {
+    width: 40%;
   }
 `;

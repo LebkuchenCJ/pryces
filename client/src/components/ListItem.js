@@ -29,9 +29,13 @@ const Container = styled.li`
   background-color: var(--bg-color-light);
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
   border: 1px solid #fff;
-  border-radius: 50px;
+  border-radius: 2rem;
   margin: 5px 0;
-  padding: 0 20px;
+  padding: 5px 20px;
+
+  @media only screen and (min-width: 600px) {
+    width: 40%;
+  }
 `;
 
 export default ListItem;
