@@ -25,6 +25,7 @@ function List({ onGroceryListChange }) {
 
   async function handleClick(product) {
     setDisplay(!display);
+    setInputField(false);
     const data = {
       name: product.name,
       productId: product.id,

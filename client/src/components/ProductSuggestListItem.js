@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 
-function ProductSuggestListItem({ product }) {
+function ProductSuggestListItem({ product, onHandleClick }) {
   return (
-    <ItemWrapper>
+    <ItemWrapper onClick={() => onHandleClick(product)}>
       <p>{product.name}</p> <span>{product.category}</span>
     </ItemWrapper>
   );
@@ -17,6 +17,7 @@ ProductSuggestListItem.propTypes = {
     name: PropTypes.string,
     category: PropTypes.string,
   }),
+  onHandleClick: PropTypes.func,
 };
 
 const ItemWrapper = styled.li`

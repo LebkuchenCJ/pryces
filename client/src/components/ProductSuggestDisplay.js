@@ -10,9 +10,7 @@ function ProductSuggestDisplay({ products, onHandleClick }) {
       {products?.map((product) => (
         <ProductSuggestListItem
           key={product.id}
-          onClick={() => {
-            onHandleClick(product);
-          }}
+          onHandleClick={onHandleClick}
           product={product}
         />
       ))}
