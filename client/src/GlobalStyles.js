@@ -1,6 +1,7 @@
 import React from "react";
 import { Global, css } from "@emotion/core";
 import Poppins from "./assets/poppins-regular.ttf";
+import Bauhaus93 from "./assets/bauhaus93.ttf";
 function GlobalStyles() {
   return (
     <Global
@@ -26,6 +27,10 @@ function GlobalStyles() {
         @font-face {
           font-family: "Poppins";
           src: url(${Poppins}) format("truetype");
+        }
+        @font-face {
+          font-family: "Bauhaus93";
+          src: url(${Bauhaus93}) format("truetype");
         }
 
         body {

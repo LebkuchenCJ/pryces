@@ -6,7 +6,7 @@ function LoginContainer(props) {
   return (
     <Container>
       <div>
-        <h2>MEGA APP 2020</h2>
+        <h2>pryces</h2>
         <h3>Login and start saving</h3>
       </div>
       <LoginForm />
@@ -27,7 +27,8 @@ const Container = styled.div`
     flex-direction: column;
   }
   h2 {
+    font-family: "Bauhaus93";
+    font-size: 4rem;
     color: var(--font-title-welcome);
-    font-size: 2rem;
   }
 `;

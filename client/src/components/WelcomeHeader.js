@@ -9,7 +9,7 @@ function WelcomeHeader({ onSetActiveTab, activeTab }) {
     <Header>
       <LogoScreen>
         <img src={logoSrc} alt="Logo" />
-        <h1>Mega App 2020</h1>
+        <h1>pryces</h1>
       </LogoScreen>
 
       <Tabs activeTab={activeTab}>
@@ -43,6 +43,9 @@ const LogoScreen = styled.div`
   align-items: center;
   margin-top: 10px;
   h1 {
+    font-family: "Bauhaus93";
+    font-size: 3rem;
+    color: var(--font-title-main);
     margin: 0;
   }
 `;

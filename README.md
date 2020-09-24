@@ -1,6 +1,6 @@
 ![Node.js CI](https://github.com/JonasImm/mega-app2020/workflows/Node.js%20CI/badge.svg)
 
-# Mega App 2020
+# pryces
 
 ## Link
 
@@ -13,3 +13,7 @@ This Project is my final project of the Web Dev Bootcamp by neue fische GmbH. It
 ## Design Link
 
 https://xd.adobe.com/view/9ef641b0-eeb3-41ce-b7bf-3ef2da721e94-cba5/
+
+## Install
+
+To install, fork project and run `npm install` on start
