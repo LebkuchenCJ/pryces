@@ -53,5 +53,5 @@ const Container = styled.ul`
   flex-direction: column;
   align-items: center;
   list-style: none;
-  padding: o;
+  padding: 0;
 `;
