@@ -4,8 +4,6 @@ import styled from "@emotion/styled";
 import ProductSearchBar from "./ProductSearchBar";
 import ProductSuggestDisplay from "./ProductSuggestDisplay";
 
-ProductAddForm.propTypes = {};
-
 function ProductAddForm({
   onHandleSubmit,
   query,
