@@ -7,7 +7,7 @@ import styled from "@emotion/styled";
 function SupermarketHeader({ supermarket }) {
   return (
     <Container>
-      <SupermarketLogo />
+      <SupermarketLogo image={supermarket.logo} />
       <SupermarketInfo supermarket={supermarket} />
     </Container>
   );
@@ -21,5 +21,6 @@ SupermarketHeader.propTypes = {
 
 const Container = styled.div`
   display: flex;
+  justify-content: space-between;
   border-bottom: 1px solid rgba(0, 0, 0, 0.5);
 `;
