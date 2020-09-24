@@ -67,7 +67,7 @@ function List({ onGroceryListChange }) {
 
           <Container>
             {list.products.length < 1 && <EmptyListScreen />}
-            {list.products.length > 1 && <ProductListContainer list={list} />}
+            {list.products.length > 0 && <ProductListContainer list={list} />}
             <FloatingActionButton
               displayForm={() => setInputField(!inputField)}
             />
