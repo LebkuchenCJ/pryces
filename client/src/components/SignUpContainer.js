@@ -6,7 +6,7 @@ function SignUpContainer(props) {
   return (
     <Container>
       <div>
-        <h2>MEGA APP 2020</h2>
+        <h2>pryces</h2>
         <h3>Sign up and start saving</h3>
       </div>
       <SignUpForm />
@@ -28,7 +28,8 @@ const Container = styled.div`
     flex-direction: column;
   }
   h2 {
+    font-family: "Bauhaus93";
     color: var(--font-title-welcome);
-    font-size: 2rem;
+    font-size: 3.5rem;
   }
 `;
