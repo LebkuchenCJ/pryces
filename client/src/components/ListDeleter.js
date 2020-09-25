@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 
-function ListDeleter({ onCancel }) {
+function ListDeleter({ onCancel, onHandleDelete }) {
   return (
     <Wrapper>
       <h4>Do you want to delete this list?</h4>
       <div>
         <button onClick={() => onCancel(false)}>Cancel</button>
-        <button onClick={() => onCancel(false)}>Proceed</button>
+        <button onClick={() => onHandleDelete()}>Proceed</button>
       </div>
     </Wrapper>
   );
@@ -17,6 +17,7 @@ function ListDeleter({ onCancel }) {
 export default ListDeleter;
 ListDeleter.propTypes = {
   onCancel: PropTypes.func,
+  onHandleDelete: PropTypes.func,
 };
 
 const Wrapper = styled.div`
