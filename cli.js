@@ -1,15 +1,15 @@
+require("dotenv").config();
 const { MongoClient } = require("mongodb");
 
-const uri =
-  "mongodb+srv://JonasImm:2fRRjiWr3jRxr3xe@development.fcm78.mongodb.net/?retryWrites=true&w=majority";
-
-const client = new MongoClient(uri);
+const client = new MongoClient(process.env.MONGO_URL, {
+  useUnifiedTopology: true,
+});
 
 async function run() {
   try {
     await client.connect();
 
-    const database = client.db("pryces");
+    const database = client.db(process.env.MONGO_DB_NAME);
     const collection = database.collection("product-list");
 
     const query = { name: "Cheese" };
