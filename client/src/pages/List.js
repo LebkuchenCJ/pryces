@@ -25,6 +25,7 @@ function List({ onGroceryListChange }) {
 
   async function handleClick(product) {
     setDisplay(!display);
+    setInputField(false);
     const data = {
       name: product.name,
       productId: product.id,
@@ -37,6 +38,7 @@ function List({ onGroceryListChange }) {
   }
   async function handleSubmit(event) {
     event.preventDefault();
+    setInputField(false);
     const product = { name: query, listId: list.id };
     if (/\S/.test(product.name)) {
       await postProduct(product);

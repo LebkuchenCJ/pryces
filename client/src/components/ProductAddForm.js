@@ -4,8 +4,6 @@ import styled from "@emotion/styled";
 import ProductSearchBar from "./ProductSearchBar";
 import ProductSuggestDisplay from "./ProductSuggestDisplay";
 
-ProductAddForm.propTypes = {};
-
 function ProductAddForm({
   onHandleSubmit,
   query,
@@ -17,7 +15,7 @@ function ProductAddForm({
   displayForm,
 }) {
   return (
-    <Form onSubmit={() => onHandleSubmit}>
+    <Form onSubmit={onHandleSubmit}>
       <label>
         <h4>Add your Product</h4>
         <ProductSearchBar
