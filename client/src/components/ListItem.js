@@ -5,9 +5,16 @@ import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 import ListItemOptions from "./ListItemOptions";
 import ListItemDetails from "./ListItemDetails";
+import ListDeleterContainer from "../components/ListDeleterContainer";
 
-function ListItem({ list, href, onDelete }) {
+function ListItem({ list, href }) {
   const [checked, setChecked] = useState(false);
+  const [deleterOverlay, setDeleterOverlay] = useState(false);
+
+  async function handleDelete() {
+    console.log(list.id);
+  }
+
   return (
     <Container>
       <ListItemDetails date={list.creationDate} />
@@ -16,8 +23,14 @@ function ListItem({ list, href, onDelete }) {
       </Link>
       <ListItemOptions
         onCheck={() => setChecked(!checked)}
-        onDelete={onDelete}
+        onDelete={setDeleterOverlay}
       />
+      {deleterOverlay && (
+        <ListDeleterContainer
+          onCancel={setDeleterOverlay}
+          onHandleDelete={handleDelete}
+        />
+      )}
     </Container>
   );
 }
@@ -39,7 +52,7 @@ ListItem.propTypes = {
   list: PropTypes.shape({
     name: PropTypes.string,
     creationDate: PropTypes.string,
+    id: PropTypes.number,
   }),
   href: PropTypes.string,
-  onDelete: PropTypes.func,
 };
