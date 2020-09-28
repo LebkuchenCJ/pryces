@@ -56,7 +56,6 @@ function List({ onGroceryListChange }) {
       setProducts(result);
     }, 300);
   }
-
   return (
     <>
       {error && <div>Could not get data. Dont cry. Try again</div>}
@@ -66,8 +65,8 @@ function List({ onGroceryListChange }) {
           <Header title={list.name} showBackButton></Header>
 
           <Container>
-            {list.products.length < 1 && <EmptyListScreen />}
-            {list.products.length > 0 && <ProductListContainer list={list} />}
+            {list.products?.length < 1 && <EmptyListScreen />}
+            {list.products?.length > 0 && <ProductListContainer list={list} />}
             <FloatingActionButton
               displayForm={() => setInputField(!inputField)}
             />
