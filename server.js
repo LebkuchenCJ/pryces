@@ -4,14 +4,14 @@ const path = require("path");
 
 const { initDatabase } = require("./lib/database");
 
-const users = require("./lib/routes/list");
+const list = require("./lib/routes/list");
 
 const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(express.json());
 
-app.use("/api/lists", users);
+app.use("/api/lists", list);
 
 app.use(express.static(path.join(__dirname, "client/build")));
 app.get("*", (req, res) => {
