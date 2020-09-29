@@ -1,5 +1,5 @@
-export async function postProduct(product) {
-  const response = await fetch(`/api/products`, {
+export async function postProduct(listId, product) {
+  const response = await fetch(`/api/lists/${listId}/products`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

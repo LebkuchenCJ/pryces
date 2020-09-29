@@ -32,7 +32,7 @@ function List({ onGroceryListChange }) {
       category: product.category,
       listId: list.id,
     };
-    await postProduct(data);
+    await postProduct(id, data);
     await refetch();
     setQuery("");
   }
