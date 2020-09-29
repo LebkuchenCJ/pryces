@@ -43,7 +43,7 @@ function Home() {
               key={list._id}
               list={list}
               href={`/home/${list._id}`}
-              onDeleteConfirm={handleDelete}
+              onDeleteConfirm={() => handleDelete(list._id)}
             />
           ))}
         </List>

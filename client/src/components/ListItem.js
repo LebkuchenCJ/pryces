@@ -22,7 +22,6 @@ function ListItem({ list, href, onDeleteConfirm }) {
       />
       {deleterOverlay && (
         <ListDeleterContainer
-          id={list._id}
           onCancel={setDeleterOverlay}
           onDeleteConfirm={onDeleteConfirm}
         />
@@ -36,7 +35,6 @@ ListItem.propTypes = {
   list: PropTypes.shape({
     name: PropTypes.string,
     creationDate: PropTypes.string,
-    _id: PropTypes.string,
   }),
   href: PropTypes.string,
   onDelete: PropTypes.func,

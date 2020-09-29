@@ -3,14 +3,10 @@ import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import ListDeleter from "./ListDeleter";
 
-function ListDeleterContainer({ onCancel, onDeleteConfirm, id }) {
+function ListDeleterContainer({ onCancel, onDeleteConfirm }) {
   return (
     <Container>
-      <ListDeleter
-        onCancel={onCancel}
-        onDeleteConfirm={onDeleteConfirm}
-        id={id}
-      />
+      <ListDeleter onCancel={onCancel} onDeleteConfirm={onDeleteConfirm} />
     </Container>
   );
 }
@@ -19,7 +15,6 @@ export default ListDeleterContainer;
 ListDeleterContainer.propTypes = {
   onCancel: PropTypes.func,
   onDeleteConfirm: PropTypes.func,
-  id: PropTypes.string,
 };
 
 const Container = styled.div`
