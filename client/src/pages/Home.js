@@ -7,12 +7,11 @@ import ListItem from "../components/ListItem";
 import Header from "../components/Header";
 import FloatingActionButton from "../components/FloatingActionButton";
 import ListCreationContainer from "../components/ListCreationContainer";
-import ListDeleterContainer from "../components/ListDeleterContainer";
+import { deleteList } from "../api/list";
 
 function Home() {
   const [name, setName] = useState("");
   const [inputfield, setInputfield] = useState(false);
-  const [deleterOverlay, setDeleterOverlay] = useState(false);
   const { data: lists, loading, error, refetch } = useAsync(fetchLists);
 
   async function handleSubmit(event) {
@@ -24,6 +23,11 @@ function Home() {
     await refetch();
     setInputfield(false);
     setName("");
+  }
+
+  async function handleDelete(id) {
+    await deleteList(id);
+    await refetch();
   }
 
   return (
@@ -39,7 +43,7 @@ function Home() {
               key={list._id}
               list={list}
               href={`/home/${list._id}`}
-              onDelete={setDeleterOverlay}
+              onDeleteConfirm={handleDelete}
             />
           ))}
         </List>
@@ -51,9 +55,6 @@ function Home() {
             onCancelForm={setInputfield}
             onHandleSubmit={handleSubmit}
           />
-        )}
-        {deleterOverlay && (
-          <ListDeleterContainer onCancel={setDeleterOverlay} />
         )}
       </Container>
     </>

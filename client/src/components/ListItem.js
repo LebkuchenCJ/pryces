@@ -5,9 +5,11 @@ import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
 import ListItemOptions from "./ListItemOptions";
 import ListItemDetails from "./ListItemDetails";
+import ListDeleterContainer from "./ListDeleterContainer";
 
-function ListItem({ list, href, onDelete }) {
+function ListItem({ list, href, onDeleteConfirm }) {
   const [checked, setChecked] = useState(false);
+  const [deleterOverlay, setDeleterOverlay] = useState(false);
   return (
     <Container>
       <ListItemDetails date={list.creationDate} />
@@ -16,11 +18,30 @@ function ListItem({ list, href, onDelete }) {
       </Link>
       <ListItemOptions
         onCheck={() => setChecked(!checked)}
-        onDelete={onDelete}
+        onDelete={setDeleterOverlay}
       />
+      {deleterOverlay && (
+        <ListDeleterContainer
+          id={list._id}
+          onCancel={setDeleterOverlay}
+          onDeleteConfirm={onDeleteConfirm}
+        />
+      )}
     </Container>
   );
 }
+
+export default ListItem;
+ListItem.propTypes = {
+  list: PropTypes.shape({
+    name: PropTypes.string,
+    creationDate: PropTypes.string,
+    _id: PropTypes.string,
+  }),
+  href: PropTypes.string,
+  onDelete: PropTypes.func,
+  onDeleteConfirm: PropTypes.func,
+};
 
 const Container = styled.li`
   display: grid;
@@ -33,13 +54,3 @@ const Container = styled.li`
   margin: 5px 0;
   padding: 5px 20px;
 `;
-
-export default ListItem;
-ListItem.propTypes = {
-  list: PropTypes.shape({
-    name: PropTypes.string,
-    creationDate: PropTypes.string,
-  }),
-  href: PropTypes.string,
-  onDelete: PropTypes.func,
-};
