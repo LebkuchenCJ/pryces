@@ -1,27 +1,32 @@
+require("dotenv").config();
 const express = require("express");
-const app = express();
 const path = require("path");
-const jsonServer = require("json-server");
 
+const { initDatabase } = require("./lib/database");
+
+const list = require("./lib/routes/list");
+
+const app = express();
 const port = process.env.PORT || 3001;
-const router = jsonServer.router("db.json");
-const middleware = jsonServer.defaults();
 
-// Serve any static files
+app.use(express.json());
+
+app.use("/api/lists", list);
+
 app.use(express.static(path.join(__dirname, "client/build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
+});
 app.use(
   "/storybook",
   express.static(path.join(__dirname, "client/storybook-static"))
 );
-app.use(
-  jsonServer.rewriter({
-    "/api/*": "/$1",
-    "/lists/:id": "/lists/:id?_embed=products",
-  })
-);
-app.use(router);
-app.use(middleware);
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
+initDatabase(process.env.MONGO_URL, process.env.MONGO_DB_NAME).then(
+  async () => {
+    console.log(`Database ${process.env.MONGO_DB_NAME} is ready`);
+    app.listen(port, () => {
+      console.log(`Server is running on http://localhost:${port}`);
+    });
+  }
+);

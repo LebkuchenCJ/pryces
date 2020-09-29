@@ -19,7 +19,7 @@ function Home() {
     event.preventDefault();
     const currentDate = new Date();
     const date = currentDate.toLocaleDateString();
-    const data = { name, creationDate: date };
+    const data = { name, creationDate: date, products: [] };
     await postList(data);
     await refetch();
     setInputfield(false);
@@ -36,9 +36,9 @@ function Home() {
           {loading && <div>Loading...</div>}
           {lists?.map((list) => (
             <ListItem
-              key={list.id}
+              key={list._id}
               list={list}
-              href={`/home/${list.id}`}
+              href={`/home/${list._id}`}
               onDelete={setDeleterOverlay}
             />
           ))}
