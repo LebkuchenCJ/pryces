@@ -6,6 +6,7 @@ const { initDatabase } = require("./lib/database");
 
 const list = require("./lib/routes/list");
 const productList = require("./lib/routes/productList");
+const supermarkets = require("./lib/routes/supermarkets");
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -14,6 +15,7 @@ app.use(express.json());
 
 app.use("/api/lists", list);
 app.use("/api/productList", productList);
+app.use("/api/supermarkets", supermarkets);
 
 app.use(express.static(path.join(__dirname, "client/build")));
 app.get("*", (req, res) => {
