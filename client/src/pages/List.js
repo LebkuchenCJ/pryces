@@ -10,11 +10,13 @@ import ProductAddContainer from "../components/ProductAddContainer";
 import FloatingActionButton from "../components/FloatingActionButton";
 import EmptyListScreen from "../components/EmptyListScreen";
 import ProductListContainer from "../components/ProductListContainer";
+import MatchingProductsDisplay from "../components/MatchingProductsDisplay";
 
 function List({ onGroceryListChange }) {
   const { id } = useParams();
   const [query, setQuery] = useState([]);
   const [display, setDisplay] = useState(false);
+  const [matchingProductsDisplay, setMatchingProductsDisplay] = useState(false);
   const [products, setProducts] = useState([]);
   const [inputField, setInputField] = useState(false);
   const { data: list, loading, error, refetch } = useAsync(fetchList, id);
@@ -24,21 +26,31 @@ function List({ onGroceryListChange }) {
   }, [onGroceryListChange, list]);
 
   async function handleClick(product) {
-    setDisplay(!display);
-    setInputField(false);
-    const data = {
-      name: product.name,
-      productId: product.id,
-      category: product.category,
-    };
-    await postProduct(id, data);
-    await refetch();
-    setQuery("");
+    const matchedProduct = list.products.find(
+      ({ productId }) => productId === product.id
+    );
+    if (!matchedProduct) {
+      setDisplay(!display);
+      setInputField(false);
+      const newId = Math.floor(Math.random() * (500 - 1)) + 1;
+      const data = {
+        name: product.name,
+        productId: product.id,
+        category: product.category,
+        id: newId,
+      };
+      await postProduct(id, data);
+      await refetch();
+      setQuery("");
+    } else {
+      setMatchingProductsDisplay(true);
+    }
   }
   async function handleSubmit(event) {
     event.preventDefault();
     setInputField(false);
-    const product = { name: query, category: "Custom" };
+    const newId = Math.floor(Math.random() * (500 - 1)) + 1;
+    const product = { name: query, category: "Custom", id: newId };
     //Test if product.name != empty string
     if (/\S/.test(product.name)) {
       await postProduct(id, product);
@@ -80,6 +92,11 @@ function List({ onGroceryListChange }) {
                 products={products}
                 onHandleClick={handleClick}
                 displayForm={() => setInputField()}
+              />
+            )}
+            {matchingProductsDisplay && (
+              <MatchingProductsDisplay
+                onHandleConfirm={() => setMatchingProductsDisplay(false)}
               />
             )}
           </Container>
