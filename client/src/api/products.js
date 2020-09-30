@@ -1,5 +1,4 @@
 export async function postProduct(listId, product) {
-  console.log(product);
   const response = await fetch(`/api/lists/${listId}/products`, {
     method: "PATCH",
     headers: {

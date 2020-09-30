@@ -14,7 +14,7 @@ export async function fetchList(id) {
   }
   const result = await response.json();
 
-  return result;
+  return result[0];
 }
 
 export async function postList(name) {
