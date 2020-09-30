@@ -5,7 +5,6 @@ const path = require("path");
 const { initDatabase } = require("./lib/database");
 
 const list = require("./lib/routes/list");
-const products = require("./lib/routes/products");
 const productList = require("./lib/routes/productList");
 
 const app = express();
@@ -14,7 +13,6 @@ const port = process.env.PORT || 3001;
 app.use(express.json());
 
 app.use("/api/lists", list);
-app.use("/api/lists/products", products);
 app.use("/api/productList", productList);
 
 app.use(express.static(path.join(__dirname, "client/build")));
