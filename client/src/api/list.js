@@ -32,3 +32,15 @@ export async function postList(name) {
 
   return result;
 }
+
+export async function deleteList(id) {
+  const response = await fetch(`/api/lists/${id}`, {
+    method: "DELETE",
+  });
+  if (!response.ok) {
+    throw new Error(response);
+  }
+  const result = await response.json();
+
+  return result;
+}
