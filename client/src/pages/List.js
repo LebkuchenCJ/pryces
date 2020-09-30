@@ -30,7 +30,6 @@ function List({ onGroceryListChange }) {
       name: product.name,
       productId: product.id,
       category: product.category,
-      listId: list.id,
     };
     await postProduct(id, data);
     await refetch();
@@ -39,9 +38,10 @@ function List({ onGroceryListChange }) {
   async function handleSubmit(event) {
     event.preventDefault();
     setInputField(false);
-    const product = { name: query, listId: list.id };
+    const product = { name: query, category: "Custom" };
+    //Test if product.name != empty string
     if (/\S/.test(product.name)) {
-      await postProduct(product);
+      await postProduct(id, product);
       await refetch();
       setQuery("");
     }
