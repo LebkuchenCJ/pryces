@@ -7,13 +7,13 @@ function ProductListItem({ list, onHandleDelete }) {
   return (
     <Wrapper>
       {list.products.map((product) => (
-        <div key={product.id}>
+        <li key={product.id}>
           <p>{product.name}</p>
-          <span>Category: {product.category}</span>
+          <span>{product.category}</span>
           <button onClick={() => onHandleDelete(product)}>
             <img src={deleteSrc} alt="Delete" />
           </button>
-        </div>
+        </li>
       ))}
     </Wrapper>
   );
@@ -28,18 +28,25 @@ ProductListItem.propTypes = {
   onHandleDelete: PropTypes.func,
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.ul`
   width: 100%;
   background-color: var(--bg-color-light);
-  > div {
-    display: flex;
+  padding: 0;
+  margin: 0;
+  p {
+    font-weight: bold;
+  }
+  > li {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
     border: 1px solid #000;
-    justify-content: space-between;
     padding: 0.2rem;
   }
   button {
     background-color: transparent;
     border: none;
+    justify-self: flex-end;
+    display: flex;
   }
   img {
     height: 1rem;
