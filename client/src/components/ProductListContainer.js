@@ -5,11 +5,11 @@ import styled from "@emotion/styled";
 import ProductListItem from "./ProductListItem";
 import compareSrc from "../assets/compare_icon.svg";
 
-function ProductListContainer({ list }) {
+function ProductListContainer({ list, onHandleDelete }) {
   return (
     <Container>
       <h4>{list.creationDate}</h4>
-      <ProductListItem list={list} />
+      <ProductListItem list={list} onHandleDelete={onHandleDelete} />
       <Link to={`/list/${list.id}/compare`}>
         <img src={compareSrc} alt="Compare Icon" />
         <p>Compare</p>
@@ -25,6 +25,7 @@ ProductListContainer.propTypes = {
     products: PropTypes.array,
     creationDate: PropTypes.string,
   }),
+  onHandleDelete: PropTypes.func,
 };
 
 const Container = styled.div`

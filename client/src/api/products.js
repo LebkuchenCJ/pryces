@@ -33,3 +33,19 @@ export async function fetchProductByname(query) {
 
   return result;
 }
+
+export async function deleteProduct(listId, product) {
+  const response = await fetch(`/api/lists/${listId}/products`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(product),
+  });
+  if (!response.ok) {
+    throw new Error(response);
+  }
+  const result = await response.json();
+
+  return result;
+}

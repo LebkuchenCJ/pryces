@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchList } from "../api/list";
 import styled from "@emotion/styled";
-import { postProduct, fetchProductByname } from "../api/products";
+import {
+  postProduct,
+  fetchProductByname,
+  deleteProduct,
+} from "../api/products";
 import useAsync from "../hooks/useAsync";
 import Header from "../components/Header";
 import PropTypes from "prop-types";
@@ -68,6 +72,12 @@ function List({ onGroceryListChange }) {
       setProducts(result);
     }, 300);
   }
+
+  async function handleDelete(product) {
+    await deleteProduct(id, product);
+    await refetch();
+  }
+
   return (
     <>
       {error && <div>Could not get data. Dont cry. Try again</div>}
@@ -78,7 +88,9 @@ function List({ onGroceryListChange }) {
 
           <Container>
             {list.products?.length < 1 && <EmptyListScreen />}
-            {list.products?.length > 0 && <ProductListContainer list={list} />}
+            {list.products?.length > 0 && (
+              <ProductListContainer list={list} onHandleDelete={handleDelete} />
+            )}
             <FloatingActionButton
               displayForm={() => setInputField(!inputField)}
             />
