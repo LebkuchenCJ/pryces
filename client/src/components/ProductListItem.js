@@ -9,7 +9,7 @@ function ProductListItem({ list, onHandleDelete }) {
       {list.products.map((product) => (
         <div key={product.id}>
           <p>{product.name}</p>
-          <span>Category: {product.category}</span>
+          <span>{product.category}</span>
           <button onClick={() => onHandleDelete(product)}>
             <img src={deleteSrc} alt="Delete" />
           </button>
@@ -31,15 +31,20 @@ ProductListItem.propTypes = {
 const Wrapper = styled.div`
   width: 100%;
   background-color: var(--bg-color-light);
+  p {
+    font-weight: bold;
+  }
   > div {
-    display: flex;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
     border: 1px solid #000;
-    justify-content: space-between;
     padding: 0.2rem;
   }
   button {
     background-color: transparent;
     border: none;
+    justify-self: flex-end;
+    display: flex;
   }
   img {
     height: 1rem;
