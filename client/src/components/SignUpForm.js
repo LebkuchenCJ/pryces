@@ -8,6 +8,7 @@ import mailSrc from "../assets/mail_icon.svg";
 import personSrc from "../assets/person_icon.svg";
 import visibleOffSrc from "../assets/visibility_off_icon.svg";
 import visibleOnSrc from "../assets/visibility_on_icon.svg";
+import { postUser } from "../api/users";
 
 function SignUpForm() {
   const history = useHistory();
@@ -35,9 +36,9 @@ function SignUpForm() {
     event.preventDefault();
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    console.log(inputData);
+    await postUser(inputData);
     history.push("/home");
   }
   return (
