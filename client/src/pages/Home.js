@@ -13,18 +13,18 @@ function Home() {
   const [name, setName] = useState("");
   const [inputfield, setInputfield] = useState(false);
   const { data: lists, loading, error, refetch } = useAsync(fetchLists);
+  const { userId } = sessionStorage;
 
   async function handleSubmit(event) {
     event.preventDefault();
     const currentDate = new Date();
     const date = currentDate.toLocaleDateString();
-    const data = { name, creationDate: date, products: [] };
+    const data = { name, userId, creationDate: date, products: [] };
     await postList(data);
     await refetch();
     setInputfield(false);
     setName("");
   }
-
   async function handleDelete(id) {
     await deleteList(id);
     await refetch();
