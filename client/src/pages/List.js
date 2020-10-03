@@ -87,7 +87,9 @@ function List({ onGroceryListChange }) {
           <Header title={list.name} showBackButton></Header>
 
           <Container>
-            {list.products?.length < 1 && <EmptyListScreen />}
+            {list.products?.length < 1 && (
+              <EmptyListScreen text="Add your products and start saving" />
+            )}
             {list.products?.length > 0 && (
               <ProductListContainer list={list} onHandleDelete={handleDelete} />
             )}
