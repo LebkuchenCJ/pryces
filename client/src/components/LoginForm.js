@@ -1,26 +1,54 @@
 import styled from "@emotion/styled";
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import { fetchUserLogin } from "../api/users";
 import SubmitButton from "./SubmitButton";
 
 function LoginForm(props) {
+  const history = useHistory();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
+
+  async function logIn(event) {
+    event.preventDefault();
+    const newUser = { email, password };
+    const user = await fetchUserLogin(newUser);
+    if (!user) {
+      setError(true);
+      return;
+    } else {
+      sessionStorage.userId = user._id;
+      sessionStorage.userName = user.name;
+      history.push("/home");
+    }
+  }
+
   return (
-    <Form>
+    <Form onSubmit={logIn}>
       <label>
         E-mail
         <div>
-          <input placeholder="Enter your E-Mail" />
+          <input
+            placeholder="Enter your E-Mail"
+            onChange={(event) => setEmail(event.target.value)}
+          />
         </div>
       </label>
       <label>
         Password
         <div>
-          <input placeholder="Enter your password" type="password" />
+          <input
+            placeholder="Enter your password"
+            type="password"
+            onChange={(event) => setPassword(event.target.value)}
+          />
         </div>
       </label>
-      <Link to="/home">
-        <SubmitButton title="Sign In" />
-      </Link>
+
+      <SubmitButton title="Sign In" />
+
+      {error && <p>NUTZERNAME ODER PASSWORT FALSCH!</p>}
     </Form>
   );
 }
@@ -52,7 +80,7 @@ const Form = styled.form`
     background-color: var(--bg-color-light);
     box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
   }
-  a {
+  > input {
     width: 60%;
   }
 `;

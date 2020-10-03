@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
 import SubmitButton from "./SubmitButton";
 import dateSrc from "../assets/date_icon.svg";
 import passwordSrc from "../assets/lock_icon.svg";
@@ -8,9 +7,10 @@ import mailSrc from "../assets/mail_icon.svg";
 import personSrc from "../assets/person_icon.svg";
 import visibleOffSrc from "../assets/visibility_off_icon.svg";
 import visibleOnSrc from "../assets/visibility_on_icon.svg";
+import { postUser } from "../api/users";
+import PropTypes from "prop-types";
 
-function SignUpForm() {
-  const history = useHistory();
+function SignUpForm({ handleSetStandard, handleSetError, handleSetSuccess }) {
   const [inputData, setInputData] = useState({
     name: "",
     email: "",
@@ -35,10 +35,16 @@ function SignUpForm() {
     event.preventDefault();
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    console.log(inputData);
-    history.push("/home");
+    const user = await postUser(inputData);
+    if (!user) {
+      handleSetStandard();
+      handleSetError();
+      return;
+    }
+    handleSetStandard();
+    handleSetSuccess();
   }
   return (
     <Form onSubmit={handleSubmit}>
@@ -99,6 +105,11 @@ function SignUpForm() {
 }
 
 export default SignUpForm;
+SignUpForm.propTypes = {
+  handleSetStandard: PropTypes.func,
+  handleSetError: PropTypes.func,
+  handleSetSuccess: PropTypes.func,
+};
 
 const Form = styled.form`
   height: 100%;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "@emotion/styled";
 import { fetchLists, postList } from "../api/list";
 import useAsync from "../hooks/useAsync";
@@ -12,19 +12,28 @@ import { deleteList } from "../api/list";
 function Home() {
   const [name, setName] = useState("");
   const [inputfield, setInputfield] = useState(false);
+  const { userId } = sessionStorage;
+  const [userLists, setUserLists] = useState(null);
   const { data: lists, loading, error, refetch } = useAsync(fetchLists);
+
+  useEffect(() => {
+    function handleLists() {
+      const filteredLists = lists?.filter((list) => list.userId === userId);
+      setUserLists(filteredLists);
+    }
+    handleLists();
+  }, [lists, userId]);
 
   async function handleSubmit(event) {
     event.preventDefault();
     const currentDate = new Date();
     const date = currentDate.toLocaleDateString();
-    const data = { name, creationDate: date, products: [] };
+    const data = { name, userId, creationDate: date, products: [] };
     await postList(data);
     await refetch();
     setInputfield(false);
     setName("");
   }
-
   async function handleDelete(id) {
     await deleteList(id);
     await refetch();
@@ -38,7 +47,7 @@ function Home() {
         <List>
           {error && <div>Could not get data. Please cry.</div>}
           {loading && <div>Loading...</div>}
-          {lists?.map((list) => (
+          {userLists?.map((list) => (
             <ListItem
               key={list._id}
               list={list}
