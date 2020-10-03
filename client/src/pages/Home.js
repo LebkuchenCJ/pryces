@@ -8,6 +8,7 @@ import Header from "../components/Header";
 import FloatingActionButton from "../components/FloatingActionButton";
 import ListCreationContainer from "../components/ListCreationContainer";
 import { deleteList } from "../api/list";
+import EmptyListScreen from "../components/EmptyListScreen";
 
 function Home() {
   const [name, setName] = useState("");
@@ -38,25 +39,30 @@ function Home() {
     await deleteList(id);
     await refetch();
   }
-
   return (
     <>
       <Header title="Grocery Lists" />
 
       <Container>
-        <List>
-          {error && <div>Could not get data. Please cry.</div>}
-          {loading && <div>Loading...</div>}
-          {userLists?.map((list) => (
-            <ListItem
-              key={list._id}
-              list={list}
-              href={`/home/${list._id}`}
-              onDeleteConfirm={() => handleDelete(list._id)}
-            />
-          ))}
-        </List>
-        <FloatingActionButton displayForm={() => setInputfield(!inputfield)} />
+        {userLists?.length < 1 && (
+          <EmptyListScreen text="Create a list and your groceries" />
+        )}
+        {userLists?.length > 0 && (
+          <>
+            <List>
+              {error && <div>Could not get data. Please cry.</div>}
+              {loading && <div>Loading...</div>}
+              {userLists?.map((list) => (
+                <ListItem
+                  key={list._id}
+                  list={list}
+                  href={`/home/${list._id}`}
+                  onDeleteConfirm={() => handleDelete(list._id)}
+                />
+              ))}
+            </List>
+          </>
+        )}
         {inputfield && (
           <ListCreationContainer
             value={name}
@@ -65,6 +71,7 @@ function Home() {
             onHandleSubmit={handleSubmit}
           />
         )}
+        <FloatingActionButton displayForm={() => setInputfield(!inputfield)} />
       </Container>
     </>
   );
