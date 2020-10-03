@@ -16,7 +16,7 @@ export async function fetchUserLogin(newUser) {
 
 export async function postUser(user) {
   const response = await fetch("/api/users", {
-    method: "POST",
+    method: "PATCH",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
     },
