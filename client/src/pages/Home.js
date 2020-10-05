@@ -12,7 +12,7 @@ import EmptyListScreen from "../components/EmptyListScreen";
 
 function Home() {
   const [name, setName] = useState("");
-  const [inputfield, setInputfield] = useState(false);
+  const [inputField, setInputField] = useState(false);
   const { userId } = sessionStorage;
   const [userLists, setUserLists] = useState(null);
   const { data: lists, loading, error, refetch } = useAsync(fetchLists);
@@ -32,7 +32,7 @@ function Home() {
     const data = { name, userId, creationDate: date, products: [] };
     await postList(data);
     await refetch();
-    setInputfield(false);
+    setInputField(false);
     setName("");
   }
   async function handleDelete(id) {
@@ -50,8 +50,8 @@ function Home() {
         {userLists?.length > 0 && (
           <>
             <List>
-              {error && <div>Could not get data. Please cry.</div>}
-              {loading && <div>Loading...</div>}
+              {error && <p>Could not get data. Please cry.</p>}
+              {loading && <p>Loading...</p>}
               {userLists?.map((list) => (
                 <ListItem
                   key={list._id}
@@ -63,15 +63,15 @@ function Home() {
             </List>
           </>
         )}
-        {inputfield && (
+        {inputField && (
           <ListCreationContainer
             value={name}
             onSetName={setName}
-            onCancelForm={setInputfield}
+            onCancelForm={setInputField}
             onHandleSubmit={handleSubmit}
           />
         )}
-        <FloatingActionButton displayForm={() => setInputfield(!inputfield)} />
+        <FloatingActionButton displayForm={() => setInputField(!inputField)} />
       </Container>
     </>
   );
