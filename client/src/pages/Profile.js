@@ -4,12 +4,14 @@ import Header from "../components/Header";
 import styled from "@emotion/styled";
 import ProfileDisplay from "../components/ProfileDisplay";
 import ProfileInfo from "../components/ProfileInfo";
+import logoSrc from "../assets/logo.svg";
 
 function Profile(props) {
   return (
     <>
       <Header title="Profile" showBackButton />
       <Container>
+        <img src={logoSrc} alt="Logo" />
         <ProfileInfo />
         <ProfileDisplay />
       </Container>
