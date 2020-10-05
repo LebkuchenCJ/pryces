@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 const List = styled.ul`
   width: 90%;
-  height: 90vh;
+  height: 85vh;
   list-style: none;
   padding: 0;
   display: flex;
