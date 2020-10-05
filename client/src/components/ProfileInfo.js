@@ -5,13 +5,14 @@ import styled from "@emotion/styled";
 ProfileInfo.propTypes = {
   userName: PropTypes.string,
   listCount: PropTypes.number,
+  userMail: PropTypes.string,
 };
 
-function ProfileInfo({ userName, listCount }) {
+function ProfileInfo({ userName, listCount, userMail }) {
   return (
     <Container>
       <h2>{userName}</h2>
-      <h4>jonas@mail.com</h4>
+      <h4>{userMail}</h4>
       <h3>{listCount} Shopping Lists</h3>
     </Container>
   );

@@ -13,6 +13,7 @@ function Profile(props) {
   const [listCount, setListCount] = useState(null);
   const userName = sessionStorage.userName;
   const userId = sessionStorage.userId;
+  const userMail = sessionStorage.userMail;
 
   useEffect(() => {
     function getUserListCount() {
@@ -27,7 +28,11 @@ function Profile(props) {
       <Header title="Profile" showBackButton />
       <Container>
         <img src={logoSrc} alt="Logo" />
-        <ProfileInfo userName={userName} listCount={listCount} />
+        <ProfileInfo
+          userName={userName}
+          listCount={listCount}
+          userMail={userMail}
+        />
         <ProfileDisplay />
       </Container>
     </>

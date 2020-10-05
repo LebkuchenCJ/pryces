@@ -20,6 +20,7 @@ function LoginForm(props) {
     } else {
       sessionStorage.userId = user._id;
       sessionStorage.userName = user.name;
+      sessionStorage.userMail = user.email;
       history.push("/home");
     }
   }
