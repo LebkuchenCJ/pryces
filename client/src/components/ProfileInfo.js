@@ -3,15 +3,16 @@ import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 
 ProfileInfo.propTypes = {
-  props: PropTypes.any,
+  userName: PropTypes.string,
+  listCount: PropTypes.number,
 };
 
-function ProfileInfo(props) {
+function ProfileInfo({ userName, listCount }) {
   return (
     <Container>
-      <h2>Jonas</h2>
+      <h2>{userName}</h2>
       <h4>jonas@mail.com</h4>
-      <h3>6 Shopping Lists</h3>
+      <h3>{listCount} Shopping Lists</h3>
     </Container>
   );
 }
