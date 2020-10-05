@@ -84,4 +84,17 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
   overflow: scroll;
+
+  @media only screen and (min-width: 600px) {
+    overflow-x: hidden;
+    ::-webkit-scrollbar {
+      width: 0.3rem;
+    }
+    ::-webkit-scrollbar-track {
+      background-color: var(--bg-color-main);
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--bg-color-highlight);
+    }
+  }
 `;
