@@ -5,6 +5,7 @@ import Welcome from "./pages/Welcome";
 import List from "./pages/List";
 import GlobalStyles from "./GlobalStyles";
 import Compare from "./pages/Compare";
+import Profile from "./pages/Profile";
 
 function App() {
   const [groceryList, setGroceryList] = useState({});
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/profile">
+            <Profile />
           </Route>
           <Route exact path="/">
             <Welcome />
