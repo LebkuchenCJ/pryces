@@ -20,7 +20,7 @@ function Menu({ userName, open, onClick }) {
         Bonus Cards
       </Link>
       <p className="nav__placeholder">Test</p>
-      <Link className="nav__profile" to="/">
+      <Link className="nav__profile" to="/profile">
         Profile
       </Link>
       <Link className="nav__settings" to="/">
