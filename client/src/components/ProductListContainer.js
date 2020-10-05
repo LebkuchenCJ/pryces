@@ -30,6 +30,7 @@ ProductListContainer.propTypes = {
 
 const Container = styled.div`
   width: 90%;
+  max-height: 85vh;
   margin: 1rem;
   padding: 0.1rem;
   background-color: var(--bg-color-dark);

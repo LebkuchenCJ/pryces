@@ -33,6 +33,7 @@ const Wrapper = styled.ul`
   background-color: var(--bg-color-light);
   padding: 0;
   margin: 0;
+  overflow: scroll;
   p {
     font-weight: bold;
   }
