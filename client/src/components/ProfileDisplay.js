@@ -10,15 +10,15 @@ function ProfileDisplay(props) {
     <Display>
       <img src={personSrc} alt="Account" />
       <p>
-        <span>Jonas</span>
+        <span>Change your name</span>
       </p>
       <img src={mailSrc} alt="Mail" />
       <p>
-        <span>Mail</span>
+        <span>Change your e-mail</span>
       </p>
       <img src={passwordSrc} alt="Password" />
       <p>
-        <span>password</span>
+        <span>Change your password</span>
       </p>
     </Display>
   );
