@@ -1,19 +1,23 @@
 import styled from "@emotion/styled";
 import React from "react";
 import logoSrc from "../assets/logo.svg";
+import PropTypes from "prop-types";
 
-function EmptyListScreen() {
+function EmptyListScreen({ text }) {
   return (
     <Container>
       <div>
         <img src={logoSrc} alt="Logo" />
-        <h2>Add your products and start saving</h2>
+        <h2>{text}</h2>
       </div>
     </Container>
   );
 }
 
 export default EmptyListScreen;
+EmptyListScreen.propTypes = {
+  text: PropTypes.string,
+};
 
 const Container = styled.div`
   width: 100%;

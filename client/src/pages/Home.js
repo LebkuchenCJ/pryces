@@ -8,10 +8,11 @@ import Header from "../components/Header";
 import FloatingActionButton from "../components/FloatingActionButton";
 import ListCreationContainer from "../components/ListCreationContainer";
 import { deleteList } from "../api/list";
+import EmptyListScreen from "../components/EmptyListScreen";
 
 function Home() {
   const [name, setName] = useState("");
-  const [inputfield, setInputfield] = useState(false);
+  const [inputField, setInputField] = useState(false);
   const { userId } = sessionStorage;
   const [userLists, setUserLists] = useState(null);
   const { data: lists, loading, error, refetch } = useAsync(fetchLists);
@@ -31,40 +32,46 @@ function Home() {
     const data = { name, userId, creationDate: date, products: [] };
     await postList(data);
     await refetch();
-    setInputfield(false);
+    setInputField(false);
     setName("");
   }
   async function handleDelete(id) {
     await deleteList(id);
     await refetch();
   }
-
   return (
     <>
       <Header title="Grocery Lists" />
 
       <Container>
-        <List>
-          {error && <div>Could not get data. Please cry.</div>}
-          {loading && <div>Loading...</div>}
-          {userLists?.map((list) => (
-            <ListItem
-              key={list._id}
-              list={list}
-              href={`/home/${list._id}`}
-              onDeleteConfirm={() => handleDelete(list._id)}
-            />
-          ))}
-        </List>
-        <FloatingActionButton displayForm={() => setInputfield(!inputfield)} />
-        {inputfield && (
+        {userLists?.length < 1 && (
+          <EmptyListScreen text="Create a list and your groceries" />
+        )}
+        {userLists?.length > 0 && (
+          <>
+            <List>
+              {error && <p>Could not get data. Please cry.</p>}
+              {loading && <p>Loading...</p>}
+              {userLists?.map((list) => (
+                <ListItem
+                  key={list._id}
+                  list={list}
+                  href={`/home/${list._id}`}
+                  onDeleteConfirm={() => handleDelete(list._id)}
+                />
+              ))}
+            </List>
+          </>
+        )}
+        {inputField && (
           <ListCreationContainer
             value={name}
             onSetName={setName}
-            onCancelForm={setInputfield}
+            onCancelForm={setInputField}
             onHandleSubmit={handleSubmit}
           />
         )}
+        <FloatingActionButton displayForm={() => setInputField(!inputField)} />
       </Container>
     </>
   );
