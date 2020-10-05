@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchList } from "../api/list";
+import { v4 as uuidv4 } from "uuid";
 import styled from "@emotion/styled";
 import {
   postProduct,
@@ -36,7 +37,7 @@ function List({ onGroceryListChange }) {
     if (!matchedProduct) {
       setDisplay(!display);
       setInputField(false);
-      const newId = Math.floor(Math.random() * (500 - 1)) + 1;
+      const newId = uuidv4();
       const data = {
         name: product.name,
         productId: product.id,
@@ -53,7 +54,8 @@ function List({ onGroceryListChange }) {
   async function handleSubmit(event) {
     event.preventDefault();
     setInputField(false);
-    const newId = Math.floor(Math.random() * (500 - 1)) + 1;
+    const newId = uuidv4();
+    console.log(newId);
     const product = { name: query, category: "Custom", id: newId };
     //Test if product.name != empty string
     if (/\S/.test(product.name)) {
