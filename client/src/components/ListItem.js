@@ -12,7 +12,10 @@ function ListItem({ list, href, onDeleteConfirm }) {
   const [deleterOverlay, setDeleterOverlay] = useState(false);
   return (
     <Container>
-      <ListItemDetails date={list.creationDate} />
+      <ListItemDetails
+        date={list.creationDate}
+        productLength={list.products.length}
+      />
       <Link to={href}>
         <ListItemText title={list.name} value={checked} />
       </Link>
@@ -35,6 +38,7 @@ ListItem.propTypes = {
   list: PropTypes.shape({
     name: PropTypes.string,
     creationDate: PropTypes.string,
+    products: PropTypes.array,
   }),
   href: PropTypes.string,
   onDelete: PropTypes.func,
