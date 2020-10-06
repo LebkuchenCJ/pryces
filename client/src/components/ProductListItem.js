@@ -33,6 +33,21 @@ const Wrapper = styled.ul`
   background-color: var(--bg-color-light);
   padding: 0;
   margin: 0;
+  overflow: scroll;
+
+  @media only screen and (min-width: 600px) {
+    overflow-x: hidden;
+    ::-webkit-scrollbar {
+      width: 0.3rem;
+    }
+    ::-webkit-scrollbar-track {
+      background-color: var(--bg-color-dark);
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--bg-color-highlight);
+    }
+  }
+
   p {
     font-weight: bold;
   }
