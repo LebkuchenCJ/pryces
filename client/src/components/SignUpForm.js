@@ -17,6 +17,7 @@ function SignUpForm({ handleSetStandard, handleSetError, handleSetSuccess }) {
     birthday: "",
     password: "",
     showPassword: false,
+    showDate: false,
   });
 
   function handleChange(event) {
@@ -72,10 +73,14 @@ function SignUpForm({ handleSetStandard, handleSetError, handleSetSuccess }) {
       <img src={dateSrc} alt="Calender" />
       <LabelDate>
         <input
-          type="date"
+          type={inputData.showPassword ? "date" : "text"}
           name="birthday"
+          placeholder="Enter your Birthday"
           value={inputData.birthday}
           onChange={handleChange}
+          onFocus={() =>
+            setInputData({ ...inputData, showPassword: !inputData.showDate })
+          }
         />
       </LabelDate>
       <img src={passwordSrc} alt="Lock" />
