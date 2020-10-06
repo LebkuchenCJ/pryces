@@ -4,7 +4,7 @@
 
 ## Link
 
-https://mega-app2020.herokuapp.com/
+https://pryces-ji.herokuapp.com/
 
 ## About
 
