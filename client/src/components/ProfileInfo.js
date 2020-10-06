@@ -32,6 +32,7 @@ const Container = styled.div`
     margin: 0.5rem 0;
   }
   h3 {
-    border-top: solid 2px #000;
+    border-top: solid 2px rgba(0, 0, 0, 0.5);
+    padding: 0.5rem;
   }
 `;
