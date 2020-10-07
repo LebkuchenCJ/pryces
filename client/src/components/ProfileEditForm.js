@@ -1,18 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
+import editSrc from "../assets/edit_icon.svg";
 
 function ProfileEditForm({ title, onCancel }) {
   return (
     <Form>
       <label>
         Enter your new {title}
-        <input />
+        <div>
+          <img src={editSrc} alt="Edit" />
+          <input />
+        </div>
       </label>
-      <div>
-        <button onClick={() => onCancel(false)}>Cancel</button>
-        <button onClick={() => onCancel(false)}>Proceed</button>
-      </div>
+      <button onClick={() => onCancel(false)}>Cancel</button>
+      <input type="submit" value="Proceed" onClick={() => onCancel(false)} />
     </Form>
   );
 }
@@ -24,26 +26,41 @@ ProfileEditForm.propTypes = {
 };
 
 const Form = styled.form`
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  grid-template-columns: 3fr 1fr 1fr;
+  grid-row-gap: 0.6rem;
+
+  > label {
+    grid-row: 1 / 2;
+    grid-column: 1 / 4;
+  }
+
+  > label > div {
+    display: flex;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  }
+  img {
+    padding: 0.4rem 0;
+    width: 0.9rem;
+  }
   input {
     width: 100%;
     border: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
-  }
-
-  > div {
-    margin-top: 0.3rem;
-    display: flex;
-    justify-content: flex-end;
   }
 
   button {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
     background-color: transparent;
     border: none;
-    margin-left: 10px;
-    font-size: 1rem;
   }
-
-  button:last-of-type {
+  > input {
+    grid-row: 2 / 3;
+    grid-column: 3 / 4;
+    background-color: transparent;
+    border: none;
     color: var(--font-title-welcome);
+    cursor: pointer;
   }
 `;

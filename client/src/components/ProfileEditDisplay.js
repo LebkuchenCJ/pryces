@@ -35,7 +35,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
   width: 70%;
   height: 20%;
-  padding: 0 15px;
+  padding: 15px 15px 10px;
   background: #fff;
   box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.16);
   display: flex;
