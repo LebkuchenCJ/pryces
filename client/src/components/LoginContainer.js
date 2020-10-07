@@ -16,11 +16,15 @@ function LoginContainer(props) {
 
 export default LoginContainer;
 const Container = styled.div`
+  margin: 0 auto;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
   height: 70vh;
+  @media only screen and (min-width: 600px) {
+    width: 40%;
+  }
   div {
     display: flex;
     align-items: center;
