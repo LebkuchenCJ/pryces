@@ -28,10 +28,25 @@ const Container = styled.ul`
   margin: 0;
   padding: 0;
   width: 100%;
+  height: 30vh;
   position: absolute;
   list-style: none;
   border: 1px solid rgba(0, 0, 0, 0.5);
   background: var(--bg-color-main);
+  overflow: scroll;
+
+  @media only screen and (min-width: 600px) {
+    overflow-x: hidden;
+    ::-webkit-scrollbar {
+      width: 0.3rem;
+    }
+    ::-webkit-scrollbar-track {
+      background-color: var(--bg-color-main);
+    }
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--bg-color-highlight);
+    }
+  }
   :hover {
     cursor: pointer;
     background-color: #f2f2f2;
