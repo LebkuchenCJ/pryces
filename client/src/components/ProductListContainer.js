@@ -47,6 +47,7 @@ const Container = styled.div`
 
   > h4 {
     color: var(--font-color-menu);
+    padding: 0.3rem 0;
   }
   a {
     width: 35%;
