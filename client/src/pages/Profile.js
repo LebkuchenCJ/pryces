@@ -51,4 +51,8 @@ const Container = styled.div`
   justify-content: space-around;
   width: 100%;
   height: 85vh;
+  @media only screen and (min-width: 600px) {
+    width: 40%;
+  }
+  margin: 0 auto;
 `;
