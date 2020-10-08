@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import SupermarketDisplay from "../components/SupermarketDisplay";
 import setCompareListsData from "../functions/setCompareListsData";
 import styled from "@emotion/styled";
+import EmptyListScreen from "../components/EmptyListScreen";
 
 function Compare({ groceryList }) {
   const { data: supermarkets, loading, error } = useAsync(fetchSupermarkets);
@@ -23,9 +24,11 @@ function Compare({ groceryList }) {
     <>
       <Header title={"Compare"} showBackButton />
       {connectionFail && (
-        <div>
-          Your session has ended. Please navigate back to your grocery list.
-        </div>
+        <EmptyListScreen
+          text={
+            "Your session has ended. Please navigate back to your grocery list."
+          }
+        />
       )}
       {error && <div>Could not get data. Dont cry. Try again</div>}
       {loading && <div>Loading...</div>}
