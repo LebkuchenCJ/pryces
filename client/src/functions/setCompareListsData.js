@@ -9,6 +9,9 @@ function setCompareListsData({
   if (supermarkets && groceryList) {
     setConnectionFail(false);
     const listProducts = groceryList.products;
+    if (!listProducts) {
+      return setConnectionFail(true);
+    }
     const listProductIDs = listProducts.map((product) => product.productId);
 
     const supermarketCompareData = setSupermarketCompareData({
