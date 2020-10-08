@@ -82,8 +82,10 @@ function List({ onGroceryListChange }) {
 
   return (
     <>
-      {error && <div>Could not get data. Dont cry. Try again</div>}
-      {loading && <div>Loading...</div>}
+      {error && (
+        <EmptyListScreen text="Could not get data. Dont cry. Try again" />
+      )}
+      {loading && <EmptyListScreen text="Loading..." />}
       {list && (
         <>
           <Header title={list.name} showBackButton></Header>
