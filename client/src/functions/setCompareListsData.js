@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import setSupermarketCompareData from "./setSupermarketCompareData";
-
 function setCompareListsData({
   supermarkets,
   groceryList,
@@ -17,7 +16,11 @@ function setCompareListsData({
       listProductIDs,
       listProducts,
     });
-    setCompareListData(supermarketCompareData);
+
+    const sortedComparedata = supermarketCompareData.sort((a, b) =>
+      a.totalPrice > b.totalPrice ? 1 : -1
+    );
+    setCompareListData(sortedComparedata);
   }
 }
 
