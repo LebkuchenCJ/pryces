@@ -55,7 +55,6 @@ function List({ onGroceryListChange }) {
     event.preventDefault();
     setInputField(false);
     const newId = uuidv4();
-    console.log(newId);
     const product = { name: query, category: "Custom", id: newId };
     //Test if product.name != empty string
     if (/\S/.test(product.name)) {
