@@ -22,7 +22,7 @@ SupermarketProductsInfo.propTypes = {
   supermarket: PropTypes.shape({
     matchingProductsFound: PropTypes.number,
     listProductCount: PropTypes.number,
-    totalPrice: PropTypes.number,
+    totalPrice: PropTypes.any,
   }),
 };
 

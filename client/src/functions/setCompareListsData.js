@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import setSupermarketCompareData from "./setSupermarketCompareData";
-
 function setCompareListsData({
   supermarkets,
   groceryList,
@@ -10,6 +9,9 @@ function setCompareListsData({
   if (supermarkets && groceryList) {
     setConnectionFail(false);
     const listProducts = groceryList.products;
+    if (!listProducts) {
+      return setConnectionFail(true);
+    }
     const listProductIDs = listProducts.map((product) => product.productId);
 
     const supermarketCompareData = setSupermarketCompareData({
@@ -17,7 +19,11 @@ function setCompareListsData({
       listProductIDs,
       listProducts,
     });
-    setCompareListData(supermarketCompareData);
+
+    const sortedComparedata = supermarketCompareData.sort((a, b) =>
+      a.totalPrice > b.totalPrice ? 1 : -1
+    );
+    setCompareListData(sortedComparedata);
   }
 }
 
