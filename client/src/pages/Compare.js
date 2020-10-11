@@ -7,7 +7,6 @@ import SupermarketDisplay from "../components/SupermarketDisplay";
 import EmptyListScreen from "../components/EmptyListScreen";
 import setCompareListsData from "../functions/setCompareListsData";
 import styled from "@emotion/styled";
-import EmptyListScreen from "../components/EmptyListScreen";
 
 function Compare({ groceryList }) {
   const { data: supermarkets, loading, error } = useAsync(fetchSupermarkets);
