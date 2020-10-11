@@ -6,6 +6,7 @@ import List from "./pages/List";
 import GlobalStyles from "./GlobalStyles";
 import Compare from "./pages/Compare";
 import Profile from "./pages/Profile";
+import Archive from "./pages/Archive";
 
 function App() {
   const [groceryList, setGroceryList] = useState({});
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path="/profile">
             <Profile />
+          </Route>
+          <Route path="/archive">
+            <Archive />
           </Route>
           <Route exact path="/">
             <Welcome />

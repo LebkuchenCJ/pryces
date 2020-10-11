@@ -13,7 +13,7 @@ function Menu({ userName, open, onClick }) {
       <Link className="nav__groceryList" to="/home">
         Grocery Lists
       </Link>
-      <Link className="nav__archive" to="/">
+      <Link className="nav__archive" to="/archive">
         Archive
       </Link>
       <Link className="nav__bonusCards" to="/">
