@@ -6,7 +6,7 @@ import styled from "@emotion/styled";
 function Archive() {
   return (
     <>
-      <Header title="Archive" />
+      <Header title="Archive" showBackButton />
       <Container>
         <img src={archiveSrc} alt="Archive" />
         <h4>Nothing to show yet</h4>

@@ -11,6 +11,8 @@ function Header({ title, showBackButton }) {
   const [open, setOpen] = useState(false);
   const history = useHistory();
 
+  const user = sessionStorage.userName;
+
   function toggleMenu() {
     setOpen(!open);
   }
@@ -33,7 +35,7 @@ function Header({ title, showBackButton }) {
           />
         </button>
       </HeaderWrapper>
-      <Menu open={open} onClick={toggleMenu} userName="Jonas Imm" />
+      <Menu open={open} onClick={toggleMenu} userName={user} />
     </>
   );
 }
