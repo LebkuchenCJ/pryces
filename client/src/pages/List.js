@@ -19,7 +19,7 @@ import MatchingProductsDisplay from "../components/MatchingProductsDisplay";
 
 function List({ onGroceryListChange }) {
   const { id } = useParams();
-  const [query, setQuery] = useState([]);
+  const [query, setQuery] = useState("");
   const [display, setDisplay] = useState(false);
   const [matchingProductsDisplay, setMatchingProductsDisplay] = useState(false);
   const [products, setProducts] = useState([]);
