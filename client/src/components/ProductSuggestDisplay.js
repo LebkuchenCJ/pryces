@@ -4,7 +4,6 @@ import styled from "@emotion/styled";
 import ProductSuggestListItem from "./ProductSuggestListItem";
 
 function ProductSuggestDisplay({ products, onHandleClick }) {
-  console.log(products);
   return (
     <Container>
       {products?.map((product) => (
