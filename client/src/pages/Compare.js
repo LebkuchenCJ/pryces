@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import useAsync from "../hooks/useAsync";
 import PropTypes from "prop-types";
 import SupermarketDisplay from "../components/SupermarketDisplay";
+import EmptyListScreen from "../components/EmptyListScreen";
 import setCompareListsData from "../functions/setCompareListsData";
 import styled from "@emotion/styled";
 import EmptyListScreen from "../components/EmptyListScreen";
@@ -30,8 +31,10 @@ function Compare({ groceryList }) {
           }
         />
       )}
-      {error && <div>Could not get data. Dont cry. Try again</div>}
-      {loading && <div>Loading...</div>}
+      {error && (
+        <EmptyListScreen text="Could not get data. Dont cry. Try again" />
+      )}
+      {loading && <EmptyListScreen text="Loading..." />}
       {compareListData && (
         <Container>
           {compareListData.map((supermarket) => (

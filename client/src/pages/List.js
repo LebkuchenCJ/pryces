@@ -55,7 +55,6 @@ function List({ onGroceryListChange }) {
     event.preventDefault();
     setInputField(false);
     const newId = uuidv4();
-    console.log(newId);
     const product = { name: query, category: "Custom", id: newId };
     //Test if product.name != empty string
     if (/\S/.test(product.name)) {
@@ -82,8 +81,10 @@ function List({ onGroceryListChange }) {
 
   return (
     <>
-      {error && <div>Could not get data. Dont cry. Try again</div>}
-      {loading && <div>Loading...</div>}
+      {error && (
+        <EmptyListScreen text="Could not get data. Dont cry. Try again" />
+      )}
+      {loading && <EmptyListScreen text="Loading..." />}
       {list && (
         <>
           <Header title={list.name} showBackButton></Header>

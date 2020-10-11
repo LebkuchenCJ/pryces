@@ -50,8 +50,10 @@ function Home() {
         {userLists?.length > 0 && (
           <>
             <List>
-              {error && <p>Could not get data. Please cry.</p>}
-              {loading && <p>Loading...</p>}
+              {error && (
+                <EmptyListScreen text="Could not get data. Dont cry. Try again" />
+              )}
+              {loading && <EmptyListScreen text="Loading..." />}
               {userLists?.map((list) => (
                 <ListItem
                   key={list._id}
